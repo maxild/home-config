@@ -7,13 +7,17 @@
 
   nixpkgs.config = import ./nixpkgs-config.nix;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
-  
+
+  # TODO: This should be the same in home.nix and darwin-configuration.nix
+  #nixpkgs.config = import ./nixpkgs.nix;
+  #nixpkgs.overlays = [(import ../pkgs/default.nix)];
+  #xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
+
   #
   # installs into /.nix-profile/bin/
   #
-  home.packages = [
-    pkgs.curl
-    pkgs.vim
+  home.packages = with pkgs; [
+    jq
   ];
 
   #
@@ -59,7 +63,78 @@
   # Shell configuration
   #
 
-  # TODO
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    #defaultKeymap = "emacs";
+    dotDir = ".config/zsh";
+    history = {
+      expireDuplicatesFirst = true;
+      path = ".config/zsh/.zsh_history";
+    };
+    oh-my-zsh = {
+      enable = true;
+      plugins = ["git" "osx" "sudo" "web-search"];
+      theme = "robbyrussell";
+    };
+    shellAliases = {
+      "ll" = "ls -al";
+      "ns" = "nix-shell --command zsh";
+    };
+    # initExtra = let
+    #   cdpath = "$HOME/src" +
+    #     optionalString (config.settings.profile != "malloc47")
+    #       " $HOME/src/${config.settings.profile}";
+    # in
+    # ''
+    #   hg() { history | grep $1 }
+    #   pg() { ps aux | grep $1 }
+
+    #   function chpwd() {
+    #     emulate -L zsh
+    #     ls
+    #   }
+
+    #   cdpath=(${cdpath})
+    # '';
+    sessionVariables = {
+      EDITOR = "vim";
+      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10";
+    };
+  };
+
+  # TODO: Migrate ~/.bash_profile from dotfiles over here
+  # programs.bash = {
+  #   enable = true;
+  #   historyFile = "\$HOME/.config/bash/.bash_history";
+  #   shellAliases = {
+  #     ".." = "cd ..";
+  #     "..." = "cd ../../";
+  #     "...." = "cd ../../../";
+  #     "....." = "cd ../../../../";
+  #     "......" = "cd ../../../../../";
+  #     "ll" = "ls -al";
+  #     "ns" = "nix-shell --command zsh";
+  #   };
+  #   initExtra = ''
+  #     hg() { history | grep "$1"; }
+  #     pg() { ps aux | grep "$1"; }
+  #     cd() { if [[ -n "$1" ]]; then builtin cd "$1" && ls; else builtin cd && ls; fi }
+  #   '';
+  #   sessionVariables = {
+  #     EDITOR = "vim";
+  #   };
+  #   shellOptions = [
+  #     "autocd" "cdspell" "dirspell" "globstar" # bash >= 4
+  #     "cmdhist" "nocaseglob" "histappend" "extglob"];
+  # };
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
 
   #
   # Dotfiles
@@ -71,6 +146,17 @@
     # Equivalent to this
     #".inputrc".text = builtins.readFile ./.inputrc;
   };
+
+  # TODO: Investigate XDG
+  # TODO: xdg.configFile vs home.file???
+  #home.file.".inputrc".source = ./.inputrc;
+  #xdg.configFile.".user-dirs.dirs".source = ./.user-dirs.dirs;
+
+  # TODO: Emacs
+  # home.file.".emacs.d" = {
+  #   source = ./.emacs.d;
+  #   recursive = true;
+  # };
 
   #
   # Services
