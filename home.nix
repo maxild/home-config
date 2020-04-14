@@ -1,36 +1,26 @@
 { config, pkgs, ... }:
 
 {
-  programs.home-manager.enable = true;
-  programs.home-manager.path =
-    "https://github.com/rycee/home-manager/archive/master.tar.gz";
+  imports = [
+    ./apps.nix
+    ./dev.nix
+    ./environment.nix
+  ];
 
-  nixpkgs.config = import ./nixpkgs-config.nix;
-  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
+  nixpkgs.config = import ./nixpkgs/config.nix;
+  nixpkgs.overlays = import ./nixpkgs/overlays.nix;
+  # Create symlink into the nix store where config.nix and overlays.nix are copied
+  xdg.configFile."nixpkgs".source = ./nixpkgs;
+
+  programs.home-manager.enable = true;
+  # TODO: Use git submodule checkout in vendor subdir
+  # programs.home-manager.path = "${builtins.toPath ../vendor/home-manager}";
+  programs.home-manager.path = "https://github.com/rycee/home-manager/archive/master.tar.gz";
 
   # TODO: This should be the same in home.nix and darwin-configuration.nix
   #nixpkgs.config = import ./nixpkgs.nix;
   #nixpkgs.overlays = [(import ../pkgs/default.nix)];
   #xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
-
-  #
-  # installs into /.nix-profile/bin/
-  #
-  home.packages = with pkgs; [
-    jq
-  ];
-
-  #
-  # Git config
-  #
-
-  # TODO: Move all --global config here. Old dotfiles uses
-  # ~/.gitconfig. Home-manager uses ~/.config/git/config
-  programs.git = {
-    enable = true;
-    userName = "maxild2";
-    userEmail = "mmaxild2@gmail.com";
-  };
 
   # XDG:
   # * There is a single base directory relative to which user-specific data files
@@ -99,7 +89,6 @@
     #   cdpath=(${cdpath})
     # '';
     sessionVariables = {
-      EDITOR = "vim";
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10";
     };
   };
@@ -129,12 +118,6 @@
   #     "autocd" "cdspell" "dirspell" "globstar" # bash >= 4
   #     "cmdhist" "nocaseglob" "histappend" "extglob"];
   # };
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-  };
 
   #
   # Dotfiles

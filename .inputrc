@@ -1,1 +1,63 @@
-# TODO: Copy old stuff here
+# carry over global config
+$include /etc/inputrc
+
+# Make Tab autocomplete regardless of filename case
+set completion-ignore-case on
+
+# This line sets 3 to be the maximum number of characters to be the common prefix to display for completions.
+set completion-prefix-display-length 3
+
+# List all matches in case multiple possible completions are possible
+set show-all-if-ambiguous on
+
+# List the completions immediately instead of ringing the bell, when the completing
+# word has more than one possible completion but no partial completion can be made.
+set show-all-if-unmodified on
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Use the text that has already been typed as the prefix for searching through
+# commands (i.e. bind your up and down cursor keys to incrementally search your
+# history. (The second two ensure that left and right continue to work correctly)
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+# TODO: also add this to .bashrc
+#  export HISTSIZE=1000000
+#  export HISTFILESIZE=1000000000
+
+# Do not autocomplete hidden files unless the pattern explicitly begins with a dot
+set match-hidden-files off
+
+# Show all autocomplete results at once
+set page-completions off
+
+# If there are more than 200 possible completions for a word, ask to show them all
+set completion-query-items 200
+
+# Show extra file information when completing, like `ls -F` does (i.e. extra info
+# appended by characters that indicate their file types reported by the stat system call).
+set visible-stats on
+
+# Be more intelligent when autocompleting by also looking at the text after
+# the cursor. For example, when the current line is "cd ~/src/mozil", and
+# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
+# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
+# Readline used by Bash 4.)
+set skip-completed-text on
+
+# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# Use Alt/Meta + Delete to delete the preceding word
+"\e[3;3~": kill-word
+
+# This line sets readline to display possible completions using different colors to indicate their file types
+# The colors are determined by the environmental variable LS_COLORS
+# See also https://www.topbug.net/blog/2016/11/28/a-better-ls-command/#better-color
+set colored-stats On
+

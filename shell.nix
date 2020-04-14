@@ -4,8 +4,8 @@ let
 
   # this is the pinned package set
   pkgs = import sources.nixpkgs ({
-    config = {};
-    # TODO: Overlays should be added here
+    config = import ./nixpkgs/config.nix;
+    overlays = import ./nixpkgs/overlays.nix;
   });
 
   #spec = builtins.fromJSON (builtins.readFile ./nix/nixos-19-09.json);
