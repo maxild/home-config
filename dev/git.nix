@@ -3,8 +3,8 @@
 {
   programs.git = {
     enable = true;
-    userEmail = "maxild";
-    userName = "mmaxild@gmail.com";
+    userName = "${config.settings.git.username}";
+    userEmail = "${config.settings.git.email}";
     # signing = {
     #   signByDefault = true;
     #   key = config.resources.gpg.publicKey.fingerprint;
@@ -66,7 +66,7 @@
       "difftool \"bcomp\"" = {
         trustExitCode = true;
         cmd = ''"/usr/local/bin/bcomp"  "$LOCAL" "$REMOTE"'';
-      } // (if pkgs.stdenv.isLinux then {
+      } // (if config.settings.isWsl then {
         # WSL 2 Ubuntu
         # We are changing the /mnt/c into C: via 'echo' and 'sed' commands (/mnt/c --> C:)
         # CMD does not support UNC paths as current directories, and therefore we cannot map
@@ -86,7 +86,7 @@
       "mergetool \"bcomp\"" = {
         trustExitCode = true;
         cmd = ''"/usr/local/bin/bcomp"  "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
-      } // (if pkgs.stdenv.isLinux then {
+      } // (if config.settings.isWsl then {
         # WSL 2 Ubuntu
         # We are changing the /mnt/c into C: via 'echo' and 'sed' commands (/mnt/c --> C:)
         # CMD does not support UNC paths as current directories, and therefore we cannot map
@@ -154,8 +154,8 @@
       a = "add";
       b = "branch";
       c = "commit";
-      d = /**/ if pkgs.stdenv.isDarwin then "difftool"
-          else if pkgs.stdenv.isLinux  then "difftool -y --no-symlinks"
+      d = if config.settings.isWsl
+          then "difftool -y --no-symlinks"
           else "difftool";
       f = "fetch";
       g = "grep";

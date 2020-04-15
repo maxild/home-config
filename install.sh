@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+[[ -z "$1" ]] && echo "usage: install.sh <file.nix>" && exit 1
 
-nixpkgsConfig=${XDG_HOME_CONFIG:-~/.config}/nixpkgs
+# This is the file that ~/.config/nixpkgs/home.nix will symlink to
+NIXFILE="$PWD/$1"
 
-mkdir -p $nixpkgsConfig
-ln -fs "$DIR/home.nix" "$nixpkgsConfig/home.nix"
+NIXDIR=${XDG_HOME_CONFIG:-~/.config}/nixpkgs
+mkdir -p $NIXDIR
 
-NIX_PATH=nixpkgs=https://releases.nixos.org/nixos/unstable/nixos-20.03pre206632.b0bbacb5213/nixexprs.tar.xz
-HM_PATH=${HM_PATH:-https://github.com/rycee/home-manager/archive/master.tar.gz}
+# symlink ~/.config/nixpkgs/[home|config|overlays].nix into files in this repo
+[[ -e "$NIXDIR/home.nix" ]] || ln -fs "$NIXFILE" "$NIXDIR/home.nix"
+# TODO: remove these
+#[[ -e "$NIXDIR/config.nix" ]] || ln -fs "$PWD/nixpkgs/config.nix" "$NIXDIR/config.nix"
+#[[ -e "$NIXDIR/overlays.nix" ]] || ln -fs "$PWD/nixpkgs/overlays.nix" "$NIXDIR/overlays.nix"
 
-# install home manager and create the first generation
-nix-shell $HM_PATH -A install
+# symlinking must occur before initial generation. now we can install, and
+# pin our own nixpkgs through use of ./nix/sources.nix
+nix-shell ./default.nix -A install

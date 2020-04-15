@@ -3,17 +3,10 @@ let
   sources = import ./nix/sources.nix;
 
   # this is the pinned package set
-  pkgs = import sources.nixpkgs ({
+  pkgs = import sources.nixos-20-03 ({
     config = import ./nixpkgs/config.nix;
     overlays = import ./nixpkgs/overlays.nix;
   });
-
-  #spec = builtins.fromJSON (builtins.readFile ./nix/nixos-19-09.json);
-  # pkgs = builtins.fetchFromGitHub {
-  #   owner = "NixOS";
-  #   repo  = "nixpkgs-channels";
-  #   inherit (spec) rev sha256;
-  # };
 
 in pkgs.mkShell rec {
 
@@ -26,12 +19,12 @@ in pkgs.mkShell rec {
   ];
 
   shellHook = ''
-    export HOME_MANAGER_CONFIG=$PWD/home.nix
+    # export HOME_MANAGER_CONFIG=$PWD/home.nix
     # TODO: Also pin home-manager in NIX_PATH
     export NIX_PATH="nixpkgs=${sources.nixpkgs}"
-    function switch () {
-      home-manager switch
-    }
+    # function switch () {
+    #   home-manager switch
+    # }
   '';
 
 }

@@ -6,13 +6,12 @@ First
 
 ```bash
 git clone https://github.com/maxild/nix-home.git
-ln -fs "$PWD/home.nix" "$HOME/.config/nixpkgs/home.nix"
 chmod +x install.sh
-./install.sh
+./install.sh machines/[macbook|ubuntu_wsl].nix
 ```
 
 Then edit the `home.nix` file and run
 
 ```bash
-./switch.sh
+home-manager switch
 ```
