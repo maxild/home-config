@@ -2,6 +2,12 @@
 
 {
   xdg.enable = true;
+
+  xdg.configFile = {
+    ".inputrc".source = ../dotfiles/.inputrc;
+    # Equivalent to this
+    #".inputrc".text = builtins.readFile ./.inputrc;
+  };
 }
 
 # TODO: remove this
