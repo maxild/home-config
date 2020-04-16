@@ -1,3 +1,9 @@
+{ ... }:
+
+{
+  xdg.enable = true;
+}
+
 # TODO: remove this
   # XDG:
   # * There is a single base directory relative to which user-specific data files
