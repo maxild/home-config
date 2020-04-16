@@ -8,6 +8,7 @@ let
       ll = "exa -all --long --header";
       g = "git";
       e = "eval $EDITOR";
+      f = "fzf --preview 'bat --style=numbers --color=always {} | head -500'";
       ".." = "cd ..";
       "..." = "cd ../../";
       "...." = "cd ../../../";
@@ -28,8 +29,10 @@ in
   home.packages = with pkgs; [
     # A modern replacement for ls -- https://the.exa.website/
     exa
-    # A cat(1) clone with wings -- https://github.com/sharkdp/bat
+    # A cat(1) clone with syntax highlighting and Git integration -- https://github.com/sharkdp/bat
     bat
+    # A simple, fast and user-friendly alternative to 'find' -- https://github.com/sharkdp/fd
+    fd
   ];
 
   # TODO: Migrate ~/.bash_profile from dotfiles over here
@@ -55,7 +58,6 @@ in
     dotDir = ".config/zsh";
     history = {
       expireDuplicatesFirst = true;
-      # TODO: zsh: failed to write history file .config/zsh/.zsh_history: no such file or directory
       path = ".config/zsh/.zsh_history";
     };
     oh-my-zsh = {
@@ -68,16 +70,21 @@ in
     };
   } // commonShellConfig);
 
+  # A better 'tree' command
+  # See https://dystroy.org/broot/ and https://github.com/Canop/broot
   programs.broot = {
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
   };
 
+  # A command-line fuzzy finder
+  # See https://github.com/junegunn/fzf
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
-    defaultCommand = "${pkgs.ripgrep}/bin/rg --files";
+    defaultCommand = "${pkgs.fd}/bin/fd --type f";
+    #defaultCommand = "${pkgs.ripgrep}/bin/rg --files";
   };
 }
