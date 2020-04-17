@@ -84,7 +84,8 @@ in
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
-    defaultCommand = "${pkgs.fd}/bin/fd --type f";
+    # follow symbolic links and include hidden files (but exclude .git folders)
+    defaultCommand = "${pkgs.fd}/bin/fd --type file --follow --hidden --exclude .git";
     #defaultCommand = "${pkgs.ripgrep}/bin/rg --files";
   };
 }

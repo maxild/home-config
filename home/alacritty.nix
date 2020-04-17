@@ -1,5 +1,20 @@
 { ... }:
 
+# TODO: 'open -n /Applications/Alacritty.app'
+# key_bindings:
+#   - { key: N,        mods: Command, command: { program: "open", args: ["-n", "/Applications/Alacritty.app"] } }
+# Now, pressing Command + N will open a new window. It works how you'd expect,
+# except that Command + Q will only kill one window (since each window is run as a
+# separate desktop application).
+
+# just a FYI, 'open -nb io.alacritty' doesn't need a hardcoded path to Alacritty.app
+# (I'm using this now with an Alfred workflow)
+# - { key: N,        mods: Command, command: { program: "open", args: ["-nb", "io.alacritty"] } }
+
+# you can configure your alacritty to have a shortcut to spawn a new instance of
+# alacritty. For example, in my alacritty.yml I have this
+# key_bindings:
+#   - { key: E,        mods: Control|Shift,    action: SpawnNewInstance    }
 {
   programs.alacritty =
   {
