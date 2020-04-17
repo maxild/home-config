@@ -1,5 +1,23 @@
 { ... }:
 
+# TODO: Add ~/.nix-profile to XDG_DATA_DIRS:
+#     export XDG_DATA_DIRS=$USER/.nix-profile:$XDG_DATA_DIRS (TODO: handle empty case)
+# You need to create a directory called applications, put your .desktop files in there,
+# and then add the path of the parent directory of applications (not including the
+# applications directory itself!) to the XDG_DATA_DIRS environment variable.
+# Once you do that, your files will be picked up.
+# IMPORTANT!!!
+# It is important to note that the path needs to be added to this variable before
+# your desktop manager is started. How this is accomplished will vary by distro and/or login manager.
+
+# Alternatively, you can place your .desktop file at /usr/share/applications/ or
+# at ~/.local/share/applications/.
+
+# /usr/share/ubuntu:
+# /usr/local/share/:      <----- /usr/local/share/applications (directory does not exist)
+# /usr/share/:            <------/usr/share/applications (MANY .desktop files here)
+# /var/lib/snapd/desktop
+
 # TODO: 'open -n /Applications/Alacritty.app'
 # key_bindings:
 #   - { key: N,        mods: Command, command: { program: "open", args: ["-n", "/Applications/Alacritty.app"] } }

@@ -4,7 +4,7 @@ let
   allPlatformImports = [
     ./home/apps.nix
     ./home/shells.nix
-    ./home/alacritty.nix
+    #./home/alacritty.nix
     #./tmux.nix
     #./vim.nix
     ./home/git.nix

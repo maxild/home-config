@@ -16,6 +16,8 @@ let
       "......" = "cd ../../../../../";
     };
     initExtra = ''
+    export LANG=en_US.UTF-8
+    export LC_ALL=en_US.UTF-8
     hg() { history | grep "$1"; }
     pg() { ps aux | grep "$1"; }
     if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
@@ -27,6 +29,7 @@ let
 in
 {
   home.packages = with pkgs; [
+    kitty
     # A modern replacement for ls -- https://the.exa.website/
     exa
     # A cat(1) clone with syntax highlighting and Git integration -- https://github.com/sharkdp/bat
@@ -34,6 +37,9 @@ in
     # A simple, fast and user-friendly alternative to 'find' -- https://github.com/sharkdp/fd
     fd
   ];
+
+  # See https://sw.kovidgoyal.net/kitty/conf.html for documentation
+  xdg.configFile."kitty/kitty.conf".source = ../dotfiles/kitty.conf;
 
   # TODO: Migrate ~/.bash_profile from dotfiles over here
   programs.bash = ({
