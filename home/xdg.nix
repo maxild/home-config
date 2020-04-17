@@ -8,6 +8,8 @@
     # Equivalent to this
     #".inputrc".text = builtins.readFile ./.inputrc;
   };
+
+  home.file.".editorconfig".source = ../dotfiles/root.editorconfig;
 }
 
 # TODO: remove this

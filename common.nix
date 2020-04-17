@@ -2,16 +2,18 @@
 
 let
   allPlatformImports = [
-    ./apps.nix
-    # TODO: refactor dev
-    ./dev.nix
-    ./environment.nix
+    ./home/apps.nix
+    ./home/shells.nix
+    ./home/alacritty.nix
+    #./tmux.nix
+    #./vim.nix
+    ./home/git.nix
+    ./home/xdg.nix
+    ./home/nix.nix
+    ./home/environment.nix
     ./modules/home-manager.nix
-    #./home/shells.nix
-    #./home/tmux.nix
   ];
   linuxImports = [
-    #./home/terminal.nix
     #./home/i3.nix
     #./home/irc.nix
   ];
