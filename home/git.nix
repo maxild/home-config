@@ -65,12 +65,15 @@
       };
       "difftool \"bcomp\"" = {
         trustExitCode = true;
-        cmd = ''"/usr/local/bin/bcomp"  "$LOCAL" "$REMOTE"'';
+        # TODO: Can bc4 be installed on darwin using nix
+        #cmd = ''"/usr/local/bin/bcomp"  "$LOCAL" "$REMOTE"'';
+        cmd = ''\"${pkgs.bcompare}/bin/bcompare\" "$LOCAL" "$REMOTE"'';
       } // (if config.settings.isWsl then {
         # WSL 2 Ubuntu
         # We are changing the /mnt/c into C: via 'echo' and 'sed' commands (/mnt/c --> C:)
         # CMD does not support UNC paths as current directories, and therefore we cannot map
         # to P9-server UNC path
+        
         path = ''"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe"'';
         cmd = ''\"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe\" -expandall \"`echo $LOCAL | sed 's_/mnt/c_C:_'`\" \"`echo $REMOTE | sed 's_/mnt/c_C:_'`\"'';
       } else {});
@@ -85,7 +88,9 @@
       };
       "mergetool \"bcomp\"" = {
         trustExitCode = true;
-        cmd = ''"/usr/local/bin/bcomp"  "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
+        # TODO: Can bc4 be installed on darwin using nix
+        #cmd = ''"/usr/local/bin/bcomp"  "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
+        cmd = ''\"${pkgs.bcompare}/bin/bcompare\" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
       } // (if config.settings.isWsl then {
         # WSL 2 Ubuntu
         # We are changing the /mnt/c into C: via 'echo' and 'sed' commands (/mnt/c --> C:)

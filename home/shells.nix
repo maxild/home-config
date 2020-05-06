@@ -16,14 +16,14 @@ let
       "......" = "cd ../../../../../";
     };
     initExtra = ''
-    export LANG=en_US.UTF-8
-    export LC_ALL=en_US.UTF-8
+    #export LANG=en_US.utf8
+    #export LC_ALL=en_US.utf8
     hg() { history | grep "$1"; }
     pg() { ps aux | grep "$1"; }
-    if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
-      . ~/.nix-profile/etc/profile.d/nix.sh;
+    if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+      source "$HOME/.nix-profile/etc/profile.d/nix.sh"
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
-    fi # added by Nix installer
+    fi
     '';
   };
 in
@@ -61,11 +61,12 @@ in
     enableAutosuggestions = true;
     enableCompletion = true;
     #defaultKeymap = "emacs";
-    dotDir = ".config/zsh";
-    history = {
-      expireDuplicatesFirst = true;
-      path = ".config/zsh/.zsh_history";
-    };
+    # TODO: Investigate XDG and why we have a BUG with relative path .config/zsh and .config/.zsh/.zsh_history
+    #dotDir = ".config/zsh";
+    # history = {
+    #   expireDuplicatesFirst = true;
+    #   path = ".config/zsh/.zsh_history";
+    # };
     oh-my-zsh = {
       enable = true;
       plugins = ["git" "osx" "sudo" "web-search"];

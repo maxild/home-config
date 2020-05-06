@@ -12,6 +12,8 @@
     curl
     tree
 
+    bcompare
+
     # jetbrains.rider
 
     # (with dotnetCorePackages; combinePackages [
@@ -23,11 +25,11 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
-      extensions = with pkgs.vscode-extensions; [
-        vscodevim.vim
-        #ms-python.python
-      ];
+    #package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      #vscodevim.vim
+      #ms-python.python
+    ];
   };
 
   #programs.htop.enable = true;
