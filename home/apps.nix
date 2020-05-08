@@ -12,7 +12,12 @@
     curl
     tree
 
+    # TODO: cp bcompare.desktop /usr/share/applications (GNOME)
+    # BUT bcompare.desktop is not part of build
+    # Installed desktop applications have dsktop files here: ~/.nix-profile/share/applications
     bcompare
+
+    spotify
 
     # jetbrains.rider
 
@@ -23,6 +28,7 @@
     # ])
   ];
 
+  # https://vscode-update.azurewebsites.net/1.44.2/linux-x64/stable
   programs.vscode = {
     enable = true;
     #package = pkgs.vscodium;

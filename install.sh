@@ -15,6 +15,12 @@ mkdir -p $NIXDIR
 #[[ -e "$NIXDIR/config.nix" ]] || ln -fs "$PWD/nixpkgs/config.nix" "$NIXDIR/config.nix"
 #[[ -e "$NIXDIR/overlays.nix" ]] || ln -fs "$PWD/nixpkgs/overlays.nix" "$NIXDIR/overlays.nix"
 
+# We want GNOME desktop to be able to launch desktop applications
+# By using nix-profile we effectively make ~/.local/share/[applications|icons] read-only
+[[ -d "$HOME/.local/share/applications" ]] || ln -s "$HOME/.nix-profile/share/applications" "$HOME/.local/share/applications"
+[[ -d "$HOME/.local/share/icons" ]] || ln -s "$HOME/.nix-profile/share/icons" "$HOME/.local/share/icons"
+[[ -d "$HOME/.local/share/pixmaps" ]] || ln -s "$HOME/.nix-profile/share/pixmaps" "$HOME/.local/share/pixmaps"
+
 # symlinking must occur before initial generation. now we can install, and
 # pin our own nixpkgs through use of ./nix/sources.nix
 nix-shell ./default.nix -A install
