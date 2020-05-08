@@ -3,12 +3,13 @@
 {
   xdg.enable = true;
 
+  # ~/.config (XDG) dotfiles
   xdg.configFile = {
     ".inputrc".source = ../dotfiles/.inputrc;
-    # Equivalent to this
-    #".inputrc".text = builtins.readFile ./.inputrc;
+    "alacritty/alacritty.yml".source = ../dotfiles/alacritty.yml;
   };
 
+  # ~/ (HOME) dotfiles
   home.file.".editorconfig".source = ../dotfiles/root.editorconfig;
 }
 

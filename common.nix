@@ -4,7 +4,10 @@ let
   allPlatformImports = [
     ./home/apps.nix
     ./home/shells.nix
+
+    # See https://discourse.nixos.org/t/libgl-undefined-symbol-glxgl-core-functions/512
     #./home/alacritty.nix
+    
     #./tmux.nix
     #./vim.nix
     ./home/git.nix
