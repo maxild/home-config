@@ -7,6 +7,6 @@
   ];
 
   config.settings = with lib; mapAttrs (_: v: mkDefault v) {
-    isWsl = false;
+    host.isHeadless = false; # nix-darwin will install gui apps like alacritty, spotify etc
   };
 }

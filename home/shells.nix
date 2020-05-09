@@ -49,7 +49,13 @@ let
     #export LC_ALL=en_US.utf8
     function hg() { history | grep "$1"; }
     function pg() { ps aux | grep "$1"; }
+
+    # zsh has no help command to inspect bash builtins
     function help() { bash -c "help $@"; }
+
+    # switch to using bash/zsh in current shell session (without affecting new terminal windows or anything)
+    function to_bash() { exec bash --login; }
+    function to_zsh() { exec zsh --login; }
 
     # set default shell to bash
     function use_bash() {

@@ -68,7 +68,7 @@
         # TODO: Can bc4 be installed on darwin using nix
         #cmd = ''"/usr/local/bin/bcomp"  "$LOCAL" "$REMOTE"'';
         cmd = ''\"${pkgs.bcompare}/bin/bcompare\" "$LOCAL" "$REMOTE"'';
-      } // (if config.settings.isWsl then {
+      } // (if config.settings.host.isWsl then {
         # WSL 2 Ubuntu
         # We are changing the /mnt/c into C: via 'echo' and 'sed' commands (/mnt/c --> C:)
         # CMD does not support UNC paths as current directories, and therefore we cannot map
@@ -91,7 +91,7 @@
         # TODO: Can bc4 be installed on darwin using nix
         #cmd = ''"/usr/local/bin/bcomp"  "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
         cmd = ''\"${pkgs.bcompare}/bin/bcompare\" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
-      } // (if config.settings.isWsl then {
+      } // (if config.settings.host.isWsl then {
         # WSL 2 Ubuntu
         # We are changing the /mnt/c into C: via 'echo' and 'sed' commands (/mnt/c --> C:)
         # CMD does not support UNC paths as current directories, and therefore we cannot map
@@ -159,7 +159,7 @@
       a = "add";
       b = "branch";
       c = "commit";
-      d = if config.settings.isWsl
+      d = if config.settings.host.isWsl
           then "difftool -y --no-symlinks"
           else "difftool";
       f = "fetch";

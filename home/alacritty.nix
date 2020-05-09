@@ -32,7 +32,7 @@
 # you can configure your alacritty to have a shortcut to spawn a new instance of
 # alacritty. For example, in my alacritty.yml I have this
 # key_bindings:
-#   - { key: E,        mods: Control|Shift,    action: SpawnNewInstance    }
+#   - { key: N,        mods: Control|Shift,    action: SpawnNewInstance    }
 {
   programs.alacritty =
   {
