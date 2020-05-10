@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
 let
-  guiHost = !config.settings.host.isHeadless || !config.settings.host.isWsl;
+  # only install gui apps if host has desktop environment (e.g. GNOME) and is not WSL
+  guiHost = !config.settings.host.isHeadless && !config.settings.host.isWsl;
 
   cliApps = with pkgs; [
     # Utilities
@@ -25,12 +26,12 @@ let
     spotify
     # jetbrains.rider
   ];
-in  
+in
 {
   #
   # installs into /.nix-profile/bin/
   #
-  home.packages = if guiHost 
+  home.packages = if guiHost
                   then (cliApps ++ guiApps)
                   else cliApps;
 
