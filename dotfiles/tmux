@@ -162,31 +162,17 @@ if -b "command -v reattach-to-user-namespace > /dev/null 2>&1" \
 # shell script to yank/copy to system clipboard on osx and linux
 yank="~/.config/tmux/yank.sh"
 
-## keyboard
-#     copy-pipe-and-cancel
-#     copy-line
-#     copy-end-of-line
-#     append-selection-and-cancel
-#     rectangle-toggle
-
-# TODO: Compare with below key bindings
-#bind Escape copy-mode
-#bind p paste-buffer
-#bind-key -T copy-mode-vi 'v' send -X begin-selection
-#bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
-##bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel
-#bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
-#bind-key -T copy-mode-vi y   send-keys -X copy-pipe-and-cancel 'xclip -i -selection clipboard'
-#bind-key -T copy-mode-vi 'Space' send -X halfpage-down
-#bind-key -T copy-mode-vi 'Bspace' send -X halfpage-up
-#bind-key -T copy-mode-vi 'Escape' send -X cancel
-
 # Docs
-#   * M-Up enters copy mode
-#   * Space starts selection
+#   * M-Up (or 'prefix-[') enters copy mode
+#   * Space (or v) starts selection
 #   * Enter (or y) copies selection and exits copy mode
 #   * List all items in copy buffer using 'prefix C-p'
-#   * Paste most recent item from the buffer using 'prexix p'
+#   * Paste most recent item from the buffer using 'prexix p' (we have remapped prev-window)
+#   * q will exit copy mode
+
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi r send -X rectangle-toggle
+bind-key -T copy-mode-vi Escape send -X cancel
 
 # Copy selected text
 # y just copies selected text and is equivalent to Enter, Y copies whole line, and D copies by the end of line.
