@@ -149,20 +149,15 @@ in
     };
   } // commonShellConfig);
 
+  # terminal multiplexer
   programs.tmux = {
       enable = true;
-      # terminal = "xterm-256color";
-      # #terminal = "tmux-256color";
-      # shortcut = "'C-\\'";
-      # #shortcut = "u";
-
-      # extraConfig = builtins.readFile ../dotfiles/tmux;
-      # baseIndex = 0;
-      # clock24 = true;
-      # customPaneNavigationAndResize = true;
-      # keyMode = "emacs";
-      # sensibleOnTop = true;
-      # secureSocket = false;
+      sensibleOnTop = true;
+      secureSocket = false;
+      #terminal = "xterm-256color";
+      terminal = "screen-256color";
+      clock24 = true;
+      extraConfig = builtins.readFile ../dotfiles/tmux;
     };
 
 

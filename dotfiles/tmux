@@ -2,6 +2,37 @@
 #
 # More settings are in shells.nix
 #
+# bind is an alias for bind-key
+# unind is an alias for unbind-key
+# set is an alias for set-option
+# 
+# C- is ctrl
+# M- is alt (aka meta) 
+#
+# In addition, the following special key names are accepted: 
+#     Up, Down, Left, Right, BSpace, BTab, DC (Delete), End, Enter, 
+#     Escape, F1 to F12, Home, IC (Insert), NPage/PageDown/PgDn, 
+#     PPage/PageUp/PgUp, Space, and Tab. 
+
+## Prefix
+
+# Alt-Space for prefix (conflicts with GNOME keyboard shortcuts)
+#unbind-key M-Space 
+#set-option -g prefix M-Space
+#bind-key C-Space send-prefix
+
+# Ctrl+Space for prefix (NOTE: C-q is another option, C-Tab is not possible, but C-q is close)
+unbind-key C-b 
+set-option -g prefix C-Space
+bind-key C-Space send-prefix
+
+# TODO: If C-\ is used add ' escape ^|^| ' to ~/.screenrc
+#unbind-key C-b
+#set -g prefix 'C-\'
+#bind-key 'C-\' send-prefix
+
+## Global settings
+
 # Automatically set window title
 set-window-option -g automatic-rename on
 set-option -g set-titles on
@@ -11,11 +42,24 @@ set -g xterm-keys on
 setw -g mouse on
 setw -g monitor-activity on
 
+# Reload tmux config
+# add "control + r" keybinding to reload tmux config  
+unbind r  
+bind r source-file ~/.tmux.conf \; display "RE- RE- RELOADED!!!"  
+
+# Set current window pane to 80 columns
+bind-key 8 resize-pane -x 80
+
 ## Panes
 
-# Split panes
-bind-key v split-window -h
-bind-key s split-window -v
+# rebind split pane commands  
+bind-key v   split-window -h
+bind-key '\' split-window -h  
+bind-key |   split-window -h  
+bind-key h   split-window -v
+bind-key -   split-window -v  
+unbind-key '"'  
+unbind-key %  
 
 # Use Alt-vim keys without prefix key to switch panes
 bind -n M-h select-pane -L
@@ -25,41 +69,50 @@ bind -n M-l select-pane -R
 
 # Use Alt-arrow keys without prefix key to switch panes
 bind -n M-Left  select-pane -L
-bind -n M-Right select-pane -R
-bind -n M-Up    select-pane -U
 bind -n M-Down  select-pane -D
+bind -n M-Up    select-pane -U
+bind -n M-Right select-pane -R
+
+# resize panes Ctrl+vim nav keys (after sending prefix)
+# Note: Ctrl+arrow_keys also work (by default)
+bind -r C-h resize-pane -L 5
+bind -r C-j resize-pane -D 5
+bind -r C-k resize-pane -U 5
+bind -r C-l resize-pane -R 5
+
+## Windows
 
 # Shift arrow to switch windows
 bind -n S-Left  previous-window
 bind -n S-Right next-window
 
-# Set current window pane to 80 columns
-bind-key 8 resize-pane -x 80
-
 ## Text manipulation
 
 # vim-like copy/paste
-setw -g mode-keys vi
+#setw -g mode-keys vi
 
-bind [ copy-mode
-bind ] paste-buffer
+#bind [ copy-mode
+#bind ] paste-buffer
 
 # copy/paste with xclip
-bind-key -Tcopy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -sel clip -i'
+#bind-key -Tcopy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -sel clip -i'
 
 # buffer
-bind Space choose-buffer
+#bind Space choose-buffer
 
-## Meta
+## Status bar
 
-# Reload tmux config
-bind r source-file ~/.tmux.conf
+# increase status message display time to 2 seconds
+set-option -g display-time 2000  
 
 # status line text
 set -g status-left-length 30
 set -g status-left ' #(whoami)@#(hostname) | '
-set -g status-right '~%Y.%m.%d..%H.%M  '
+set -g status-right '%Y.%m.%d  %H.%M  '
 
-# white-ish background with dark-grey text
-set -g status-style bg=colour0
-set -ag status-style fg=colour13
+# cyan background with black text
+set -g status-style bg=cyan
+set -ag status-style fg=black
+
+# hilite active window in status bar
+set-window-option -g window-status-current-style bg=yellow 
