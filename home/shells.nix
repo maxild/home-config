@@ -1,6 +1,25 @@
 { config, lib, pkgs, ... }:
 
 let
+  # Note: If the user starts a login shell (bash) that multiplexes his terminal to create several separate "screens" (using tmux), 
+  # allowing him to interact with multiple concurrently running programs, then .bash_profile is called once (to setup the environment),
+  # and .bashrc is called for every process (parent shell, and child subshells running in multiplexed shell)
+  # 
+  # Init of the environment for BASH and ZSH
+  #    .bash_profile: 
+  #       * export variables into the environment. 
+  #       * At the very end of your ~/.bash_profile, you should have the command source ~/.bashrc. That's 
+  #         because when .bash_profile exists, bash behaves a little curious in that it stops looking for 
+  #         its standard shell initialization file ~/.bashrc.
+  #       * Note that if there is no ~/.bash_profile file, bash will try to read from ~/.profile instead, if it exists.
+  #    .bashrc
+  #       * Setup all things (aliases, functions etc) that are not inhereoited by default.
+  #
+  #    .zsenv????
+  #       * 
+  #    .zshrc
+  #       * 
+  locale = "en_GB.UTF-8";
   commonShellConfig = {
     shellAliases = {
       l = "exa";
@@ -45,8 +64,7 @@ let
     initExtra = 
     ''
     #export XDG_DATA_DIRS="''${XDG_DATA_DIRS:+''${XDG_DATA_DIRS}:}$HOME/.nix-profile/share"
-    #export LANG=en_US.utf8
-    #export LC_ALL=en_US.utf8
+    export LANG=${locale}
     function hg() { history | grep "$1"; }
     function pg() { ps aux | grep "$1"; }
 
