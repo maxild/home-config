@@ -14,6 +14,31 @@
 #     Escape, F1 to F12, Home, IC (Insert), NPage/PageDown/PgDn, 
 #     PPage/PageUp/PgUp, Space, and Tab. 
 
+# Unbind default key bindings, we're going to override
+unbind "\$" # rename-session
+unbind ,    # rename-window
+unbind %    # split-window -h
+unbind '"'  # split-window
+#unbind }    # swap-pane -D
+#unbind {    # swap-pane -U
+#unbind [    # paste-buffer
+#unbind ]    
+#unbind "'"  # select-window
+unbind n    # next-window
+unbind p    # previous-window
+#unbind l    # last-window
+unbind M-n  # next window with alert
+unbind M-p  # next window with alert
+#unbind o    # focus thru panes
+#unbind &    # kill-window
+unbind "#"  # list-buffer 
+unbind =    # choose-buffer
+unbind z    # zoom-pane
+#unbind M-Up  # resize 5 rows up
+#unbind M-Down # resize 5 rows down
+#unbind M-Right # resize 5 rows right
+#unbind M-Left # resize 5 rows left
+
 ## Prefix
 
 # Alt-Space for prefix (conflicts with GNOME keyboard shortcuts)
@@ -26,29 +51,42 @@ unbind-key C-b
 set-option -g prefix C-Space
 bind-key C-Space send-prefix
 
-# TODO: If C-\ is used add ' escape ^|^| ' to ~/.screenrc
-#unbind-key C-b
-#set -g prefix 'C-\'
-#bind-key 'C-\' send-prefix
-
 ## Global settings
 
 # Automatically set window title
 set-window-option -g automatic-rename on
+
+# Set parent terminal title to reflect current window in tmux session 
 set-option -g set-titles on
+set -g set-titles-string "#I:#W"
 
 set -g xterm-keys on
 
+# Enable mouse support
 setw -g mouse on
+
 setw -g monitor-activity on
 
-# Reload tmux config
-# add "control + r" keybinding to reload tmux config  
-unbind r  
-bind r source-file ~/.tmux.conf \; display "RE- RE- RELOADED!!!"  
+# Reload tmux configuration 
+bind C-r source-file ~/.tmux.conf \; display "Config reloaded"
 
 # Set current window pane to 80 columns
 bind-key 8 resize-pane -x 80
+
+# Rename window
+bind r command-prompt -I "#{window_name}" "rename-window '%%'"
+
+# Rename session
+bind R command-prompt -I "#{session_name}" "rename-session '%%'"
+
+# Kill pane
+bind x kill-pane
+
+# Kill window/session shortcuts
+bind X kill-window
+
+bind C-x confirm-before -p "kill other windows? (y/n)" "kill-window -a"
+bind Q confirm-before -p "kill-session #S? (y/n)" kill-session
 
 ## Panes
 
@@ -58,8 +96,7 @@ bind-key '\' split-window -h
 bind-key |   split-window -h  
 bind-key h   split-window -v
 bind-key -   split-window -v  
-unbind-key '"'  
-unbind-key %  
+bind-key _   split-window -v  
 
 # Use Alt-vim keys without prefix key to switch panes
 bind -n M-h select-pane -L
@@ -88,17 +125,91 @@ bind -n S-Right next-window
 
 ## Text manipulation
 
-# vim-like copy/paste
-#setw -g mode-keys vi
+# Notes:
+#  * tmux, like other full-screen terminal applications like vim, runs in so-called alternate screen buffer of a parent terminal. 
+#  * any output, that exceeds the visible part of the alternate buffer, is lost. 
+#  * to prevent history loss, tmux therefore implements it’s own “inner” scrollback buffer. 
+#  * the consequence of this is that you cannot work with tmux inner scrollback same as you usually do within your terminal.
 
-#bind [ copy-mode
-#bind ] paste-buffer
+# Prefer vi style key table (vim-like copy/paste)
+setw -g mode-keys vi
 
-# copy/paste with xclip
-#bind-key -Tcopy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -sel clip -i'
+# To access the copy buffer items and paste the most recent item, use C-p and p:
+bind p paste-buffer      # y and p as in vim
+bind C-p choose-buffer
 
-# buffer
-#bind Space choose-buffer
+# trigger copy mode by (the default shortcut/key is [)
+bind -n M-Up copy-mode
+
+# Scroll up/down by 1 line, half screen, whole screen
+bind -T copy-mode-vi M-Up              send-keys -X scroll-up
+bind -T copy-mode-vi M-Down            send-keys -X scroll-down
+bind -T copy-mode-vi M-PageUp          send-keys -X halfpage-up
+bind -T copy-mode-vi M-PageDown        send-keys -X halfpage-down
+bind -T copy-mode-vi PageDown          send-keys -X page-down
+bind -T copy-mode-vi PageUp            send-keys -X page-up
+
+# When scrolling with mouse wheel, reduce number of scrolled rows per tick to "2" (default is 5)
+bind -T copy-mode-vi WheelUpPane       select-pane \; send-keys -X -N 2 scroll-up
+bind -T copy-mode-vi WheelDownPane     select-pane \; send-keys -X -N 2 scroll-down
+
+# wrap default shell in reattach-to-user-namespace if available
+# there is some hack with `exec & reattach`, credits to "https://github.com/gpakosz/.tmux"
+# don't really understand how it works, but at least window are not renamed to "reattach-to-user-namespace"
+if -b "command -v reattach-to-user-namespace > /dev/null 2>&1" \
+    "run 'tmux set -g default-command \"exec $(tmux show -gv default-shell) 2>/dev/null & reattach-to-user-namespace -l $(tmux show -gv default-shell)\"'"
+
+# shell script to yank/copy to system clipboard on osx and linux
+yank="~/.config/tmux/yank.sh"
+
+## keyboard
+#     copy-pipe-and-cancel
+#     copy-line
+#     copy-end-of-line
+#     append-selection-and-cancel
+#     rectangle-toggle
+
+# TODO: Compare with below key bindings
+#bind Escape copy-mode
+#bind p paste-buffer
+#bind-key -T copy-mode-vi 'v' send -X begin-selection
+#bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
+##bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel
+#bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
+#bind-key -T copy-mode-vi y   send-keys -X copy-pipe-and-cancel 'xclip -i -selection clipboard'
+#bind-key -T copy-mode-vi 'Space' send -X halfpage-down
+#bind-key -T copy-mode-vi 'Bspace' send -X halfpage-up
+#bind-key -T copy-mode-vi 'Escape' send -X cancel
+
+# Docs
+#   * M-Up enters copy mode
+#   * Space starts selection
+#   * Enter (or y) copies selection and exits copy mode
+#   * List all items in copy buffer using 'prefix C-p'
+#   * Paste most recent item from the buffer using 'prexix p'
+
+# Copy selected text
+# y just copies selected text and is equivalent to Enter, Y copies whole line, and D copies by the end of line.
+bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "$yank"
+bind -T copy-mode-vi y     send-keys -X copy-pipe-and-cancel "$yank"  # y and p as in vim   
+bind -T copy-mode-vi Y     send-keys -X copy-line \;\
+    run "tmux save-buffer - | $yank"
+bind -T copy-mode-vi D     send-keys -X copy-end-of-line \;\
+    run "tmux save-buffer - | $yank"
+bind -T copy-mode-vi A     send-keys -X append-selection-and-cancel \;\
+    run "tmux save-buffer - | $yank"
+
+## mouse
+
+# Do not copy selection and cancel copy mode on drag end event
+# Prefer iTerm style selection: select, then mouse click to copy to buffer
+
+# Copy selection on drag end event, but do not cancel copy mode and do not clear selection
+bind -T copy-mode-vi MouseDragEnd1Pane \
+    send-keys -X copy-pipe "$yank"
+# clear select on subsequence mouse click
+bind -T copy-mode-vi MouseDown1Pane select-pane \;\
+   send-keys -X clear-selection
 
 ## Status bar
 
