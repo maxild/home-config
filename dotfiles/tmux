@@ -1,0 +1,65 @@
+# vim: filetype=tmux
+#
+# More settings are in shells.nix
+#
+# Automatically set window title
+set-window-option -g automatic-rename on
+set-option -g set-titles on
+
+set -g xterm-keys on
+
+setw -g mouse on
+setw -g monitor-activity on
+
+## Panes
+
+# Split panes
+bind-key v split-window -h
+bind-key s split-window -v
+
+# Use Alt-vim keys without prefix key to switch panes
+bind -n M-h select-pane -L
+bind -n M-j select-pane -D
+bind -n M-k select-pane -U
+bind -n M-l select-pane -R
+
+# Use Alt-arrow keys without prefix key to switch panes
+bind -n M-Left  select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up    select-pane -U
+bind -n M-Down  select-pane -D
+
+# Shift arrow to switch windows
+bind -n S-Left  previous-window
+bind -n S-Right next-window
+
+# Set current window pane to 80 columns
+bind-key 8 resize-pane -x 80
+
+## Text manipulation
+
+# vim-like copy/paste
+setw -g mode-keys vi
+
+bind [ copy-mode
+bind ] paste-buffer
+
+# copy/paste with xclip
+bind-key -Tcopy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -sel clip -i'
+
+# buffer
+bind Space choose-buffer
+
+## Meta
+
+# Reload tmux config
+bind r source-file ~/.tmux.conf
+
+# status line text
+set -g status-left-length 30
+set -g status-left ' #(whoami)@#(hostname) | '
+set -g status-right '~%Y.%m.%d..%H.%M  '
+
+# white-ish background with dark-grey text
+set -g status-style bg=colour0
+set -ag status-style fg=colour13
