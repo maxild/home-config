@@ -7,6 +7,6 @@
   ];
 
   config.settings = with lib; mapAttrs (_: v: mkDefault v) {
-    host.isHeadless = false; # nix-darwin will install gui apps like alacritty, spotify etc
+    host.isHeadless = true; # nix-darwin will install gui apps like alacritty, spotify etc
   };
 }
