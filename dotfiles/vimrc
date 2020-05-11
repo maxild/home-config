@@ -1,0 +1,136 @@
+" ~/.config/nvim/init.vim
+
+" == General configuration ==
+
+set encoding=utf-8          " Set encoding
+set nocompatible            " disable compatibility to old-time vi
+
+set showmatch               " Highlight matching brace
+set ignorecase              " Ignore cases when searching
+set incsearch               " Incremental search
+set hlsearch                " Highlight all search results
+
+"set mouse=v                 " middle-click paste with mouse
+
+set tabstop=4               " One tab = 4 spaces
+set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
+set expandtab               " Use spaces instead of tabs
+set shiftwidth=4            " Number of auto-indent spaces
+set autoindent              " indent a new line the same amount as the line just typed
+set nowrap                  " Don't add an actual linebreak when wrapping
+set linebreak               " Break lines at word (requires Wrap lines)
+set textwidth=80            " Line wrap (number of cols)
+set cc=80                   " set colour columns for good coding style
+set smartindent             " Autoindent when starting a new line
+set smarttab                " Tab insertion & deletion
+
+set backspace=indent,eol,start
+
+set number                  " add line numbers
+set ruler                   " Show line & col number of cursor position
+
+set wildmode=longest,list   " get bash-like tab completions
+
+"set smartcase               " Better searching btw cases
+"set wildmenu                " Helpful completion menu
+set visualbell              " Use visual bell (no beeping)
+
+"filetype plugin indent on   " allow auto-indenting depending on file type
+syntax on                   " syntax highlighting
+
+""" Enable syntax
+if has('syntax') && !exists('g:syntax_on')
+    syntax enable
+endif
+
+" == Colors ==
+
+" built-in schemes installed in `/usr/share/nvim/runtime/colors`; extra schemes in `~/.config/nvim/colors`
+colorscheme default     " `default` picks up colors defined in `~/.Xresources`
+
+
+" == Uncommented for future reference ==
+
+" set complete-=i      " Set the matches for insert mode completion
+" set formatoptions+=j " Delete comment character when joining commented lines
+" set laststatus=1     " No status line
+
+
+" Strings to use in 'list' mode and for the :list command
+" set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+
+
+""" Make , the leader key
+" let mapleader = ","
+
+" easy escape
+" imap fd <Esc>
+
+" send to ix.io
+" noremap <silent> <leader>i :w !ix<CR>
+
+" edit files and buffers, relative to local
+" nmap ,e  :edit
+" nmap ;e  :edit <C-R>=expand("%:h") . "/" <CR>
+" nmap ,o  :buffer
+" nmap ;o  :buffer <C-R>=expand("%:h") . "/" <CR>
+
+" list buffers
+" nmap ,l  :ls<cr>
+
+" kill buffer
+" nmap ,k  :bdelete<cr>
+
+" insert current date
+" nmap <silent> ,d  :r !date +\%Y.\%m.\%d<cr>
+" nmap <silent> ,D  :r !date +\%Y.\%m.\%d..\%H.\%M.\%S<cr>
+
+" grep (ripgrep)
+" nmap ,g  :Rg
+
+" clear out trailing whitespace and lines ending in whitespace
+nmap <silent> ,w   :%s/[\t ]\+$//e<cr>
+
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
+
+" trailing spaces are always bad
+syntax match Warning   display "\s\+$"
+" mixed tabs and spaces
+syntax match Warning   display " \+\t"
+syntax match Warning   display "\t\+ "
+
+" mark columns 80 and 81 in red for long lines...
+match ErrorMsg /\%80v.\%81v./
+
+""" Easily find cursor with crosshair (,c)
+" :hi CursorLine   cterm=NONE term=reverse ctermbg=7 guibg=Grey90
+" :hi CursorColumn cterm=NONE term=reverse ctermbg=7 guibg=Grey90
+" :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
+""" File browser
+" let g:netrw_banner=0       " Disable file browser banner
+" let g:netrw_liststyle=3    " Tree view
+
+""" CTAGS shortcuts
+" open definition in a new tab:
+"map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" open definition in a vertical split:
+"map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+""" Colors!
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+""" Plugins with vim-plug
+" 2019.06.11: disabling b/c I'd rather just use nix/home-manager for vim
+" plugins, but this is nice code to have for reference too
+"if empty(glob('~/.vim/autoload/plug.vim'))
+"    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+"endif
+"so ~/.vim/plugins.vim

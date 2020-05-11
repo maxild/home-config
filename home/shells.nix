@@ -1,24 +1,24 @@
 { config, lib, pkgs, ... }:
 
 let
-  # Note: If the user starts a login shell (bash) that multiplexes his terminal to create several separate "screens" (using tmux), 
+  # Note: If the user starts a login shell (bash) that multiplexes his terminal to create several separate "screens" (using tmux),
   # allowing him to interact with multiple concurrently running programs, then .bash_profile is called once (to setup the environment),
   # and .bashrc is called for every process (parent shell, and child subshells running in multiplexed shell)
-  # 
+  #
   # Init of the environment for BASH and ZSH
-  #    .bash_profile: 
-  #       * export variables into the environment. 
-  #       * At the very end of your ~/.bash_profile, you should have the command source ~/.bashrc. That's 
-  #         because when .bash_profile exists, bash behaves a little curious in that it stops looking for 
+  #    .bash_profile:
+  #       * export variables into the environment.
+  #       * At the very end of your ~/.bash_profile, you should have the command source ~/.bashrc. That's
+  #         because when .bash_profile exists, bash behaves a little curious in that it stops looking for
   #         its standard shell initialization file ~/.bashrc.
   #       * Note that if there is no ~/.bash_profile file, bash will try to read from ~/.profile instead, if it exists.
   #    .bashrc
   #       * Setup all things (aliases, functions etc) that are not inhereoited by default.
   #
   #    .zsenv????
-  #       * 
+  #       *
   #    .zshrc
-  #       * 
+  #       *
   locale = "en_GB.UTF-8";
   commonShellConfig = {
     shellAliases = {
@@ -121,7 +121,8 @@ in
     historyIgnore = [ "l" "ls" "cd" "exit" ];
     enableAutojump = true;
     sessionVariables = {
-      EDITOR = "vim";
+      # NOTE: non-BASH-specific environment variables should be placed
+      # in environment.nix
     };
     shellOptions = [
       "autocd" "cdspell" "dirspell" "globstar" # bash >= 4
@@ -145,21 +146,11 @@ in
       theme = "robbyrussell";
     };
     sessionVariables = {
+      # NOTE: non-ZSH-specific environment variables should be placed
+      # in environment.nix
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10";
     };
   } // commonShellConfig);
-
-  # terminal multiplexer
-  programs.tmux = {
-      enable = true;
-      sensibleOnTop = true;
-      secureSocket = false;
-      #terminal = "xterm-256color";
-      terminal = "screen-256color";
-      clock24 = true;
-      extraConfig = builtins.readFile ../dotfiles/tmux;
-    };
-
 
   # A better 'tree' command
   # See https://dystroy.org/broot/ and https://github.com/Canop/broot

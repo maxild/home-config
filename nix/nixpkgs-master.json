@@ -1,8 +1,8 @@
 {
   "url": "https://github.com/nixos/nixpkgs.git",
-  "rev": "9e55da14fee564f9f9730111e579bd257dce4319",
-  "date": "2020-04-03T10:09:11-07:00",
-  "sha256": "0hq7nnqkwhycj3a6vrd454f3hbniin1v4qyh877srza2xwxh9lcg",
+  "rev": "da19aa131918ecd2f919127276cf911a1b8ace8d",
+  "date": "2020-05-11T12:39:16+02:00",
+  "sha256": "05ihnbdjs54ihg6v3fmjq5d7paq2j1lrdfrf7syvajaxwbghjg9f",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false

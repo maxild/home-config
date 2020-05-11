@@ -3,6 +3,7 @@ let
 
   # this is the pinned package set
   pkgs = import sources.nixos-20-03 ({
+  #pkgs = import sources.nixpkgs ({
     config = import ./nixpkgs/config.nix;
     overlays = import ./nixpkgs/overlays.nix;
   });
