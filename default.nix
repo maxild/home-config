@@ -1,11 +1,13 @@
 let
   sources = import ./nix/sources.nix;
 
+  # TODO: home-manager and home.nix (configuration) should use the same
+  # config/overlays/pinned version of nixpkgs
   # this is the pinned package set
   pkgs = import sources.nixos-20-03 ({
   #pkgs = import sources.nixpkgs ({
     config = import ./nixpkgs/config.nix;
-    overlays = import ./nixpkgs/overlays.nix;
+    #overlays = import ./nixpkgs/overlays.nix;
   });
 
 in
