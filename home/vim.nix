@@ -13,13 +13,11 @@
   #   extraConfig = builtins.readFile ../dotfiles/vimrc;
   # };
 
-  # TODO: change to neovim on linux
-  programs.vim = {
+  programs.neovim = {
     enable = true;
-    # TODO: uncomment for neovim on linux
-    #viAlias = true;
-    #vimAlias = true;
-    #vimdiffAlias = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       # fzf-vim
       # fzfWrapper

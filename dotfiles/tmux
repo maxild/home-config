@@ -33,7 +33,7 @@ unbind M-p  # next window with alert
 #unbind &    # kill-window
 unbind "#"  # list-buffer 
 unbind =    # choose-buffer
-unbind z    # zoom-pane
+#unbind z    # zoom-pane
 #unbind M-Up  # resize 5 rows up
 #unbind M-Down # resize 5 rows down
 #unbind M-Right # resize 5 rows right

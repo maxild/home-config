@@ -48,6 +48,18 @@ endif
 " built-in schemes installed in `/usr/share/nvim/runtime/colors`; extra schemes in `~/.config/nvim/colors`
 colorscheme default     " `default` picks up colors defined in `~/.Xresources`
 
+" == Navigation ===
+
+" move hjkl to jkl; (slide the block one key to the right)
+"noremap ; l
+"noremap l k
+"noremap k j
+"noremap j h
+
+" move hjkl to j=Down/k=Up and l=Left/;=Right (i.e. jk is unchanged)
+"noremap l h
+"noremap ; l
+"noremap h ;
 
 " == Uncommented for future reference ==
 
