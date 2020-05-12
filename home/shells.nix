@@ -143,7 +143,7 @@ in
     oh-my-zsh = {
       enable = true;
       plugins = ["git" "osx" "sudo" "web-search"];
-      theme = "robbyrussell";
+      theme = "af-magic";
     };
     sessionVariables = {
       # NOTE: non-ZSH-specific environment variables should be placed
