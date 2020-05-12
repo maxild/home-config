@@ -16,6 +16,7 @@ let
     ./modules/home-manager.nix
   ];
   linuxImports = [
+    ./home/dev.nix # dotnet-sdk does not support darwin
     ./home/vim.nix
   ];
 in
@@ -29,6 +30,7 @@ in
   nixpkgs.overlays = [
     #( import ./overlays/neovim.nix )
     ( import ./overlays/bcompare.nix )
+    ( import ./overlays/dotnet.nix )
   ];
   # Create symlink into the nix store where config.nix and overlays.nix are copied
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs/config.nix;
