@@ -11,8 +11,6 @@
     # };
     ignores = [
       "*.log"
-      ".envrc"
-      "shell.nix"
       # Folder view configuration files (Finder OSX)
       ".DS_Store"
       "Desktop.ini"
