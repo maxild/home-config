@@ -13,6 +13,8 @@
   #   extraConfig = builtins.readFile ../dotfiles/vimrc;
   # };
 
+  home.file.".ideavimrc".source = ../dotfiles/ideavimrc;
+
   programs.neovim = {
     enable = true;
     viAlias = true;
