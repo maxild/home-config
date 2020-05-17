@@ -21,6 +21,7 @@
     vimAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
+      editorconfig-vim
       # fzf-vim
       # fzfWrapper
       # LanguageClient-neovim

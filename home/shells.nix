@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
+  # TODO: Vi command line editing in your shell, enabled with set -o vi in bash and bindkey -v in zsh,
   # Note: If the user starts a login shell (bash) that multiplexes his terminal to create several separate "screens" (using tmux),
   # allowing him to interact with multiple concurrently running programs, then .bash_profile is called once (to setup the environment),
   # and .bashrc is called for every process (parent shell, and child subshells running in multiplexed shell)
@@ -25,6 +26,10 @@ let
       l = "exa";
       ls = "exa";
       ll = "exa -all --long --header";
+      # clean vim (no vimrc and/or plugins)
+      cvim = "nvim --clean -N";
+      # minimal vim
+      mvim = "nvim -u ~/.config/nvim/essential.vim";
       g = "git";
       e = "eval $EDITOR";
       f = ''fzf --preview "bat --style=numbers --color=always {} | head -500"'';

@@ -5,6 +5,7 @@
 
   # ~/.config (XDG) dotfiles
   xdg.configFile = {
+    "nvim/essential.vim".source = ../dotfiles/essential.vim;
     ".inputrc".source = ../dotfiles/.inputrc;
     "alacritty/alacritty.yml".source = ../dotfiles/alacritty.yml;
     "tmux/yank.sh".source = ../scripts/yank.sh;

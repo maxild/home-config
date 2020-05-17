@@ -6,9 +6,14 @@ set encoding=utf-8          " Set encoding
 set nocompatible            " disable compatibility to old-time vi
 
 set showmatch               " Highlight matching brace
-set ignorecase              " Ignore cases when searching
 set incsearch               " Incremental search
 set hlsearch                " Highlight all search results
+set ignorecase              " Ignore cases when searching
+set smartcase               " With both ignorecase and smartcase turned on, a search is case-insensitive if you enter the search string in ALL lower case.
+
+" command line completion
+set wildmenu                   " Helpful completion menu
+set wildmode=list:longest,full " First <tab> shows list of completions, second <tab> show wildmenu
 
 "set mouse=v                 " middle-click paste with mouse
 
@@ -29,10 +34,6 @@ set backspace=indent,eol,start
 set number                  " add line numbers
 set ruler                   " Show line & col number of cursor position
 
-set wildmode=longest,list   " get bash-like tab completions
-
-"set smartcase               " Better searching btw cases
-"set wildmenu                " Helpful completion menu
 set visualbell              " Use visual bell (no beeping)
 
 "filetype plugin indent on   " allow auto-indenting depending on file type
@@ -42,6 +43,12 @@ syntax on                   " syntax highlighting
 if has('syntax') && !exists('g:syntax_on')
     syntax enable
 endif
+
+" == File Search (without plugins)
+
+" Search down into subfolders
+" Provides tab-completion for all file related tasks
+set path+=**
 
 " == Colors ==
 

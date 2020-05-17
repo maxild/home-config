@@ -2,7 +2,9 @@
 
 {
     home.packages = with pkgs; [
+        ctags
+
         # this is defined in an overlay
-        pkgs.dotnet-sdk_3_1
+        dotnet-sdk_3_1
     ];
 }
