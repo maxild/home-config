@@ -11,12 +11,6 @@ let
     wget
     curl
     tree
-
-    # (with dotnetCorePackages; combinePackages [
-    #   sdk_2_1
-    #   sdk_3_0
-    #   sdk_3_1
-    # ])
   ];
   guiApps = with pkgs; [
     # TODO: cp bcompare.desktop /usr/share/applications (GNOME)

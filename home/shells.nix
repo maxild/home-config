@@ -40,8 +40,12 @@ let
       "......" = "cd ../../../../../";
       p = "cd ~/projects";
       dl = "cd ~/Downloads";
+      dotf = "cd ~/projects/config/home-config";
       ds = "cd ~/Documents";
-      pnet = "cd ~/Projects/dotnet";
+      pnet = "cd ~/projects/dotnet";
+      lofus = "cd ~/projects/dotnet/lofus";
+      ffv = "cd ~/projects/dotnet/ffv-rtl";
+      ffva = "cd ~/projects/dotnet/ffv-rtl-f3f5";
     };
     # TODO: Move to install.sh
     # When you are using a distribution other than NixOS, then your desktop environment (GNOME) will

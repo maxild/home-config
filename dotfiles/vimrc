@@ -22,12 +22,15 @@ set softtabstop=4           " see multiple spaces as tabstops so <BS> does the r
 set expandtab               " Use spaces instead of tabs
 set shiftwidth=4            " Number of auto-indent spaces
 set autoindent              " indent a new line the same amount as the line just typed
+
+set smartindent             " Autoindent when starting a new line
+set smarttab                " Tab insertion & deletion
+
 set nowrap                  " Don't add an actual linebreak when wrapping
 set linebreak               " Break lines at word (requires Wrap lines)
 set textwidth=80            " Line wrap (number of cols)
-set cc=80                   " set colour columns for good coding style
-set smartindent             " Autoindent when starting a new line
-set smarttab                " Tab insertion & deletion
+set colorcolumn=80          " set colour columns for good coding style
+set nolist                  " do not show carriage return marker ($)
 
 set backspace=indent,eol,start
 
@@ -83,7 +86,7 @@ colorscheme default     " `default` picks up colors defined in `~/.Xresources`
 " let mapleader = ","
 
 " easy escape
-" imap fd <Esc>
+imap jk <Esc>
 
 " send to ix.io
 " noremap <silent> <leader>i :w !ix<CR>
@@ -95,10 +98,14 @@ colorscheme default     " `default` picks up colors defined in `~/.Xresources`
 " nmap ;o  :buffer <C-R>=expand("%:h") . "/" <CR>
 
 " list buffers
-" nmap ,l  :ls<cr>
+nmap ,l  :ls<cr>
 
 " kill buffer
-" nmap ,k  :bdelete<cr>
+"nmap ,k  :bdelete<cr>
+
+" buffer navigation
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
 
 " insert current date
 " nmap <silent> ,d  :r !date +\%Y.\%m.\%d<cr>
@@ -122,7 +129,7 @@ syntax match Warning   display " \+\t"
 syntax match Warning   display "\t\+ "
 
 " mark columns 80 and 81 in red for long lines...
-match ErrorMsg /\%80v.\%81v./
+"match ErrorMsg /\%80v.\%81v./
 
 """ Easily find cursor with crosshair (,c)
 " :hi CursorLine   cterm=NONE term=reverse ctermbg=7 guibg=Grey90

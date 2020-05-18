@@ -28,8 +28,6 @@
         whitespace = "fix";
       };
       core = {
-  	    editor = "code";
-
         # TODO: Use custom `.gitignore` and `.gitattributes`
         #excludesfile = ~/.gitignore
         #attributesfile = ~/.gitattributes
