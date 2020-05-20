@@ -51,6 +51,25 @@
   #   " Your vimrc config starts here (~/.config/nvim/init.vim)
   #   .
   #   .
+  #
+  # To list everything in the nix store related to Vim:
+  # $ nix-store --query --requisites ~/.nix-profile/ | grep -P '^[^-]+-.*?\K\bvim'
+  #   /nix/store/ynwh265h3sf0pjdic30bpicq54xgw9b6-vimplugin-editorconfig-vim-2020-04-07
+  #   /nix/store/6msjqf5xzqkw1gv313zzic01ii5p85vg-vim-pack-dir
+  #   /nix/store/5k975mynq33ag2arv58angs14nznjdnn-vimrc
+  # $ nix-store --query --requisites ~/.nix-profile/ | grep -P 'vim'
+  #   /nix/store/2h1cpk4bxycgb1n7xnyxkz7py37yp9ji-python3.7-pynvim-0.4.1
+  #   /nix/store/9yiq86gmnibpb5x4m235wppzwr96w4lf-ruby2.6.6-neovim-0.8.0
+  #   /nix/store/3wql63ic2wxzk0vg23yx9ffbjh47zpnl-neovim-ruby-env
+  #   /nix/store/ynwh265h3sf0pjdic30bpicq54xgw9b6-vimplugin-editorconfig-vim-2020-04-07
+  #   /nix/store/6msjqf5xzqkw1gv313zzic01ii5p85vg-vim-pack-dir
+  #   /nix/store/5k975mynq33ag2arv58angs14nznjdnn-vimrc
+  #   /nix/store/ykp21nmhlsy98ysh0kjl6fqdfsq6wxka-python2.7-pynvim-0.4.1
+  #   /nix/store/xj1v8fxb15vs19llga269dxsp1ssjab7-libvterm-neovim-0.1.3
+  #   /nix/store/paik8rpjf0n0ai4p68831hvsmirhxqjw-neovim-unwrapped-0.4.3
+  #   /nix/store/qk2jip85migg0msk5h1h9ffrsjn5h6yl-neovim-0.4.
+  #
+  # See also http://ivanbrennan.nyc/2018-05-09/vim-on-nixos
   programs.neovim = {
     enable = true;
     viAlias = true;

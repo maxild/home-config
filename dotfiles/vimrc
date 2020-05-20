@@ -6,6 +6,7 @@ set encoding=utf-8          " Set encoding
 set nocompatible            " disable compatibility to old-time vi
 
 set showmatch               " Highlight matching brace
+
 set incsearch               " Incremental search
 set hlsearch                " Highlight all search results
 set ignorecase              " Ignore cases when searching
@@ -21,8 +22,8 @@ set tabstop=4               " One tab = 4 spaces
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " Use spaces instead of tabs
 set shiftwidth=4            " Number of auto-indent spaces
-set autoindent              " indent a new line the same amount as the line just typed
 
+set autoindent              " indent a new line the same amount as the line just typed
 set smartindent             " Autoindent when starting a new line
 set smarttab                " Tab insertion & deletion
 
@@ -47,6 +48,11 @@ if has('syntax') && !exists('g:syntax_on')
     syntax enable
 endif
 
+
+""" Make , the leader key
+let mapleader = ","
+
+
 " == File Search (without plugins)
 
 " Search down into subfolders
@@ -58,18 +64,24 @@ set path+=**
 " built-in schemes installed in `/usr/share/nvim/runtime/colors`; extra schemes in `~/.config/nvim/colors`
 colorscheme default     " `default` picks up colors defined in `~/.Xresources`
 
+set background=dark
+
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 " == Navigation ===
 
 " move hjkl to jkl; (slide the block one key to the right)
-"noremap ; l
-"noremap l k
-"noremap k j
-"noremap j h
+"nnoremap ; l
+"nnoremap l k
+"nnoremap k j
+"nnoremap j h
 
 " move hjkl to j=Down/k=Up and l=Left/;=Right (i.e. jk is unchanged)
-"noremap l h
-"noremap ; l
-"noremap h ;
+"nnoremap l h
+"nnoremap ; l
+"nnoremap h ;
 
 " == Uncommented for future reference ==
 
@@ -82,8 +94,6 @@ colorscheme default     " `default` picks up colors defined in `~/.Xresources`
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 
 
-""" Make , the leader key
-" let mapleader = ","
 
 " easy escape
 imap jk <Esc>
@@ -91,25 +101,60 @@ imap jk <Esc>
 " send to ix.io
 " noremap <silent> <leader>i :w !ix<CR>
 
-" edit files and buffers, relative to local
-" nmap ,e  :edit
-" nmap ;e  :edit <C-R>=expand("%:h") . "/" <CR>
-" nmap ,o  :buffer
-" nmap ;o  :buffer <C-R>=expand("%:h") . "/" <CR>
+" Invoke tab-completion from a mapping
+set wildcharm=<C-z>
 
-" list buffers
-nmap ,l  :ls<cr>
+" Mappings to access buffers (don't use "\p" because a
+" delay before pressing "p" would accidentally paste).
+" ,l       : list files/buffers
+" ,n       : new file/buffer
+" ,b       : switch file/buffer
+" ,e       : edit/open file/buffer
+" ,p       : find/open file/buffer (fuzzy find without any plugins)
+" ,k       : kill/delete buffer (file is not deleted)
+" ,[ ,] ,, : go back to prev / go forward to next / go to last-used
+" ,1 ,2 ,3 : go to buffer 1/2/3 etc
+nnoremap <leader>l :ls<CR>
+nnoremap <leader>n :enew<CR>
+nnoremap ;b        :ls<CR>:buffer<Space>
+nnoremap <Leader>b :b <C-z>
+" nnoremap ;b  :buffer <C-R>=expand("%:h") . "/" <CR>
+nnoremap <leader>e :e <C-z>
+nnoremap <Leader>p :e <C-z>
+nnoremap <C-p>     :e <C-z>
+" nnoremap ;e  :edit <C-R>=expand("%:h") . "/" <CR>
+nnoremap <Leader>k :bd<CR>
+nnoremap <Leader>[ :bp<CR>
+nnoremap <Leader>] :bn<CR>
+nnoremap <Leader>, :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
 
-" kill buffer
-"nmap ,k  :bdelete<cr>
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 
-" buffer navigation
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
+nnoremap <Leader>v :vs <C-z>
+nnoremap <Leader>s :sp <C-z>
 
-" insert current date
-" nmap <silent> ,d  :r !date +\%Y.\%m.\%d<cr>
-" nmap <silent> ,D  :r !date +\%Y.\%m.\%d..\%H.\%M.\%S<cr>
+" Quicker window movement
+nnoremap <C-j> <C-w>j " instead of ctrl-w then j, it’s just ctrl-j
+nnoremap <C-k> <C-w>k " etc..
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Don't offer to open certain files/directories
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=node_modules/*,bower_components/*
 
 " grep (ripgrep)
 " nmap ,g  :Rg
@@ -146,10 +191,6 @@ syntax match Warning   display "\t\+ "
 " open definition in a vertical split:
 "map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-""" Colors!
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 """ Plugins with vim-plug
 " 2019.06.11: disabling b/c I'd rather just use nix/home-manager for vim
