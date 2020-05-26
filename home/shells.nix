@@ -166,18 +166,90 @@ in
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    #defaultKeymap = "emacs";
+    defaultKeymap = "emacs";
     # TODO: Investigate XDG and why we have a BUG with relative path .config/zsh and .config/.zsh/.zsh_history
     #dotDir = ".config/zsh";
+    history = {
+      path = ".config/zsh/.zsh_history";
+      size = 50000;
+      save = 50000;
+    };
     # history = {
     #   expireDuplicatesFirst = true;
     #   path = ".config/zsh/.zsh_history";
     # };
-    oh-my-zsh = {
-      enable = true;
-      plugins = ["git"];
-      theme = "af-magic";
-    };
+    # oh-my-zsh = {
+    #   enable = true;
+    #   plugins = ["git"];
+    #   theme = "af-magic";
+    # };
+    # TODO: initExtra should not be merged in via commonShellConfig
+    # TODO: use builtins.readFile to get syntax highligting (pre-compint.sh and post-compinit.sh, for initExtra)
+    initExtraBeforeCompInit = ''
+      PROMPT='%B%F{032}%~%f%b %# '
+      RPROMPT='%F{105}%*'
+
+      # Fancy substitutions in prompts
+      setopt prompt_subst
+
+      # If a command is issued that can’t be executed as a normal command, and the
+      # command is the name of a directory, perform the cd command to that directory.
+      setopt AUTO_CD
+
+      # Treat  the ‘#’, ‘~’ and ‘^’ characters as part of patterns for filename
+      # generation, etc.  (An initial unquoted ‘~’ always produces named directory
+      # expansion.)
+      setopt EXTENDED_GLOB
+
+      # If a pattern for filename generation has no matches, print an error, instead
+      # of leaving it unchanged in the argument  list. This also applies to file
+      # expansion of an initial ‘~’ or ‘=’.
+      setopt NOMATCH
+
+      # no Beep on error in ZLE.
+      setopt NO_BEEP
+
+      # Remove any right prompt from display when accepting a command line. This may
+      # be useful with terminals with other cut/paste methods.
+      setopt TRANSIENT_RPROMPT
+
+      # If unset, the cursor is set to the end of the word if completion is started.
+      # Otherwise it stays there and completion is done from both ends.
+      setopt COMPLETE_IN_WORD
+
+      setopt auto_pushd
+      setopt append_history
+
+      # Show a highlighted '%' when the final line of output lacks a trailing
+      # newline. Without this, the prompt overdraws that final line.
+      setopt PROMPT_SP
+
+      # I don't use the !!/etc. commands, so this means I don't have to carefully
+      # quote/escape '!' in (e.g.) git commit messages.
+      unsetopt PROMPT_BANG
+
+      unsetopt MULTIOS
+    '';
+    plugins = [
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-autosuggestions";
+          rev = "v0.6.3";
+          sha256 = "1h8h2mz9wpjpymgl2p7pc146c1jgb3dggpvzwm9ln3in336wl95c";
+        };
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-syntax-highlighting";
+          rev = "be3882aeb054d01f6667facc31522e82f00b5e94";
+          sha256 = "0w8x5ilpwx90s2s2y56vbzq92ircmrf0l5x8hz4g1nx3qzawv6af";
+        };
+      }
+    ];
     sessionVariables = {
       # NOTE: non-ZSH-specific environment variables should be placed
       # in environment.nix
