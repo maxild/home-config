@@ -6,8 +6,13 @@ let
   #   $ , yarn --help
   # This finds a derivation providing a bin/yarn, and runs it with `nix run`.
   # If there are multiple candidates, the user chooses one using `fzy`.
-  comma = pkgs.writeScriptBin "," ''
-    #!${pkgs.stdenv.shell}
+  #
+  # `nix run` is a “new interface”, part of nix 2.0.
+  # `nix run pkg1 pkg2` supersedes `nix-shell -p pkg1 pkg2`, but `nix-shell -A pkg`
+  # has no equivalent in the new `nix run` CLI. The magic of `nix-shell -A pkg` is
+  # that it goes trough all the dependencies of pkg and starts a shell with these
+  # packages in the environment.
+  comma = pkgs.writeShellScriptBin "," ''
     set -euo pipefail
 
     if [[ $# -lt 1 ]]; then
