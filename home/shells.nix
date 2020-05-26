@@ -74,6 +74,7 @@ let
     ''
     #export XDG_DATA_DIRS="''${XDG_DATA_DIRS:+''${XDG_DATA_DIRS}:}$HOME/.nix-profile/share"
     export LANG=${locale}
+    export LOCALE_ARCHIVE="''$HOME/.nix-profile/lib/locale/locale-archive"
     function hg() { history | grep "$1"; }
     function pg() { ps aux | grep "$1"; }
 
@@ -109,7 +110,23 @@ let
   };
 in
 {
+  # For a fast work-around on non-nixos, you can `nix-env -i glibc-locales` (for all locales
+  # or a re-configured version of it, the attribute glibcLocales) and then point $LOCALE_ARCHIVE
+  # to the corresponding lib/locale/locale-archive location (e.g. the one linked in a profile
+  # after installation)
+
+
+  # Better to use the systems man package on non-NixOS linux
+  # https://github.com/rycee/home-manager/issues/432#issuecomment-434498787
+  programs.man.enable = false;
+  home.extraOutputsToInstall = [ "man" ];
+
   home.packages = with pkgs; [
+
+    # See https://github.com/NixOS/nixpkgs/issues/38991
+    #     https://gist.github.com/peti/2c818d6cb49b0b0f2fd7c300f8386bc3O
+    # This together with setting LOCALE_ARCHIVE above is a known workaround for LC_ and LANG problems on non-NixOS
+    glibcLocales
     #kitty
     # A modern replacement for ls -- https://the.exa.website/
     exa
@@ -151,7 +168,7 @@ in
     # };
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "osx" "sudo" "web-search"];
+      plugins = ["git"];
       theme = "af-magic";
     };
     sessionVariables = {

@@ -1,5 +1,9 @@
 { config, pkgs, lib, ... }:
 
+# General notes
+# * home-manager creates a single package combining all your home-manager packages, then uses nix-env to install it.
+# * About pinning nixpkgs see https://github.com/rycee/home-manager/issues/266#issuecomment-390390166
+
 let
   allPlatformImports = [
     ./home/apps.nix

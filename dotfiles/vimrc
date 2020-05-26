@@ -116,11 +116,10 @@ set wildcharm=<C-z>
 " ,1 ,2 ,3 : go to buffer 1/2/3 etc
 nnoremap <leader>l :ls<CR>
 nnoremap <leader>n :enew<CR>
-nnoremap ;b        :ls<CR>:buffer<Space>
-nnoremap <Leader>b :b <C-z>
-" nnoremap ;b  :buffer <C-R>=expand("%:h") . "/" <CR>
+nnoremap <leader>b :b <C-z>
+" nnoremap ;b  :b <C-R>=expand("%:h") . "/" <CR>
 nnoremap <leader>e :e <C-z>
-nnoremap <Leader>p :e <C-z>
+nnoremap <leader>p :e <C-z>
 nnoremap <C-p>     :e <C-z>
 " nnoremap ;e  :edit <C-R>=expand("%:h") . "/" <CR>
 nnoremap <Leader>k :bd<CR>
