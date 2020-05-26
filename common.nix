@@ -8,6 +8,7 @@ let
   allPlatformImports = [
     ./home/apps.nix
     ./home/shells.nix
+    ./home/comma.nix
 
     # See https://discourse.nixos.org/t/libgl-undefined-symbol-glxgl-core-functions/512
     #./home/alacritty.nix

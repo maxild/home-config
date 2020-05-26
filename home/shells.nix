@@ -106,10 +106,17 @@ let
       source "$HOME/.nix-profile/etc/profile.d/nix.sh"
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
     fi
+
+    # Nix-index provides a "command-not-found" script that can print for you the attribute path
+    # of unfound commands in your shell.
+    source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
     '';
   };
 in
 {
+  # Use nix-index provided script
+  programs.command-not-found.enable = false;
+
   # For a fast work-around on non-nixos, you can `nix-env -i glibc-locales` (for all locales
   # or a re-configured version of it, the attribute glibcLocales) and then point $LOCALE_ARCHIVE
   # to the corresponding lib/locale/locale-archive location (e.g. the one linked in a profile
