@@ -8,7 +8,7 @@ The file `~/.config/nixpkgs/home.nix` contains the declarative specification of 
 
 ```bash
 git clone https://github.com/maxild/home-config.git
-git submodule update --init)
+git submodule update --init
 git submodule update --remote
 chmod u+x install.sh
 ./install.sh machines/[macbook|ubuntu_wsl|popos].nix

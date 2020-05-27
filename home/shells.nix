@@ -33,11 +33,19 @@ let
       g = "git";
       e = "eval $EDITOR";
       f = ''fzf --preview "bat --style=numbers --color=always {} | head -500"'';
+      # .. cd-aliases
       ".." = "cd ..";
-      "..." = "cd ../../";
-      "...." = "cd ../../../";
-      "....." = "cd ../../../../";
-      "......" = "cd ../../../../../";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      "....." = "cd ../../../..";
+      "......" = "cd ../../../../..";
+      # u cd-aliases
+      u = "cd ..";
+      uu = "cd ../..";
+      uuu = "cd ../../..";
+      uuuu = "cd ../../../..";
+      uuuuu = "cd ../../../../..";
+      # other cd-aliases
       p = "cd ~/projects";
       dl = "cd ~/Downloads";
       dotf = "cd ~/projects/config/home-config";
@@ -167,17 +175,11 @@ in
     enableAutosuggestions = true;
     enableCompletion = true;
     defaultKeymap = "emacs";
-    # TODO: Investigate XDG and why we have a BUG with relative path .config/zsh and .config/.zsh/.zsh_history
-    #dotDir = ".config/zsh";
     history = {
-      path = ".config/zsh/.zsh_history";
+      path = "\$HOME/.config/zsh/.zsh_history";
       size = 50000;
       save = 50000;
     };
-    # history = {
-    #   expireDuplicatesFirst = true;
-    #   path = ".config/zsh/.zsh_history";
-    # };
     # oh-my-zsh = {
     #   enable = true;
     #   plugins = ["git"];
