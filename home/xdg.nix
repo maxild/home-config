@@ -9,6 +9,7 @@
     ".inputrc".source = ../dotfiles/.inputrc;
     "alacritty/alacritty.yml".source = ../dotfiles/alacritty.yml;
     "tmux/yank.sh".source = ../scripts/yank.sh;
+    "lf/lfrc".source = ../dotfiles/lfrc;
   };
 
   # ~/ (HOME) dotfiles

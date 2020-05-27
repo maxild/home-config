@@ -1,0 +1,7 @@
+# If you want to use 256 colors, you need to enable 'color256' option which
+# then makes lf use sgr 8-bit color escapes (e.g. '\033[38;5;4m').
+# This option is intended to eliminate differences between default colors
+# used by ls and lf since terminals may render 3-bit and 8-bit escapes
+# differently even for the same color.
+set color256 on
+
