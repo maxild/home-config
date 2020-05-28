@@ -84,7 +84,7 @@ in
     enableBashIntegration = true;
     enableZshIntegration = true;
     # follow symbolic links and include hidden files (but exclude .git folders)
-    defaultCommand = "${pkgs.fd}/bin/fd --type file --follow --hidden --exclude .git";
-    #defaultCommand = "${pkgs.ripgrep}/bin/rg --files";
+    #defaultCommand = "${pkgs.fd}/bin/fd --type file --follow --hidden --exclude .git";
+    defaultCommand = ''${pkgs.ripgrep}/bin/rg --files --no-ignore --hidden --follow --glob "!.git/*"'';
   };
 }

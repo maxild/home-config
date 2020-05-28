@@ -12,11 +12,10 @@ set hlsearch                " Highlight all search results
 set ignorecase              " Ignore cases when searching
 set smartcase               " With both ignorecase and smartcase turned on, a search is case-insensitive if you enter the search string in ALL lower case.
 
-" command line completion
-set wildmenu                   " Helpful completion menu
-set wildmode=list:longest,full " First <tab> shows list of completions, second <tab> show wildmenu
-
-"set mouse=v                 " middle-click paste with mouse
+"set wildmode=list:longest,full " First <tab> shows list of completions, second <tab> show wildmenu
+" tab completion for files/bufferss
+set wildmode=longest,list
+set wildmenu
 
 set tabstop=4               " One tab = 4 spaces
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
@@ -71,19 +70,6 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" == Navigation ===
-
-" move hjkl to jkl; (slide the block one key to the right)
-"nnoremap ; l
-"nnoremap l k
-"nnoremap k j
-"nnoremap j h
-
-" move hjkl to j=Down/k=Up and l=Left/;=Right (i.e. jk is unchanged)
-"nnoremap l h
-"nnoremap ; l
-"nnoremap h ;
-
 " == Uncommented for future reference ==
 
 " set complete-=i      " Set the matches for insert mode completion
@@ -94,8 +80,6 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Strings to use in 'list' mode and for the :list command
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 
-
-
 " easy escape
 imap jk <Esc>
 
@@ -105,6 +89,7 @@ imap jk <Esc>
 " Invoke tab-completion from a mapping
 set wildcharm=<C-z>
 
+" NOTE: After installing ctrlp plugin most of this is uncommented
 " Mappings to access buffers (don't use "\p" because a
 " delay before pressing "p" would accidentally paste).
 " ,l       : list files/buffers
@@ -115,13 +100,12 @@ set wildcharm=<C-z>
 " ,k       : kill/delete buffer (file is not deleted)
 " ,[ ,] ,, : go back to prev / go forward to next / go to last-used
 " ,1 ,2 ,3 : go to buffer 1/2/3 etc
-nnoremap <leader>l :ls<CR>
-nnoremap <leader>n :enew<CR>
-nnoremap <leader>b :b <C-z>
+"nnoremap <leader>l :ls<CR>
+"nnoremap <leader>n :enew<CR>
+"nnoremap <leader>b :b <C-z>
 " nnoremap ;b  :b <C-R>=expand("%:h") . "/" <CR>
-nnoremap <leader>e :e <C-z>
-nnoremap <leader>p :e <C-z>
-nnoremap <C-p>     :e <C-z>
+"nnoremap <leader>e :e <C-z>
+"nnoremap <leader>p :e <C-z>
 " nnoremap ;e  :edit <C-R>=expand("%:h") . "/" <CR>
 nnoremap <Leader>k :bd<CR>
 nnoremap <Leader>[ :bp<CR>
@@ -142,14 +126,27 @@ nnoremap <Leader>0 :10b<CR>
 set splitbelow
 set splitright
 
+" Split with leader
 nnoremap <Leader>v :vs <C-z>
 nnoremap <Leader>s :sp <C-z>
+"nnoremap <Leader>- :sp<CR>
+"nnoremap <Leader>\| :vs<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j " instead of ctrl-w then j, it’s just ctrl-j
 nnoremap <C-k> <C-w>k " etc..
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Quick copy paste
+nmap <Leader>y "+y
+vmap <Leader>y "+y
+nmap <Leader>d "+d
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+vmap <Leader>p "+p
+"nmap <Leader>P "+P
+"vmap <Leader>P "+P
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -168,20 +165,16 @@ inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 " Don't offer to open certain files/directories
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
 set wildignore+=node_modules/*,bower_components/*
+set wildignore+=*/.git/*,*/tmp/*,*.swp
 
-" grep (ripgrep)
-" nmap ,g  :Rg
 
 " clear out trailing whitespace and lines ending in whitespace
 nmap <silent> ,w   :%s/[\t ]\+$//e<cr>
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
+" clear the highlighting of :set hlsearch.
+noremap <silent> <leader>n :nohls<cr><C-l>
 
 " trailing spaces are always bad
 syntax match Warning   display "\s\+$"
@@ -217,3 +210,62 @@ syntax match Warning   display "\t\+ "
 "    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 "endif
 "so ~/.vim/plugins.vim
+
+" --------------------
+" Plugin configuration
+" --------------------
+
+" CtrlP settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Order matching files top to bottom
+let g:ctrlp_match_window = 'bottom,order:ttb'
+" Always open files in new buffers
+let g:ctrlp_switch_buffer = 0
+" Lets us change the working directory during a Vim session and make CtrlP
+" respect that change.
+let g:ctrlp_working_path_mode = 0
+" Use rg to search instead
+" https://elliotekj.com/2016/11/22/setup-ctrlp-to-use-ripgrep-in-vim/
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+" CtrlP buffer remap
+" nnoremap ; :CtrlPBuffer<CR>
+
+" show hidden files
+let g:ctrlp_show_hidden = 1
+
+" fzf settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"TODO: This key command does not work
+"search for word under cursor by pressing |
+nnoremap \| :Rg <C-R><C-W><cr>:cw<cr>
+"start a search query by pressing \
+nnoremap \ :Rg<space>
+
+" search files by running $FZF_DEFAULT_COMMAND (defaultCommand from fzf config)
+nnoremap <leader>e :Files<CR>
+nnoremap <C-f> :Files<CR>
+
+"search loaded buffers (project files)
+nnoremap <leader>l :Lines<CR>
+
+" search current buffer
+nnoremap <leader>L :BLines<CR>
+
+" searching commits require fugitive.vim plugin
+"nnoremap <leader>c :Commits<CR>
+"nnoremap <leader>C :BCommits<CR>
+
+"search project files
+"nnoremap <leader>p :FZF<cr>
+
+"search project files by tags (requires ctags to be installed)
+"nnoremap <leader>t :Tags<cr>
+
+"search all open files/buffers
+nnoremap <leader>b :Buffers<CR>
+

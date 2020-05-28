@@ -77,8 +77,9 @@
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       editorconfig-vim
-      # fzf-vim
-      # fzfWrapper
+      ctrlp
+      fzf-vim
+      fzfWrapper
       # LanguageClient-neovim
       # lightline-vim
       # nerdtree
