@@ -30,7 +30,7 @@ let
     mvim = "nvim -u ~/.config/nvim/essential.vim";
     g = "git";
     e = "eval $EDITOR";
-    f = ''fzf --preview "bat --style=numbers --color=always {} | head -500"'';
+    f = ''${pkgs.fzf}/bin/fzf --preview "bat --style=numbers --color=always {} | head -500"'';
     # .. cd-aliases
     ".." = "cd ..";
     "..." = "cd ../..";
@@ -100,14 +100,6 @@ in
   programs.man.enable = false;
   home.extraOutputsToInstall = [ "man" ];
 
-  home.packages = with pkgs; [
-    # A modern replacement for ls -- https://the.exa.website/
-    exa
-    # A cat(1) clone with syntax highlighting and Git integration -- https://github.com/sharkdp/bat
-    bat
-    # A simple, fast and user-friendly alternative to 'find' -- https://github.com/sharkdp/fd
-    fd
-  ];
 
   # TODO: Migrate ~/.bash_profile from dotfiles over here
   programs.bash = {
@@ -185,24 +177,5 @@ in
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3";
     };
     shellAliases = commonShellAliases;
-  };
-
-  # A better 'tree' command
-  # See https://dystroy.org/broot/ and https://github.com/Canop/broot
-  programs.broot = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-  };
-
-  # A command-line fuzzy finder
-  # See https://github.com/junegunn/fzf
-  programs.fzf = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    # follow symbolic links and include hidden files (but exclude .git folders)
-    defaultCommand = "${pkgs.fd}/bin/fd --type file --follow --hidden --exclude .git";
-    #defaultCommand = "${pkgs.ripgrep}/bin/rg --files";
   };
 }

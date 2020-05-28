@@ -10,7 +10,28 @@ let
     findutils
     wget
     curl
+    htop
+    jq
+    direnv
+    # A modern replacement for ls -- https://the.exa.website/
+    exa
+    # A cat(1) clone with syntax highlighting and Git integration -- https://github.com/sharkdp/bat
+    bat
+    # A simple, fast and user-friendly alternative to 'find' -- https://github.com/sharkdp/fd
+    fd
+    # a modern grep
+    ripgrep
+    # linter for shell scripts
+    shellcheck
+    # community/example driven manpages
+    tldr
+    # fuzzy finder
+    fzf
+    # A better 'tree' command
+    # See https://dystroy.org/broot/ and https://github.com/Canop/broot
+    broot
     tree
+    # TODO: ld, ranger, nnn, fasd, autojump
   ];
   guiApps = with pkgs; [
     # TODO: cp bcompare.desktop /usr/share/applications (GNOME)
@@ -48,5 +69,22 @@ in
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
+  };
+
+  programs.broot = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
+
+  # A command-line fuzzy finder
+  # See https://github.com/junegunn/fzf
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    # follow symbolic links and include hidden files (but exclude .git folders)
+    defaultCommand = "${pkgs.fd}/bin/fd --type file --follow --hidden --exclude .git";
+    #defaultCommand = "${pkgs.ripgrep}/bin/rg --files";
   };
 }
