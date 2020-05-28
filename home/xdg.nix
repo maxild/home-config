@@ -1,4 +1,13 @@
-{ ... }:
+{ pkgs, ... }:
+
+let
+  # lf previewer has to be a shell script to support args to bat/pistol
+  pv = pkgs.writeShellScriptBin "pv.sh" ''
+    # See also https://github.com/gokcehan/lf/issues/234#issuecomment-547592685
+    unset COLORTERM
+    exec ${pkgs.bat}/bin/bat --color=always "$1"
+  '';
+in
 
 {
   xdg.enable = true;
@@ -6,10 +15,13 @@
   # ~/.config (XDG) dotfiles
   xdg.configFile = {
     "nvim/essential.vim".source = ../dotfiles/essential.vim;
-    ".inputrc".source = ../dotfiles/.inputrc;
+    ".inputrc".source = ../dotfiles/inputrc;
     "alacritty/alacritty.yml".source = ../dotfiles/alacritty.yml;
     "tmux/yank.sh".source = ../scripts/yank.sh;
-    "lf/lfrc".source = ../dotfiles/lfrc;
+    "lf/lfrc".text = ''
+      ${builtins.readFile ../dotfiles/lfrc}
+      set previewer ${pv}/bin/pv.sh
+    '';
   };
 
   # ~/ (HOME) dotfiles
@@ -40,18 +52,4 @@
   #   and other file objects should be placed. This directory is defined by the
   #   environment variable
   #      $XDG_RUNTIME_DIR.
-
-  # Attribute set of files to link into the user's XDG_CONFIG_HOME
-  # This will create a symlinked .inputrc file in the ~/.config folder
-
-  # TODO: Investigate XDG
-  # TODO: xdg.configFile vs home.file???
-  #home.file.".inputrc".source = ./.inputrc;
-  #xdg.configFile.".user-dirs.dirs".source = ./.user-dirs.dirs;
-
-  # TODO: Emacs
-  # home.file.".emacs.d" = {
-  #   source = ./.emacs.d;
-  #   recursive = true;
-  # };
 

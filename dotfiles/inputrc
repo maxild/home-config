@@ -1,6 +1,9 @@
 # carry over global config
 $include /etc/inputrc
 
+# VIM mode
+set editing-mode vi
+
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
 

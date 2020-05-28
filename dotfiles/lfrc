@@ -1,7 +1,34 @@
-# If you want to use 256 colors, you need to enable 'color256' option which
-# then makes lf use sgr 8-bit color escapes (e.g. '\033[38;5;4m').
-# This option is intended to eliminate differences between default colors
-# used by ls and lf since terminals may render 3-bit and 8-bit escapes
-# differently even for the same color.
-set color256 on
+# interpreter for shell commands (needs to be POSIX compatible)
+set shell sh
 
+# set '-eu' options for shell commands
+# These options are used to have safer shell commands. Option '-e' is used to
+# exit on error and option '-u' is used to give error for unset variables.
+# Option '-f' disables pathname expansion which can be useful when $f, $fs, and
+# $fx variables contain names with '*' or '?' characters. However, this option
+# is used selectively within individual commands as it can be limiting at
+# times.
+set shellopts '-eu'
+
+# set internal field separator (IFS) to "\n" for shell commands
+# This is useful to automatically split file names in $fs and $fx properly
+# since default file separator used in these variables (i.e. 'filesep' option)
+# is newline. You need to consider the values of these options and create your
+# commands accordingly.
+set ifs "\n"
+
+# leave some space at the top and the bottom of the screen
+set scrolloff 10
+
+set color256 true
+
+# NOTE: top and bottom is supported out of the box in vi mode
+#map gg top
+#map G bottom
+
+# bookmarks
+map gh cd ~
+map gd :cd ~/Downloads; set sortby time; set info time; set reverse
+map gp cd ~/projects
+#map gd cd ~/dotfiles
+map gc cd ~/.config
