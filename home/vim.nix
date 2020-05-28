@@ -87,7 +87,8 @@
       # tabular
       # vim-better-whitespace
       # vim-multiple-cursors
-      # vim-surround
+      vim-surround
+      vim-commentary
 
       #vimproc
       #vimproc-vim
