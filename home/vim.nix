@@ -103,7 +103,7 @@
       # ghc-mod-vim
 
       # Nix
-      #vim-nix
+      vim-nix
 
       # Csharp
       #vim-csharp
