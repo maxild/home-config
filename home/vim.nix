@@ -76,6 +76,42 @@
     vimAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
+      #tagbar
+      #gruvbox
+      #nerdtree
+      # fugitive
+      # airline
+      # multiple-cursors
+      # surround
+      # nerdcommenter
+      # easymotion
+      # vim-obsession
+      #vim-prosession
+      # syntastic
+      # ultisnips
+      # vim-snippets
+      # deoplete-nvim
+      # deoplete-rust
+      # deoplete-clang
+      # deoplete-jedi
+      # rust-vim
+
+      # fugitive
+      # gitgutter
+      # nerdcommenter
+      # nerdtree
+      # surround
+      # syntastic
+      # tmux-navigator
+      # vim-airline
+      # vim-indent-guides
+      # vim-markdown
+      # vim-multiple-cursors
+      # vim-nix
+      # vim-trailing-whitespace
+      # vimproc
+      # youcompleteme
+
       editorconfig-vim
       ctrlp
       fzf-vim
