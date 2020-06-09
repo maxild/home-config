@@ -40,7 +40,7 @@ let
     bcompare
     spotify
     google-chrome
-    jetbrains.rider
+    #jetbrains.rider
   ];
 in
 {

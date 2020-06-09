@@ -17,11 +17,11 @@ let
     ./home/git.nix
     ./home/xdg.nix
     ./home/nix.nix
-    ./home/environment.nix
+    ./home/dev.nix
+    #./home/environment.nix
     ./modules/home-manager.nix
   ];
   linuxImports = [
-    ./home/dev.nix # dotnet-sdk does not support darwin
     ./home/vim.nix
   ];
 in
