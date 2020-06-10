@@ -32,12 +32,15 @@ in
 
   # TODO: This should be the same in home.nix and darwin-configuration.nix
   nixpkgs.config = import ./nixpkgs/config.nix;
-  nixpkgs.overlays = [
-    #( import ./overlays/neovim.nix )
-    ( import ./overlays/bcompare.nix )
-    ( import ./overlays/dotnet.nix )
-  ];
+  nixpkgs.overlays = import ./nixpkgs/overlays;
+
+  # NOTE: It is possible to place the config and overlays in
+  # ~/.config/nixpkgs folder and this way they will be applied
+  # both inside and outside HM (.i.e. using nix-env)
+
   # Create symlink into the nix store where config.nix and overlays.nix are copied
-  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs/config.nix;
-  #xdg.configFile."nixpkgs/overlays.nix".source = ./nixpkgs/overlays.nix;
+  #xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs/config.nix;
+  # TODO: It does not work to add ./nixpkgs/overlays/default.nix this way without
+  # also adding the files this file will import
+  #xdg.configFile."nixpkgs/overlays.nix".source = ./nixpkgs/overlays/default.nix;
 }

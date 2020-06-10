@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
+  sources = import ../nix/sources.nix;
   # TODO: Vi command line editing in your shell, enabled with set -o vi in bash and bindkey -v in zsh,
   # Note: If the user starts a login shell (bash) that multiplexes his terminal to create several separate "screens" (using tmux),
   # allowing him to interact with multiple concurrently running programs, then .bash_profile is called once (to setup the environment),
@@ -52,6 +53,18 @@ let
     lofus = "cd ~/projects/dotnet/lofus";
     ffv = "cd ~/projects/dotnet/ffv-rtl";
     ffva = "cd ~/projects/dotnet/ffv-rtl-f3f5";
+
+    # This is NOT ideal
+    # sessionVariables = {
+    #   NIX_PATH = "nixpkgs=${sources.nixpkgs}:\${NIX_PATH}";
+    # };
+
+    # This is NOT ideal either (but better). The problem is that HM changes will
+    # be a 2-step process: First bump nixpkgs, then change HM-config.
+    # Create alias that add a nixpkgs-path to to NIX_PATH
+    # to force home-manager to use pinned version of nixpkgs
+    home-manager = "home-manager -I nixpkgs=${sources.nixpkgs}";
+    hm = "home-manager -I nixpkgs=${sources.nixpkgs}";
   };
   commonShellScript = ''
     hg() { history | grep "$1"; }
