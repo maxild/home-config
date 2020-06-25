@@ -14,6 +14,9 @@
     # ])
 
     mono
+
+    # Powershell Core
+    powershell
   ];
 
   home.sessionVariables = {
