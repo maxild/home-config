@@ -13,7 +13,16 @@
   #   extraConfig = builtins.readFile ../dotfiles/vimrc;
   # };
 
-  home.file.".ideavimrc".source = ../dotfiles/ideavimrc;
+  # TODO: XDG
+  #home.file.".ideavimrc".source = ../dotfiles/ideavimrc;
+
+  # Idea VIM plugin supports XDG_CONFIG_HOME
+  xdg.configFile = {
+    "ideavim/ideavimrc".text = ''
+      ${builtins.readFile ../dotfiles/vimrc.base}
+      ${builtins.readFile ../dotfiles/vimrc.idea}
+    '';
+  };
 
   # nvim is installed into the nix store in the following rather complex manner:
   #
@@ -153,7 +162,10 @@
       #semshi
     ];
 
-    extraConfig = builtins.readFile ../dotfiles/vimrc;
+    extraConfig = ''
+      ${builtins.readFile ../dotfiles/vimrc.base}
+      ${builtins.readFile ../dotfiles/vimrc}
+    '';
 
     # TODO: Move config to dotfiles
     # extraConfig = ''

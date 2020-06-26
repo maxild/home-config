@@ -20,9 +20,9 @@ let
     ./home/dev.nix
     #./home/environment.nix
     ./modules/home-manager.nix
+    ./home/vim.nix
   ];
   linuxImports = [
-    ./home/vim.nix
   ];
 in
 {
