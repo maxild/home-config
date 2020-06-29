@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    go
     ctags
 
     # this is defined in an overlay
