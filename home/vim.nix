@@ -1,11 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
 
-  keymapsPath = "JetBrains/Rider2020.1/keymaps/CustomMade.xml";
-  keymapsLocation = if builtins.currentSystem == "x86_64-linux"
-              then ".config/" + keymapsPath
-              else "Library/Application Support/" + keymapsPath;
+  keymapsFile = builtins.readFile ../dotfiles/idea-keymaps/CustomMade.xml;
 
 in
 
@@ -22,9 +19,6 @@ in
   #   extraConfig = builtins.readFile ../dotfiles/vimrc;
   # };
 
-  # TODO: XDG
-  #home.file.".ideavimrc".source = ../dotfiles/ideavimrc;
-
   # Idea VIM plugin supports XDG_CONFIG_HOME
   xdg.configFile = {
     "ideavim/ideavimrc".text = ''
@@ -33,13 +27,27 @@ in
     '';
   };
 
+  # attribute set keys depend on linux vs darwin
+  home.file = {
+  } // (if builtins.currentSystem == "x86_64-linux" then {} else
+  {
+    "Library/Application Support/JetBrains/Rider2020.1/keymaps/CustomMade.xml".text = keymapsFile;
+  }) // (if builtins.currentSystem == "x86_64-linux" then {
+    ".config/JetBrains/Rider2020.1/keymaps/CustomMade.xml".text = keymapsFile;
+  } else {});
+
   # TODO: maybe move to idea IDE specific file
   # TODO: This should also work on Linux, where the file should be saved to
   #      ~/.config/JetBrains/Rider2020.1/keymaps
-  home.file = {
-    keymapsLocation.text =
-      builtins.readFile ../dotfiles/idea-keymaps/CustomMade.xml;
-  };
+  # home.file."Library/Application Support/JetBrains/Rider2020.1/keymaps/CustomMade.xml".text
+  #   = if builtins.currentSystem == "x86_64-linux"
+  #     then null
+  #     else keymapsFile;
+
+  # home.file.".config/JetBrains/Rider2020.1/keymaps/CustomMade.xml".text
+  #   = if builtins.currentSystem == "x86_64-linux"
+  #     then keymapsFile
+  #     else null;
 
   # nvim is installed into the nix store in the following rather complex manner:
   #
