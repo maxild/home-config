@@ -53,6 +53,11 @@ let mapleader = ","
 imap jk <Esc>
 vmap jk <Esc>
 
+" This DOES NOT work
+" Somehow I cannot overwrite M-, on mac os x with Ctrl+Alt+S
+"map <C-A-S> ShowSettings
+"map <A-C-S> ShowSettings
+
 " These create newlines like o and O but stay in normal mode
 "nmap zj o<Esc>k
 "nmap zk O<Esc>j
@@ -125,8 +130,8 @@ map <leader>a :action $SelectAll<CR>
 "map <leader>b :action GotoDeclaration<CR>
 map <leader>c :action $Copy<CR>
 "map <leader>d :action EditorDuplicate<CR>
-map <leader>e :action RecentFiles<CR>
-map <leader>f :action Find<CR>
+"map <leader>e :action RecentFiles<CR>
+"map <leader>f :action Find<CR>
 "map <leader>g :action GotoLine<CR>
 "map <leader>h :action TypeHierarchy<CR>
 "map <leader>i :action ImplementMethods<CR>
@@ -155,8 +160,8 @@ map <leader>x :action $Cut<CR>
 "   Navigation
 " ===============
 
-map <M-Left> :action Back<CR>
-map <M-Right> :action Forward<CR>
+"map <M-Left> :action Back<CR>
+"map <M-Right> :action Forward<CR>
 
 " ===============
 "   Refactor

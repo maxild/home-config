@@ -1,5 +1,14 @@
 { pkgs, ... }:
 
+let
+
+  keymapsPath = "JetBrains/Rider2020.1/keymaps/CustomMade.xml";
+  keymapsLocation = if builtins.currentSystem == "x86_64-linux"
+              then ".config/" + keymapsPath
+              else "Library/Application Support/" + keymapsPath;
+
+in
+
 {
   # programs.vim = {
   #   enable = true;
@@ -22,6 +31,14 @@
       ${builtins.readFile ../dotfiles/vimrc.base}
       ${builtins.readFile ../dotfiles/vimrc.idea}
     '';
+  };
+
+  # TODO: maybe move to idea IDE specific file
+  # TODO: This should also work on Linux, where the file should be saved to
+  #      ~/.config/JetBrains/Rider2020.1/keymaps
+  home.file = {
+    keymapsLocation.text =
+      builtins.readFile ../dotfiles/idea-keymaps/CustomMade.xml;
   };
 
   # nvim is installed into the nix store in the following rather complex manner:

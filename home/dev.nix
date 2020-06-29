@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     go
+    gnumake
     ctags
 
     # this is defined in an overlay

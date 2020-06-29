@@ -1,0 +1,33 @@
+<keymap name="CustomMade" parent="$default" version="1" disable-mnemonics="false">
+
+
+  <action id="ShowNavBar">
+    <keyboard-shortcut first-keystroke="control UP"/>
+  </action>
+
+  <!-- Maybe we should not redefine Ctrl+Alt+{Left,Right} bindings -->
+  <action id="Back">
+    <keyboard-shortcut first-keystroke="alt LEFT"/>
+  </action>
+  <action id="Forward">
+    <keyboard-shortcut first-keystroke="alt RIGHT"/>
+  </action>
+
+  <!--Remove all Alt+Left and Alt+Right bindings -->
+  <!--This is an example to show that we can remove bindings
+      BUT maybe we should -->
+  <action id="PreviousTab">
+  </action>
+  <action id="PreviousEditorTab">
+  </action>
+  <action id="Diff.PrevChange">
+  </action>
+
+  <action id="NextTab">
+  </action>
+  <action id="NextEditorTab">
+  </action>
+  <action id="Diff.NextChange">
+  </action>
+
+</keymap>
