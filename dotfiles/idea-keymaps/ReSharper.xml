@@ -1,4 +1,45 @@
 <keymap name="ReSharper" parent="Visual_Studio" version="1"  disable-mnemonics="false">
+
+  <action id="SearchEverywhere">
+    <keyboard-shortcut first-keystroke="control N"/>
+  </action>
+  <action id="GotoChangedFile">
+    <keyboard-shortcut first-keystroke="control N"/>
+  </action>
+
+  <action id="GotoFile">
+    <keyboard-shortcut first-keystroke="control shift N"/>
+  </action>
+  <action id="GotoSymbol">
+    <keyboard-shortcut first-keystroke="control shift alt N"/>
+  </action>
+
+  <action id="JumpToLastWindow">
+    <keyboard-shortcut first-keystroke="control alt BACK_SPACE"/>
+    <keyboard-shortcut first-keystroke="shift alt F6"/>
+  </action>
+
+  <action id="ActivateProjectToolWindow">
+    <keyboard-shortcut first-keystroke="Alt 1"/>
+  </action>
+  <action id="ActivateFindToolWindow">
+    <keyboard-shortcut first-keystroke="alt 3"/>
+    <keyboard-shortcut first-keystroke="control alt U"/>
+  </action>
+  <action id="ActivateStructureToolWindow">
+    <keyboard-shortcut first-keystroke="control F11"/>
+  </action>
+  <action id="ActivateInspectionResultsToolWindow">
+    <keyboard-shortcut first-keystroke="alt control 4"/>
+    <keyboard-shortcut first-keystroke="control alt COMMA"/>
+  </action>
+
+
+
+  <!-- ========================== -->
+  <!-- ACTIONS NOT in CUSTOM_MADE -->
+  <!-- ========================== -->
+
   <action id="ChangeSignature">
     <keyboard-shortcut first-keystroke="control F6"/>
   </action>
@@ -24,18 +65,6 @@
   </action>
   <action id="FileStructurePopup">
     <keyboard-shortcut first-keystroke="control F12"/>
-  </action>
-  <action id="SearchEverywhere">
-    <keyboard-shortcut first-keystroke="control N"/>
-  </action>
-  <action id="GotoChangedFile">
-    <keyboard-shortcut first-keystroke="control N"/>
-  </action>
-  <action id="GotoFile">
-    <keyboard-shortcut first-keystroke="control shift N"/>
-  </action>
-  <action id="GotoSymbol">
-    <keyboard-shortcut first-keystroke="control shift alt N"/>
   </action>
   <action id="GotoImplementation">
     <keyboard-shortcut first-keystroke="control alt b" />
@@ -122,10 +151,6 @@
   <action id="IntroduceField">
     <keyboard-shortcut first-keystroke="control alt D"/>
   </action>
-  <action id="JumpToLastWindow">
-    <keyboard-shortcut first-keystroke="control alt BACK_SPACE"/>
-    <keyboard-shortcut first-keystroke="shift alt F6"/>
-  </action>
   <action id="EditorStartNewLine">
     <keyboard-shortcut first-keystroke="shift ENTER"/>
   </action>
@@ -153,9 +178,6 @@
   <action id="Vcs.QuickListPopupAction">
     <keyboard-shortcut first-keystroke="alt BACK_QUOTE"/>
   </action>
-  <action id="ActivateProjectToolWindow">
-    <keyboard-shortcut first-keystroke="Alt 1"/>
-  </action>
   <action id="Unscramble">
     <keyboard-shortcut first-keystroke="control shift E"/>
   </action>
@@ -168,10 +190,6 @@
   <action id="SilentCodeCleanup">
     <keyboard-shortcut first-keystroke="control shift alt F"/>
   </action>
-  <action id="ActivateFindToolWindow">
-    <keyboard-shortcut first-keystroke="alt 3"/>
-    <keyboard-shortcut first-keystroke="control alt U"/>
-  </action>
   <action id="QuickImplementations">
     <keyboard-shortcut first-keystroke="control shift I"/>
   </action>
@@ -180,9 +198,6 @@
   <action id="Refresh"/>
   <action id="RecentLocations"/>
   <action id="ToggleBookmarkWithMnemonic"/>
-  <action id="ActivateStructureToolWindow">
-    <keyboard-shortcut first-keystroke="control F11"/>
-  </action>
   <action id="VcsShowNextChangeMarker"/>
   <action id="VcsShowPrevChangeMarker"/>
   <action id="Print"/>
@@ -194,9 +209,5 @@
 
   <!--  Rider-specific actions-->
 
-  <action id="ActivateInspectionResultsToolWindow">
-    <keyboard-shortcut first-keystroke="alt control 4"/>
-    <keyboard-shortcut first-keystroke="control alt COMMA"/>
-  </action>
 
 </keymap>

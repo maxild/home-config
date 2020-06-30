@@ -1,4 +1,12 @@
 <keymap name="macOS For All" parent="$default" version="1" disable-mnemonics="true">
+
+
+
+
+  <!-- ========================== -->
+  <!-- ACTIONS NOT in CUSTOM_MADE -->
+  <!-- ========================== -->
+
   <action id="FileChooser.TogglePathShowing">
     <keyboard-shortcut first-keystroke="control P"/>
   </action>
