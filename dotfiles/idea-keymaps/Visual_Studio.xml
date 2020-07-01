@@ -1,5 +1,53 @@
 <keymap name="Visual Studio" parent="$default" version="1" disable-mnemonics="false">
 
+  <action id="tasks.goto"/>
+  <action id="ShowNavBar">
+    <keyboard-shortcut first-keystroke="control F2"/>
+  </action>
+
+  <!-- Tool windows -->
+  <action id="ActivateProjectToolWindow">
+    <keyboard-shortcut first-keystroke="control alt L"/>
+    <keyboard-shortcut first-keystroke="Alt 1"/>
+  </action>
+  <action id="ActivateFindToolWindow">
+    <keyboard-shortcut first-keystroke="alt 3"/>
+    <keyboard-shortcut first-keystroke="control alt F12"/>
+  </action>
+  <action id="ActivateStructureToolWindow">
+    <keyboard-shortcut first-keystroke="control alt F"/>
+  </action>
+  <action id="ActivateTerminalToolWindow">
+    <keyboard-shortcut first-keystroke="alt control 1"/>
+  </action>
+  <action id="ActivateDatabaseToolWindow">
+    <keyboard-shortcut first-keystroke="alt control 3"/>
+  </action>
+  <action id="ActivateCommitToolWindow"/>
+  <action id="ActivateServicesToolWindow"/>
+  <action id="ActivateWebToolWindow">
+    <keyboard-shortcut first-keystroke="control alt W"/>
+  </action>
+
+  <action id="ActivateInspectionResultsToolWindow">
+    <keyboard-shortcut first-keystroke="alt control 4"/>
+    <keyboard-shortcut first-keystroke="control alt V"/>
+  </action>
+  <action id="ActivateBuildToolWindow">
+    <keyboard-shortcut first-keystroke="alt 0"/>
+  </action>
+  <action id="ActivateErrorsInSolutionToolWindow">
+    <keyboard-shortcut first-keystroke="alt control 2"/>
+  </action>
+  <action id="ActivateUnitTestsToolWindow">
+    <keyboard-shortcut first-keystroke="alt 8"/>
+    <keyboard-shortcut first-keystroke="alt shift 8"/>
+  </action>
+  <action id="ActivateNuGetToolWindow">
+    <keyboard-shortcut first-keystroke="alt 7"/>
+    <keyboard-shortcut first-keystroke="alt shift 7"/>
+  </action>
+
   <!-- Editor settings -->
   <action id="EditorToggleShowWhitespaces">
     <keyboard-shortcut first-keystroke="control R" second-keystroke="W"/>
@@ -12,6 +60,86 @@
   <action id="ToggleFullScreen">
     <keyboard-shortcut first-keystroke="alt shift ENTER"/>
   </action>
+  <action id="ViewInSolutionExplorer">
+    <keyboard-shortcut first-keystroke="alt shift L"/>
+  </action>
+  </action>
+
+  <!-- Build commands -->
+  <action id="Compile">
+    <keyboard-shortcut first-keystroke="control F7"/>
+  </action>
+  <action id="CompileDirty">
+    <keyboard-shortcut first-keystroke="F7"/>
+  </action>
+
+  <!-- Run+Debug commands -->
+  <action id="Run">
+    <keyboard-shortcut first-keystroke="control F5"/>
+  </action>
+  <action id="Rerun">
+    <keyboard-shortcut first-keystroke="control shift F5"/>
+  </action>
+  <action id="RunToCursor">
+    <keyboard-shortcut first-keystroke="control F10"/>
+  </action>
+    <action id="Pause">
+    <keyboard-shortcut first-keystroke="control alt CANCEL"/>
+    <keyboard-shortcut first-keystroke="control PAUSE"/>
+    <keyboard-shortcut first-keystroke="shift control P"/>
+  </action>
+  <action id="Stop">
+    <keyboard-shortcut first-keystroke="shift F5"/>
+  </action>
+  <action id="RunClass">
+    <keyboard-shortcut first-keystroke="control F5"/>
+  </action>
+  <action id="StepOut">
+    <keyboard-shortcut first-keystroke="shift F11"/>
+  </action>
+  <action id="Resume">
+    <keyboard-shortcut first-keystroke="F5"/>
+  </action>
+  <action id="StepInto">
+    <keyboard-shortcut first-keystroke="F11"/>
+  </action>
+  <action id="ForceStepInto">
+    <keyboard-shortcut first-keystroke="alt F11"/>
+  </action>
+  <action id="StepOver">
+    <keyboard-shortcut first-keystroke="F10"/>
+  </action>
+  <action id="Debug">
+    <keyboard-shortcut first-keystroke="alt F5"/>
+  </action>
+  <action id="EvaluateExpression">
+    <keyboard-shortcut first-keystroke="shift F9"/>
+  </action>
+
+
+
+  <!-- Breakpoints -->
+  <action id="ToggleLineBreakpoint">
+    <keyboard-shortcut first-keystroke="F9"/>
+  </action>
+  <action id="ToggleBreakpointEnabled">
+    <keyboard-shortcut first-keystroke="control F9"/>
+  </action>
+  <action id="ViewBreakpoints">
+    <keyboard-shortcut first-keystroke="control alt B"/>
+  </action>
+  <action id="EditBreakpoint">
+    <keyboard-shortcut first-keystroke="alt F9"/>
+  </action>
+
+
+
+ <!-- ========================== -->
+  <!-- ACTIONS NOT in CUSTOM_MADE -->
+  <!-- ========================== -->
+
+
+
 
   <!-- Find and replace (VIM stuff) -->
   <action id="Replace">
@@ -111,9 +239,6 @@
     <keyboard-shortcut first-keystroke="control I"/>
   </action>
 
-  <action id="ShowNavBar">
-    <keyboard-shortcut first-keystroke="control F2"/>
-  </action>
 
   <action id="NewElement">
     <keyboard-shortcut first-keystroke="control N"/>
@@ -335,71 +460,9 @@
     <keyboard-shortcut first-keystroke="control alt PAGE_UP"/><!--ReSharper_ResultListGoToPrevLocation-->
   </action>
 
-  <!-- Build commands -->
-  <action id="Compile">
-    <keyboard-shortcut first-keystroke="control F7"/>
-  </action>
-  <action id="CompileDirty">
-    <keyboard-shortcut first-keystroke="F7"/>
-  </action>
-
-  <!-- Run+Debug commands -->
-  <action id="Run">
-    <keyboard-shortcut first-keystroke="control F5"/>
-  </action>
-  <action id="Rerun">
-    <keyboard-shortcut first-keystroke="control shift F5"/>
-  </action>
-  <action id="RunToCursor">
-    <keyboard-shortcut first-keystroke="control F10"/>
-  </action>
-    <action id="Pause">
-    <keyboard-shortcut first-keystroke="control alt CANCEL"/>
-    <keyboard-shortcut first-keystroke="control PAUSE"/>
-    <keyboard-shortcut first-keystroke="shift control P"/>
-  </action>
-  <action id="Stop">
-    <keyboard-shortcut first-keystroke="shift F5"/>
-  </action>
-  <action id="RunClass">
-    <keyboard-shortcut first-keystroke="control F5"/>
-  </action>
-  <action id="StepOut">
-    <keyboard-shortcut first-keystroke="shift F11"/>
-  </action>
-  <action id="Resume">
-    <keyboard-shortcut first-keystroke="F5"/>
-  </action>
-  <action id="StepInto">
-    <keyboard-shortcut first-keystroke="F11"/>
-  </action>
-  <action id="ForceStepInto">
-    <keyboard-shortcut first-keystroke="alt F11"/>
-  </action>
-  <action id="StepOver">
-    <keyboard-shortcut first-keystroke="F10"/>
-  </action>
-  <action id="Debug">
-    <keyboard-shortcut first-keystroke="alt F5"/>
-  </action>
 
   <!-- Run tests -->
   <action id="RerunTests"/>
-
-
-  <!-- Breakpoints -->
-  <action id="ToggleLineBreakpoint">
-    <keyboard-shortcut first-keystroke="F9"/>
-  </action>
-  <action id="ToggleBreakpointEnabled">
-    <keyboard-shortcut first-keystroke="control F9"/>
-  </action>
-  <action id="ViewBreakpoints">
-    <keyboard-shortcut first-keystroke="control alt B"/>
-  </action>
-  <action id="EditBreakpoint">
-    <keyboard-shortcut first-keystroke="alt F9"/>
-  </action>
 
   <!-- Clipboard -->
   <action id="$Cut">
@@ -431,10 +494,6 @@
     <keyboard-shortcut first-keystroke="control K" second-keystroke="control D"/>
   </action>
 
-
-  <action id="EvaluateExpression">
-    <keyboard-shortcut first-keystroke="shift F9"/>
-  </action>
 
   <action id="ShowErrorDescription">
     <keyboard-shortcut first-keystroke="control F1"/>
@@ -522,7 +581,6 @@
   <action id="Vcs.QuickListPopupAction">
     <keyboard-shortcut first-keystroke="control alt Q"/>
   </action>
-  <action id="tasks.goto"/>
   <action id="QuickActionPopup"/>
   <action id="Console.TableResult.EditValueMaximized">
     <keyboard-shortcut first-keystroke="shift ENTER"/>
@@ -547,30 +605,6 @@
   <action id="ToggleRenderedDocPresentation"/>
   <action id="ForceRefresh"/>
 
-  <!-- Tool windows -->
-  <action id="ActivateProjectToolWindow">
-    <keyboard-shortcut first-keystroke="control alt L"/>
-    <keyboard-shortcut first-keystroke="Alt 1"/>
-  </action>
-  <action id="ActivateFindToolWindow">
-    <keyboard-shortcut first-keystroke="alt 3"/>
-    <keyboard-shortcut first-keystroke="control alt F12"/>
-  </action>
-  <action id="ActivateStructureToolWindow">
-    <keyboard-shortcut first-keystroke="control alt F"/>
-  </action>
-  <action id="ActivateTerminalToolWindow">
-    <keyboard-shortcut first-keystroke="alt control 1"/>
-  </action>
-  <action id="ActivateDatabaseToolWindow">
-    <keyboard-shortcut first-keystroke="alt control 3"/>
-  </action>
-  <action id="ActivateCommitToolWindow"/>
-  <action id="ActivateServicesToolWindow"/>
-  <action id="ActivateWebToolWindow">
-    <keyboard-shortcut first-keystroke="control alt W"/>
-  </action>
-
   <!-- Version control (Git)-->
   <action id="Git.Reword.Commit">
     <keyboard-shortcut first-keystroke="control R" second-keystroke="R"/>
@@ -581,24 +615,6 @@
 
   <!--  Rider-specific actions-->
 
-  <action id="ActivateInspectionResultsToolWindow">
-    <keyboard-shortcut first-keystroke="alt control 4"/>
-    <keyboard-shortcut first-keystroke="control alt V"/>
-  </action>
-  <action id="ActivateBuildToolWindow">
-    <keyboard-shortcut first-keystroke="alt 0"/>
-  </action>
-  <action id="ActivateErrorsInSolutionToolWindow">
-    <keyboard-shortcut first-keystroke="alt control 2"/>
-  </action>
-  <action id="ActivateUnitTestsToolWindow">
-    <keyboard-shortcut first-keystroke="alt 8"/>
-    <keyboard-shortcut first-keystroke="alt shift 8"/>
-  </action>
-  <action id="ActivateNuGetToolWindow">
-    <keyboard-shortcut first-keystroke="alt 7"/>
-    <keyboard-shortcut first-keystroke="alt shift 7"/>
-  </action>
 
   <!--MISSING VISUAL STUDIO SHORTCUTS-->
 
