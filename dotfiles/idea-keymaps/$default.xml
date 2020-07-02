@@ -123,6 +123,17 @@
     <keyboard-shortcut first-keystroke="alt HOME"/>
   </action>
 
+  <action id="EvaluateExpression">
+    <keyboard-shortcut first-keystroke="alt F8"/>
+  </action>
+  <action id="QuickEvaluateExpression">
+    <keyboard-shortcut first-keystroke="control alt F8"/>
+    <mouse-shortcut keystroke="alt button1"/>
+  </action>
+  <action id="ShowExecutionPoint">
+    <keyboard-shortcut first-keystroke="alt F10"/>
+  </action>
+
 
   <!-- ========================== -->
   <!-- ACTIONS NOT in CUSTOM_MADE -->
@@ -151,16 +162,6 @@
   </action>
   <action id="EditorPageUpWithSelection">
     <keyboard-shortcut first-keystroke="shift PAGE_UP"/>
-  </action>
-  <action id="EvaluateExpression">
-    <keyboard-shortcut first-keystroke="alt F8"/>
-  </action>
-  <action id="QuickEvaluateExpression">
-    <keyboard-shortcut first-keystroke="control alt F8"/>
-    <mouse-shortcut keystroke="alt button1"/>
-  </action>
-  <action id="ShowExecutionPoint">
-    <keyboard-shortcut first-keystroke="alt F10"/>
   </action>
   <action id="EditorEscape">
     <keyboard-shortcut first-keystroke="ESCAPE"/>

@@ -2,7 +2,11 @@
 
 let
 
-  keymapsFile = builtins.readFile ../dotfiles/idea-keymaps/CustomMade.xml;
+  keymapsFile = ''
+  <keymap name="CustomMade" parent="$default" version="1" disable-mnemonics="false">
+  ${builtins.readFile ../dotfiles/idea-keymaps/CustomMade.xml}
+  </keymap>
+  '';
 
 in
 
