@@ -1,0 +1,3 @@
+  <action id="RiderOpenSolution">
+    <keyboard-shortcut first-keystroke="control shift alt O"/>
+  </action>

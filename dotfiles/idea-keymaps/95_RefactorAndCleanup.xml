@@ -1,0 +1,85 @@
+  <!--
+    Refactor and Cleanup
+  -->
+  <action id="Refactorings.QuickListPopupAction">
+    <keyboard-shortcut first-keystroke="control shift R"/>
+  </action>
+  <action id="Move">
+    <keyboard-shortcut first-keystroke="F6"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="O"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control O"/>
+  </action>
+  <action id="SafeDelete">
+    <keyboard-shortcut first-keystroke="alt DELETE"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="D"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control D"/>
+  </action>
+  <action id="RenameElement">
+    <keyboard-shortcut first-keystroke="F2"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="R"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control R"/>
+  </action>
+  <action id="ChangeSignature">
+    <keyboard-shortcut first-keystroke="control F6"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="S"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control S"/>
+  </action>
+  <action id="Inline">
+    <keyboard-shortcut first-keystroke="control alt N"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="I"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control I"/>
+  </action>
+  <action id="ExtractMethod">
+    <keyboard-shortcut first-keystroke="control alt M"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="M"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control M"/>
+  </action>
+  <action id="IntroduceVariable">
+    <keyboard-shortcut first-keystroke="control alt V"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="V"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control V"/>
+  </action>
+  <action id="IntroduceField">
+    <keyboard-shortcut first-keystroke="control alt D"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="F"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control F"/>
+  </action>
+  <action id="IntroduceConstant">
+    <keyboard-shortcut first-keystroke="control alt C"/>
+  </action>
+  <action id="IntroduceParameter">
+    <keyboard-shortcut first-keystroke="control alt P"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="P"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control P"/>
+  </action>
+  <action id="ReformatCode">
+    <keyboard-shortcut first-keystroke="control alt L"/>
+    <keyboard-shortcut first-keystroke="control K" second-keystroke="F"/>
+    <keyboard-shortcut first-keystroke="control K" second-keystroke="control F"/>
+  </action>
+  <action id="CodeCleanup">
+    <keyboard-shortcut first-keystroke="control alt F"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="C"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="control C"/>
+  </action>
+  <action id="SilentCodeCleanup">
+    <keyboard-shortcut first-keystroke="control shift alt F"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="F"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="control F"/>
+  </action>
+
+  <action id="SurroundWithLiveTemplate">
+    <keyboard-shortcut first-keystroke="control alt J"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="U"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="control U"/>
+  </action>
+  <action id="InsertLiveTemplate">
+    <keyboard-shortcut first-keystroke="control J"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="L"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="control L"/>
+  </action>
+
+  <action id="RiderBackendAction-EncapsulateField">
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="E" />
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control E" />
+  </action>

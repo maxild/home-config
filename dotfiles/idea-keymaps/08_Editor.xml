@@ -1,0 +1,67 @@
+  <!-- Clipboard -->
+  <action id="$Cut">
+    <keyboard-shortcut first-keystroke="control X"/>
+  </action>
+  <action id="$Paste">
+    <keyboard-shortcut first-keystroke="control V"/>
+  </action>
+  <action id="$Copy">
+    <keyboard-shortcut first-keystroke="control C"/>
+  </action>
+  <action id="$Redo">
+    <keyboard-shortcut first-keystroke="control Y"/>
+  </action>
+
+  <!-- regions -->
+  <action id="ExpandRegion">
+    <keyboard-shortcut first-keystroke="control ADD"/>
+    <keyboard-shortcut first-keystroke="control EQUALS"/>
+  </action>
+  <action id="ExpandRegionRecursively">
+    <keyboard-shortcut first-keystroke="control alt ADD"/>
+    <keyboard-shortcut first-keystroke="control alt EQUALS"/>
+  </action>
+
+  <action id="ExpandAllRegions">
+    <keyboard-shortcut first-keystroke="control shift ADD"/>
+    <keyboard-shortcut first-keystroke="control shift EQUALS"/>
+  </action>
+  <action id="CollapseAllRegions">
+    <keyboard-shortcut first-keystroke="control shift SUBTRACT"/>
+    <keyboard-shortcut first-keystroke="control shift MINUS"/>
+  </action>
+
+  <action id="CollapseRegion">
+    <keyboard-shortcut first-keystroke="control SUBTRACT"/>
+    <keyboard-shortcut first-keystroke="control MINUS"/>
+  </action>
+  <action id="CollapseRegionRecursively">
+    <keyboard-shortcut first-keystroke="control alt SUBTRACT"/>
+    <keyboard-shortcut first-keystroke="control alt MINUS"/>
+  </action>
+
+  <!-- generate code and new files -->
+  <action id="NewElement">
+    <keyboard-shortcut first-keystroke="control ENTER"/>
+  </action>
+  <action id="Generate">
+    <keyboard-shortcut first-keystroke="control ENTER"/>
+  </action>
+
+  <!--
+    Editor settings (Ctrl+E <second-key> namespace)
+  -->
+  <action id="EditorToggleShowWhitespaces">
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="W"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="control W"/>
+  </action>
+  <action id="EditorToggleUseSoftWraps">
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="S"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="control S"/>
+  </action>
+  <!-- Column Selection (multiple cursors of start of each line in the selected block): Shift+Alt+Insert -->
+  <!-- NOTE: Insert key on macbook: Fn + Ctrl + Enter -->
+  <action id="EditorToogleColumnMode">
+    <keyboard-shortcut first-keystroke="shift alt INSERT" />
+    <keyboard-shortcut first-keystroke="control alt shift 8"/>
+  </action>

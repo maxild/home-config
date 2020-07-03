@@ -1,0 +1,7 @@
+  <action id="RiderNuGetQuickListPopupAction">
+    <keyboard-shortcut first-keystroke="shift alt N"/>
+  </action>
+
+  <action id="XDebugger.AttachToProcess">
+    <keyboard-shortcut first-keystroke="control alt F5"/>
+  </action>

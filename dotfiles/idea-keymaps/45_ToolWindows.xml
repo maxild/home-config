@@ -1,0 +1,82 @@
+  <!--
+    Tool Windows
+  -->
+
+  <!-- Other tool windows -->
+  <action id="ActivateTerminalToolWindow">
+    <keyboard-shortcut first-keystroke="control alt 1"/>
+    <keyboard-shortcut first-keystroke="alt T"/>
+  </action>
+  <action id="ActivateErrorsInSolutionToolWindow">
+    <keyboard-shortcut first-keystroke="control alt 2"/>
+    <keyboard-shortcut first-keystroke="alt R"/>
+  </action>
+  <action id="ActivateDatabaseToolWindow">
+    <keyboard-shortcut first-keystroke="control alt 3"/>
+    <keyboard-shortcut first-keystroke="alt D"/>
+  </action>
+  <action id="ActivateInspectionResultsToolWindow">
+    <keyboard-shortcut first-keystroke="control alt 4"/>
+    <keyboard-shortcut first-keystroke="alt I"/>
+  </action>
+  <action id="ActivateCommitToolWindow">
+    <keyboard-shortcut first-keystroke="Alt C"/>
+  </action>
+  <action id="ActivateServicesToolWindow"/>
+  <action id="ActivateWebToolWindow">
+    <keyboard-shortcut first-keystroke="alt W"/>
+  </action>
+  <action id="ActivateStructureToolWindow">
+    <keyboard-shortcut first-keystroke="alt S"/>
+  </action>
+  <action id="ActivateHierarchyToolWindow"/>
+
+  <!-- Tool windows: Alt-{1,2,3,4,5,6,7,8,9,0} -->
+  <action id="ActivateProjectToolWindow">
+    <keyboard-shortcut first-keystroke="alt 1"/>
+  </action>
+  <action id="ActivateFavoritesToolWindow">
+    <keyboard-shortcut first-keystroke="alt 2"/>
+  </action>
+  <action id="ActivateFindToolWindow">
+    <keyboard-shortcut first-keystroke="alt 3"/>
+  </action>
+  <action id="ActivateRunToolWindow">
+    <keyboard-shortcut first-keystroke="alt 4"/>
+  </action>
+  <action id="ActivateDebugToolWindow">
+    <keyboard-shortcut first-keystroke="alt 5"/>
+  </action>
+  <action id="ActivateTODOToolWindow">
+    <keyboard-shortcut first-keystroke="alt 6"/>
+  </action>
+  <action id="ActivateNuGetToolWindow">
+    <keyboard-shortcut first-keystroke="alt 7"/>
+  </action>
+  <action id="ActivateUnitTestsToolWindow">
+    <keyboard-shortcut first-keystroke="alt 8"/>
+  </action>
+  <action id="ActivateVersionControlToolWindow">
+    <keyboard-shortcut first-keystroke="alt 9"/>
+  </action>
+  <action id="ActivateBuildToolWindow">
+    <keyboard-shortcut first-keystroke="alt 0"/>
+  </action>
+
+  <!-- Shift+Ctrl+{Up,Right,Down,Left} will resize a tool window in $default -->
+  <!-- Tool window resizing -->
+  <action id="ResizeToolWindowLeft">
+    <keyboard-shortcut first-keystroke="control shift LEFT"/>
+  </action>
+  <action id="ResizeToolWindowRight">
+    <keyboard-shortcut first-keystroke="control shift RIGHT"/>
+  </action>
+  <action id="ResizeToolWindowUp">
+    <keyboard-shortcut first-keystroke="control shift UP"/>
+  </action>
+  <action id="ResizeToolWindowDown">
+    <keyboard-shortcut first-keystroke="control shift DOWN"/>
+  </action>
+  <action id="MaximizeToolWindow">
+    <keyboard-shortcut first-keystroke="control shift QUOTE"/>
+  </action>

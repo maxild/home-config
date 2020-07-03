@@ -1,0 +1,76 @@
+  <!-- Go to Actions -->
+  <action id="GotoAction">
+    <keyboard-shortcut first-keystroke="control shift A"/>
+  </action>
+
+  <!-- Quick scheme changing -->
+  <action id="QuickChangeScheme">
+    <keyboard-shortcut first-keystroke="control COMMA"/>
+    <keyboard-shortcut first-keystroke="control alt COMMA"/>
+  </action>
+  <!-- Quick keymap changing -->
+  <action id="ChangeKeymap">
+    <keyboard-shortcut first-keystroke="control SEMICOLON"/>
+    <keyboard-shortcut first-keystroke="control alt SEMICOLON"/>
+  </action>
+
+  <action id="ToggleFullScreen">
+    <keyboard-shortcut first-keystroke="shift alt ENTER"/>
+    <keyboard-shortcut first-keystroke="shift alt F"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="F"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="control F"/>
+  </action>
+  <action id="ToggleDistractionFreeMode">
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="D"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="control D"/>
+  </action>
+  <action id="TogglePresentationMode">
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="P"/>
+    <keyboard-shortcut first-keystroke="control E" second-keystroke="control P"/>
+  </action>
+
+  <action id="ShowSettings">
+    <keyboard-shortcut first-keystroke="control alt S"/>
+  </action>
+
+  <!--Open/Close editors  -->
+  <action id="CloseActiveTab">
+    <keyboard-shortcut first-keystroke="control shift F4"/>
+  </action>
+  <action id="CloseContent">
+    <keyboard-shortcut first-keystroke="control F4"/>
+    <keyboard-shortcut first-keystroke="control W"/>
+  </action>
+  <action id="EditSource">
+    <keyboard-shortcut first-keystroke="F4"/>
+  </action>
+  <action id="EditSourceInNewWindow">
+    <keyboard-shortcut first-keystroke="shift F4"/>
+  </action>
+
+ <!-- Navigation Bar navigation -->
+  <action id="ShowNavBar">
+    <keyboard-shortcut first-keystroke="alt H"/>
+    <!-- Macbook has HOME == Fn Left -->
+    <keyboard-shortcut first-keystroke="alt HOME"/>
+  </action>
+
+  <!-- Move focus to editor without hiding tool window -->
+  <action id="FocusEditor">
+    <keyboard-shortcut first-keystroke="ESCAPE"/>
+    <keyboard-shortcut first-keystroke="control BACK_QUOTE"/>
+  </action>
+  <!-- Move focus from editor to last tool window -->
+  <action id="JumpToLastWindow">
+    <keyboard-shortcut first-keystroke="F12"/>
+    <keyboard-shortcut first-keystroke="control BACK_QUOTE"/>
+  </action>
+  <!-- Move focus to the editor and hiding tool window -->
+  <action id="HideActiveWindow">
+    <keyboard-shortcut first-keystroke="shift ESCAPE"/>
+  </action>
+  <!-- Hide all tool windows -->
+  <action id="HideAllWindows">
+    <keyboard-shortcut first-keystroke="shift control ESCAPE"/>
+    <keyboard-shortcut first-keystroke="shift control F12"/>
+  </action>

@@ -1,0 +1,74 @@
+  <!--
+    Unit Testing
+  -->
+
+  <action id="RiderUnitTestQuickListPopupAction">
+    <keyboard-shortcut first-keystroke="shift alt U"/>
+  </action>
+  <!-- Focus Unit Test Explorer -->
+  <action id="RiderUnitTestFocusExplorerAction">
+    <keyboard-shortcut first-keystroke="control alt U"/>
+  </action>
+
+  <!-- Run Unit Tests -->
+  <action id="RiderUnitTestRunContextAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="R" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control R" />
+  </action>
+  <!-- Debug Unit Tests -->
+  <action id="RiderUnitTestDebugContextAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="D" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control D" />
+  </action>
+  <!-- Run Tests Until Failure -->
+  <action id="RiderUnitTestRunContextUntilFailAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="W" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control W" />
+  </action>
+  <!-- Stop execution -->
+  <action id="RiderUnitTestSessionAbortAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="S" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control S" />
+  </action>
+  <!-- Repeat Previous Run -->
+  <action id="RiderUnitTestRepeatPreviousRunAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="T" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control T" />
+  </action>
+  <!-- Rerun Failed Tests -->
+  <action id="RiderUnitTestSessionRerunFailedTestsAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="F" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control F" />
+  </action>
+  <!-- Run all tests from solution -->
+  <action id="RiderUnitTestRunSolutionAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="L" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control L" />
+  </action>
+
+  <!-- Run Unit Tests under dotMemory Unit -->
+  <action id="RiderUnitTestDotMemoryUnitContextAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="M" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control M" />
+  </action>
+  <!-- Run All Tests from Solution under dotMemory Unit -->
+  <action id="RiderUnitTestDotMemoryUnitSolutionAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="E" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control E" />
+  </action>
+
+  <!-- Create New Session -->
+  <action id="RiderUnitTestNewSessionAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="N" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control N" />
+  </action>
+  <!-- Append Tests to Session -->
+  <action id="RiderUnitTestAppendTestsAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="A" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control A" />
+  </action>
+  <!-- Run Current Session -->
+  <action id="RiderUnitTestRunCurrentSessionAction">
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="Y" />
+    <keyboard-shortcut first-keystroke="control T" second-keystroke="control Y" />
+  </action>

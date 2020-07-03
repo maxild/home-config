@@ -1,0 +1,21 @@
+  <!-- free Shift+Ctrl+Alt+F12 -->
+  <action id="RestoreDefaultLayout"/>
+
+  <!-- shift+alt+enter used to toogle full screen-->
+  <action id="AddToFavoritesPopup"/>
+  <!-- shift+alt+N used to show NuGet Quick List -->
+  <action id="tasks.goto"/>
+  <!-- shift+alt+L used by show in solution explorer -->
+  <action id="context.load"/>
+
+  <!--Remove all Alt+Left and Alt+Right bindings -->
+  <action id="PreviousTab"/>
+  <action id="NextTab"/>
+
+  <action id="PreviousEditorTab"/>
+  <action id="NextEditorTab"/>
+
+  <action id="Diff.PrevChange"/>
+  <action id="Diff.NextChange"/>
+
+  <action id="ViewSource"/>

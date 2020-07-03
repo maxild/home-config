@@ -1,0 +1,98 @@
+  <action id="IncrementalSearch">
+    <keyboard-shortcut first-keystroke="control I"/>
+  </action>
+
+  <!-- Go to All -->
+  <!--
+  This one is defined in $default
+  <action id="SearchEverywhere">
+    <keyboard-shortcut first-keystroke="shift shift"/>
+  </action>
+  -->
+  <action id="SearchEverywhere.NavigateToNextGroup">
+    <keyboard-shortcut first-keystroke="PAGE_DOWN"/>
+  </action>
+  <action id="SearchEverywhere.NavigateToPrevGroup">
+    <keyboard-shortcut first-keystroke="PAGE_UP"/>
+  </action>
+
+  <!-- Find and Replace -->
+  <action id="Find">
+    <keyboard-shortcut first-keystroke="control F"/>
+  </action>
+  <action id="Replace">
+    <keyboard-shortcut first-keystroke="control R"/>
+  </action>
+
+  <action id="FindInPath">
+    <keyboard-shortcut first-keystroke="control shift F"/>
+  </action>
+  <action id="ReplaceInPath">
+    <keyboard-shortcut first-keystroke="control shift R"/>
+  </action>
+
+  <action id="FindPrevious">
+    <keyboard-shortcut first-keystroke="shift F3"/>
+  </action>
+  <action id="FindNext">
+    <keyboard-shortcut first-keystroke="F3"/>
+  </action>
+
+  <action id="FindWordAtCaret">
+    <keyboard-shortcut first-keystroke="control F3"/>
+  </action>
+
+  <action id="PreviousOccurence">
+    <keyboard-shortcut first-keystroke="shift alt F3"/>
+  </action>
+  <action id="NextOccurence">
+    <keyboard-shortcut first-keystroke="alt F3"/>
+  </action>
+
+  <!--
+    Multiple Cursors
+
+    NOTE: In VimIdea
+    <A-N>: next occurrence
+    <A-P>: prev occurrence
+    <A-X>: skip occurrence
+    g<A-N>: ??????
+
+    NOTE: Have to press (capital, shift) I afterwards to start editing
+  -->
+
+  <!-- Ctrl+G -->
+  <action id="SelectNextOccurrence">
+    <keyboard-shortcut first-keystroke="alt J"/>
+  </action>
+  <!-- Shift+Ctrl+G-->
+  <action id="UnselectPreviousOccurrence">
+    <keyboard-shortcut first-keystroke="alt shift J"/>
+  </action>
+  <!-- Shift+Ctrl+Alt+G -->
+  <action id="SelectAllOccurrences">
+    <keyboard-shortcut first-keystroke="control alt shift J"/>
+  </action>
+
+  <!-- Caret Cloning: Press double-Alt and use Up/Down arrows to clone cursor -->
+  <!-- <action id="EditorCloneCaretAbove">
+  </action>
+  <action id="EditorCloneCaretBelow">
+  </action> -->
+
+  <!-- Go to Classes -->
+  <action id="GotoClass">
+    <keyboard-shortcut first-keystroke="control N"/>
+  </action>
+  <!-- Go to File Members -->
+  <action id="FileStructurePopup">
+    <keyboard-shortcut first-keystroke="control F12"/>
+  </action>
+  <!-- Go to Files -->
+  <action id="GotoFile">
+    <keyboard-shortcut first-keystroke="control shift N"/>
+  </action>
+  <!-- Go to Symbols -->
+  <action id="GotoSymbol">
+    <keyboard-shortcut first-keystroke="control shift alt N"/>
+  </action>
