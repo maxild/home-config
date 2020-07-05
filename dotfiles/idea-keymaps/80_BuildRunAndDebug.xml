@@ -1,0 +1,69 @@
+  <!-- Build+Run+Debug commands -->
+  <action id="BuildSolutionAction">
+    <keyboard-shortcut first-keystroke="control B"/>
+  </action>
+  <action id="RebuildSolutionAction">
+    <keyboard-shortcut first-keystroke="shift control B"/>
+  </action>
+
+  <action id="Run">
+    <keyboard-shortcut first-keystroke="control F5"/>
+  </action>
+  <action id="Debug">
+    <keyboard-shortcut first-keystroke="alt F5"/>
+  </action>
+
+  <action id="RunClass">
+    <keyboard-shortcut first-keystroke="control F5"/>
+  </action>
+  <action id="Rerun">
+    <keyboard-shortcut first-keystroke="control shift F5"/>
+  </action>
+
+  <!-- debugging actions -->
+  <action id="Stop">
+    <keyboard-shortcut first-keystroke="shift F5"/>
+  </action>
+  <action id="Resume">
+    <keyboard-shortcut first-keystroke="F5"/>
+  </action>
+  <action id="StepOut">
+    <keyboard-shortcut first-keystroke="shift F11"/>
+  </action>
+  <action id="StepInto">
+    <keyboard-shortcut first-keystroke="F11"/>
+  </action>
+  <action id="ForceStepInto">
+    <keyboard-shortcut first-keystroke="alt F11"/>
+  </action>
+  <action id="StepOver">
+    <keyboard-shortcut first-keystroke="F10"/>
+  </action>
+  <action id="RunToCursor">
+    <keyboard-shortcut first-keystroke="control F10"/>
+  </action>
+
+  <action id="EvaluateExpression">
+    <keyboard-shortcut first-keystroke="shift F9"/>
+  </action>
+  <action id="QuickEvaluateExpression">
+    <keyboard-shortcut first-keystroke="control alt F8"/>
+  </action>
+  <action id="ShowExecutionPoint">
+    <keyboard-shortcut first-keystroke="alt F10"/>
+  </action>
+
+  <!-- Breakpoints -->
+  <action id="ToggleLineBreakpoint">
+    <keyboard-shortcut first-keystroke="F9"/>
+  </action>
+  <action id="ToggleBreakpointEnabled">
+    <keyboard-shortcut first-keystroke="control F9"/>
+  </action>
+  <action id="ViewBreakpoints">
+    <keyboard-shortcut first-keystroke="control shift F8"/>
+    <keyboard-shortcut first-keystroke="control alt B"/>
+  </action>
+  <action id="EditBreakpoint">
+    <keyboard-shortcut first-keystroke="alt F9"/>
+  </action>

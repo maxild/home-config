@@ -1,0 +1,156 @@
+  <!-- Go to Recent Files -->
+  <action id="RecentFiles">
+    <keyboard-shortcut first-keystroke="control E"/>
+  </action>
+  <!-- Go to Recent Locations -->
+  <action id="RecentLocations">
+    <keyboard-shortcut first-keystroke="control shift E"/>
+  </action>
+  <!-- Go to Recent Changed files -->
+  <action id="RecentChangedFiles">
+    <keyboard-shortcut first-keystroke="control shift alt BACK_SPACE"/>
+  </action>
+
+  <action id="JumpToLastChange">
+    <keyboard-shortcut first-keystroke="control shift BACK_SPACE"/>
+  </action>
+
+  <action id="Back">
+    <keyboard-shortcut first-keystroke="alt LEFT"/>
+    <keyboard-shortcut first-keystroke="control alt LEFT"/>
+  </action>
+  <action id="Forward">
+    <keyboard-shortcut first-keystroke="alt RIGHT"/>
+    <keyboard-shortcut first-keystroke="control alt RIGHT"/>
+  </action>
+
+
+  <action id="MethodUp">
+    <keyboard-shortcut first-keystroke="alt UP"/>
+  </action>
+  <action id="MethodDown">
+    <keyboard-shortcut first-keystroke="alt DOWN"/>
+  </action>
+
+  <!-- Goto either matching brace or outer brace -->
+  <action id="EditorCodeBlockStart">
+    <keyboard-shortcut first-keystroke="shift alt OPEN_BRACKET"/>
+    <keyboard-shortcut first-keystroke="control OPEN_BRACKET"/>
+  </action>
+  <action id="EditorCodeBlockEnd">
+    <keyboard-shortcut first-keystroke="shift alt CLOSE_BRACKET"/>
+    <keyboard-shortcut first-keystroke="control CLOSE_BRACKET"/>
+  </action>
+
+  <!-- Goto either matching brace or outer brace (and select) -->
+  <action id="EditorCodeBlockStartWithSelection">
+    <keyboard-shortcut first-keystroke="control shift OPEN_BRACKET"/>
+    <keyboard-shortcut first-keystroke="control alt shift OPEN_BRACKET"/>
+  </action>
+  <action id="EditorCodeBlockEndWithSelection">
+    <keyboard-shortcut first-keystroke="control shift CLOSE_BRACKET"/>
+    <keyboard-shortcut first-keystroke="control alt shift CLOSE_BRACKET"/>
+  </action>
+
+  <!--
+    Bookmarks: TODO: Investigate how they work together with
+      set ideamarks
+  -->
+
+  <action id="ShowBookmarks">
+    <keyboard-shortcut first-keystroke="shift F11"/>
+    <keyboard-shortcut first-keystroke="control BACK_QUOTE"/>
+  </action>
+  <action id="ToggleBookmarkWithMnemonic">
+    <keyboard-shortcut first-keystroke="control F11"/>
+  </action>
+  <action id="ToggleBookmark">
+    <keyboard-shortcut first-keystroke="F11"/>
+    <keyboard-shortcut first-keystroke="control K" second-keystroke="K"/>
+    <keyboard-shortcut first-keystroke="control K" second-keystroke="control K"/>
+  </action>
+
+  <action id="GotoNextBookmark">
+    <keyboard-shortcut first-keystroke="ctrl K" second-keystroke="N"/>
+    <keyboard-shortcut first-keystroke="ctrl K" second-keystroke="ctrl N"/>
+  </action>
+  <action id="GotoPreviousBookmark">
+    <keyboard-shortcut first-keystroke="ctrl K" second-keystroke="P"/>
+    <keyboard-shortcut first-keystroke="ctrl K" second-keystroke="ctrl P"/>
+  </action>
+
+  <action id="GotoBookmark0">
+    <keyboard-shortcut first-keystroke="control 0"/>
+  </action>
+  <action id="GotoBookmark1">
+    <keyboard-shortcut first-keystroke="control 1"/>
+  </action>
+  <action id="GotoBookmark2">
+    <keyboard-shortcut first-keystroke="control 2"/>
+  </action>
+  <action id="GotoBookmark3">
+    <keyboard-shortcut first-keystroke="control 3"/>
+  </action>
+  <action id="GotoBookmark4">
+    <keyboard-shortcut first-keystroke="control 4"/>
+  </action>
+  <action id="GotoBookmark5">
+    <keyboard-shortcut first-keystroke="control 5"/>
+  </action>
+  <action id="GotoBookmark6">
+    <keyboard-shortcut first-keystroke="control 6"/>
+  </action>
+  <action id="GotoBookmark7">
+    <keyboard-shortcut first-keystroke="control 7"/>
+  </action>
+  <action id="GotoBookmark8">
+    <keyboard-shortcut first-keystroke="control 8"/>
+  </action>
+  <action id="GotoBookmark9">
+    <keyboard-shortcut first-keystroke="control 9"/>
+  </action>
+
+  <action id="ToggleBookmark0">
+    <keyboard-shortcut first-keystroke="control shift 0"/>
+  </action>
+  <action id="ToggleBookmark1">
+    <keyboard-shortcut first-keystroke="control shift 1"/>
+  </action>
+  <action id="ToggleBookmark2">
+    <keyboard-shortcut first-keystroke="control shift 2"/>
+  </action>
+  <action id="ToggleBookmark3">
+    <keyboard-shortcut first-keystroke="control shift 3"/>
+  </action>
+  <action id="ToggleBookmark4">
+    <keyboard-shortcut first-keystroke="control shift 4"/>
+  </action>
+  <action id="ToggleBookmark5">
+    <keyboard-shortcut first-keystroke="control shift 5"/>
+  </action>
+  <action id="ToggleBookmark6">
+    <keyboard-shortcut first-keystroke="control shift 6"/>
+  </action>
+  <action id="ToggleBookmark7">
+    <keyboard-shortcut first-keystroke="control shift 7"/>
+  </action>
+  <action id="ToggleBookmark8">
+    <keyboard-shortcut first-keystroke="control shift 8"/>
+  </action>
+  <action id="ToggleBookmark9">
+    <keyboard-shortcut first-keystroke="control shift 9"/>
+  </action>
+
+  <!--
+    Navigate Current Context
+  -->
+
+  <!-- reveal in Finder -->
+  <action id="ShowFilePath">
+    <keyboard-shortcut first-keystroke="control alt F12"/>
+  </action>
+
+  <!-- Locate current document in Solution Explorer -->
+  <action id="LocateInSolutionView">
+    <keyboard-shortcut first-keystroke="shift alt L"/>
+  </action>

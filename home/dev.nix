@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
+    go
+    gnumake
     ctags
 
     # this is defined in an overlay
@@ -14,6 +16,9 @@
     # ])
 
     mono
+
+    # Powershell Core
+    powershell
   ];
 
   home.sessionVariables = {

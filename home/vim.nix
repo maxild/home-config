@@ -1,4 +1,50 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+
+let
+
+  # We group the keybindings according to the "Keymap Reference" headings
+  keymapsFile = ''
+  <keymap name="CustomMade" parent="$default" version="1" disable-mnemonics="false">
+  ${builtins.readFile ../dotfiles/idea-keymaps/03_Cancelations.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/05_VimCancelations.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/07_File.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/08_Editor.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/10_CreateAndEdit.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/20_AnalyzeAndExplore.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/30_VersionControl.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/40_MasterYourIDE.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/40_Rider_MasterYourIDE.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/50_FindEverything.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/60_NavigateFromSymbols.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/70_NavigateInContext.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/80_BuildRunAndDebug.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/80_Rider_BuildRunAndDebug.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/90_Rider_UnitTests.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/95_RefactorAndCleanup.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/CustomMade.xml}
+  </keymap>
+  '';
+
+  golandKeymapsFile = ''
+  <keymap name="CustomMade" parent="$default" version="1" disable-mnemonics="false">
+  ${builtins.readFile ../dotfiles/idea-keymaps/03_Cancelations.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/05_VimCancelations.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/07_File.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/08_Editor.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/10_CreateAndEdit.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/20_AnalyzeAndExplore.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/30_VersionControl.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/40_MasterYourIDE.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/50_FindEverything.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/60_NavigateFromSymbols.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/70_NavigateInContext.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/80_BuildRunAndDebug.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/95_RefactorAndCleanup.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/CustomMade.xml}
+  </keymap>
+  '';
+
+in
 
 {
   # programs.vim = {
@@ -13,7 +59,36 @@
   #   extraConfig = builtins.readFile ../dotfiles/vimrc;
   # };
 
-  home.file.".ideavimrc".source = ../dotfiles/ideavimrc;
+  # Idea VIM plugin supports XDG_CONFIG_HOME
+  xdg.configFile = {
+    "ideavim/ideavimrc".text = ''
+      ${builtins.readFile ../dotfiles/vimrc.base}
+      ${builtins.readFile ../dotfiles/vimrc.idea}
+    '';
+  };
+
+  #
+  # Rider, GoLand
+  #
+
+  # TODO: refactor into abstraction using
+  #   product = (Rider, GoLand)
+  #   version = 2020.1
+  #   keymapFile
+  # attribute set keys depend on linux vs darwin
+  home.file = {
+  } // (if builtins.currentSystem == "x86_64-linux" then {} else
+  {
+    "Library/Application Support/JetBrains/Rider2020.1/keymaps/CustomMade.xml".text = keymapsFile;
+    "Library/Application Support/JetBrains/GoLand2020.1/keymaps/CustomMade.xml".text = golandKeymapsFile;
+  }) // (if builtins.currentSystem == "x86_64-linux" then {
+    ".config/JetBrains/Rider2020.1/keymaps/CustomMade.xml".text = keymapsFile;
+    ".config/JetBrains/GoLand2020.1/keymaps/CustomMade.xml".text = golandKeymapsFile;
+  } else {});
+
+
+
+
 
   # nvim is installed into the nix store in the following rather complex manner:
   #
@@ -153,7 +228,10 @@
       #semshi
     ];
 
-    extraConfig = builtins.readFile ../dotfiles/vimrc;
+    extraConfig = ''
+      ${builtins.readFile ../dotfiles/vimrc.base}
+      ${builtins.readFile ../dotfiles/vimrc}
+    '';
 
     # TODO: Move config to dotfiles
     # extraConfig = ''

@@ -1,0 +1,65 @@
+  <action id="ShowIntentionActions">
+    <keyboard-shortcut first-keystroke="alt ENTER"/>
+  </action>
+  <action id="CodeCompletion">
+    <keyboard-shortcut first-keystroke="control SPACE"/>
+  </action>
+  <action id="SmartTypeCompletion">
+    <keyboard-shortcut first-keystroke="control shift SPACE"/>
+  </action>
+  <action id="ClassNameCompletion">
+    <keyboard-shortcut first-keystroke="control alt SPACE"/>
+  </action>
+  <action id="ParameterInfo">
+    <keyboard-shortcut first-keystroke="control P"/>
+    <keyboard-shortcut first-keystroke="shift control SPACE"/>
+  </action>
+
+  <!-- Quick Definition (popup) -->
+  <action id="QuickImplementations">
+    <keyboard-shortcut first-keystroke="shift control Q"/>
+  </action>
+  <!-- Quick/External Documentation (popup) -->
+  <action id="QuickJavaDoc">
+    <keyboard-shortcut first-keystroke="control Q"/>
+  </action>
+
+  <!--
+    generate code for interfaces and/or Object members
+  -->
+
+  <!-- override/implement members -->
+  <action id="ImplementMethods">
+    <keyboard-shortcut first-keystroke="shift control I"/>
+  </action>
+  <action id="OverrideMethods">
+    <keyboard-shortcut first-keystroke="shift control O"/>
+  </action>
+
+  <!-- extend/shrink selection -->
+  <action id="EditorSelectWord">
+    <keyboard-shortcut first-keystroke="control UP"/>
+  </action>
+  <action id="EditorUnSelectWord">
+    <keyboard-shortcut first-keystroke="control DOWN"/>
+  </action>
+
+  <!-- comment with line/block comment -->
+  <action id="CommentByLineComment">
+    <keyboard-shortcut first-keystroke="control SLASH"/>
+    <keyboard-shortcut first-keystroke="control DIVIDE"/>
+    <keyboard-shortcut first-keystroke="control K" second-keystroke="C"/>
+    <keyboard-shortcut first-keystroke="control K" second-keystroke="control C"/>
+  </action>
+  <action id="CommentByBlockComment">
+    <keyboard-shortcut first-keystroke="control shift SLASH"/>
+    <keyboard-shortcut first-keystroke="control shift DIVIDE"/>
+  </action>
+
+  <!-- Move Line Up/Down -->
+  <action id="MoveStatementUp">
+    <keyboard-shortcut first-keystroke="control alt shift UP"/>
+  </action>
+  <action id="MoveStatementDown">
+    <keyboard-shortcut first-keystroke="control alt shift DOWN"/>
+  </action>

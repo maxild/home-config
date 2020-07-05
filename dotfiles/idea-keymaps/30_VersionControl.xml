@@ -1,0 +1,3 @@
+  <action id="Vcs.QuickListPopupAction">
+    <keyboard-shortcut first-keystroke="alt BACK_QUOTE"/>
+  </action>

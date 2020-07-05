@@ -1,0 +1,9 @@
+  <action id="SaveAll">
+    <keyboard-shortcut first-keystroke="control shift S"/>
+  </action>
+  <action id="SaveDocument">
+    <keyboard-shortcut first-keystroke="control S" />
+  </action>
+  <action id="OpenFile">
+    <keyboard-shortcut first-keystroke="control O"/>
+  </action>

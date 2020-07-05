@@ -1,0 +1,71 @@
+  <!-- free Ctrl+{Left,Right} -->
+  <action id="EditorPreviousWord"/>
+  <action id="EditorNextWord"/>
+  <!-- free Shift+Ctrl+{Left,Right} -->
+  <action id="EditorPreviousWordWithSelection"/>
+  <action id="EditorPreviousWordWithSelection"/>
+
+  <!-- free Ctrl+D -->
+  <action id="EditorDuplicate"/>
+  <!-- free Shift+Control+U-->
+  <action id="EditorToogleCase"/>
+
+  <!-- free Ctrl+G and/or Ctrl+L -->
+  <action id="GotoLine"/>
+
+  <!-- free HOME -->
+  <action id="EditorLineStart"/>
+
+  <!-- free shift+enter -->
+  <action id="EditorStartNewLine"/>
+  <!-- free Ctrl+Shift+Enter -->
+  <action id="EditorStartNewLineBefore"/>
+  <!-- free Ctrl+Y -->
+  <action id="EditorDeleteLine"/>
+
+  <!-- free Ctrl+D-->
+  <action id="EditorDuplicate"/>
+
+  <action id="EditorLeftWithSelection"/>
+  <action id="EditorRightWithSelection"/>
+
+  <!-- free HOME  -->
+  <action id="EditorLineStart"/>
+  <!-- free END -->
+  <action id="EditorLineEnd"/>
+
+  <!-- free shift+HOME -->
+  <action id="EditorLineStartWithSelection"/>
+  <!-- free shift+END -->
+  <action id="EditorLineEndWithSelection"/>
+
+  <action id="EditorDeleteToWordStart" />
+  <action id="EditorDeleteToWordEnd" />
+  <action id="EditorDeleteToLineStart" />
+  <action id="EditorDeleteToLineEnd" />
+  <action id="EditorDeleteToWordStartInDifferentHumpsMode"/>
+  <action id="EditorDeleteToWordEndInDifferentHumpsMode"/>
+
+  <!-- free -->
+  <action id="EditorSplitLine"/>
+  <!-- free Ctrl+Shift+J-->
+  <action id="EditorJoinLines"/>
+
+  <!-- % in VIM -->
+  <action id="EditorMatchBrace"/>
+
+  <!-- free alt+shift+down -->
+  <action id="MoveLineDown"/>
+  <!-- free alt+shift+up -->
+  <action id="MoveLineUp"/>
+
+  <!-- Ctrl+{Up,Down} in $default (we use VIM keys to scroll) -->
+  <action id="EditorScrollUp"/>
+  <action id="EditorScrollDown"/>
+
+  <!-- Ctrl+{Up,Down} in $default -->
+  <action id="EditorLookupUp"/>
+  <action id="EditorLookupDown"/>
+
+  <!-- <action id="MethodOverloadSwitchUp"><keyboard-shortcut first-keystroke="control UP"/></action>
+  <action id="MethodOverloadSwitchDown"><keyboard-shortcut first-keystroke="control DOWN"/></action> -->

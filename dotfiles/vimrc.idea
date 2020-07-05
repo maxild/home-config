@@ -1,0 +1,276 @@
+" See also https://medium.com/@danidiaz/configuring-ideavimrc-de16a4da0715
+
+"  Mouseless Driven Development by Hadi Hariri
+" https://www.youtube.com/watch?v=UH6YVv9js3s
+" https://github.com/JetBrains/ideavim
+" https://github.com/Valloric/dotfiles/blob/master/intellij/ideavimrc
+" https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
+
+set ignorecase
+set smartcase
+
+set showmode        " message on the status line to show current mode
+set relativenumber
+set number
+
+set visualbell
+set noerrorbells
+
+
+" dia daa cia caa
+" set argtextobj
+
+" die dae cie cae
+" set textobj-entire
+
+" https://github.com/JetBrains/ideavim/wiki/Select-mode
+" set selectmode-=template
+
+set scrolloff=3         " 3 lines above/below cursor when scrolling
+
+" Integrate with system clipboard (TODO: Maybe update vimrc with this)
+set clipboard=unnamedplus,unnamed
+
+" https://youtrack.jetbrains.com/issue/VIM-959
+set ideamarks
+
+" https://github.com/JetBrains/ideavim/wiki/%60ideajoin%60-examples
+set ideajoin
+
+" https://youtrack.jetbrains.com/issue/VIM-1521
+set commentary
+
+set surround
+set easymotion
+
+set multiple-cursors
+" OSX has special characters that are mapped to option+key. BUT we try using Unicode Hex Input
+"map <C-N>  <A-N>
+"map <C-P>  <A-P>
+"map <C-X>  <A-X>
+"map g<C-N> g<A-N>
+
+let mapleader = ","
+
+" Use a <Space> as the leader in IdeaVim
+"let mapleader = " "
+"let mapleader ="\<Space>"
+"let mapleader=<Space>
+
+imap jk <Esc>
+vmap jk <Esc>
+
+" This DOES NOT work
+" Somehow I cannot overwrite M-, on mac os x with Ctrl+Alt+S
+"map <C-A-S> ShowSettings
+"map <A-C-S> ShowSettings
+
+" These create newlines like o and O but stay in normal mode
+"nmap zj o<Esc>k
+"nmap zk O<Esc>j
+
+" NOTE: 'unmap <C-a>' does not work in IdeaVim, but 'map <C-a>' does (it
+" maps to nothing, BUT we still need to configure 'VIM Emulation' to use
+" IDE action)
+"
+" incremenet number in source is not that interesting
+" map <C-a> <Nop>
+
+" These are the default VIM key bindings
+" IDE: Ctrl-A: add one to number at cursor
+" VIM: Ctrl-B: scroll backwards
+" IDE: Ctrl-C: interrupt current search command
+" VIM: Ctrl-D: scroll windown downwards
+" IDE: Ctrl-E: scroll window {count} lines downwards
+" Ctrl-F:
+" IDE: Ctrl-G: print current filename
+" Ctrl-H:
+" Ctrl-I:
+" Ctrl-J:
+" Ctrl-K:
+" Ctrl-L:
+" Ctrl-M:
+" Ctrl-N: {count}Line down (navigation)
+" Ctrl-O:
+" Ctrl-P:
+" Ctrl-Q:
+" Ctrl-R:
+" Ctrl-S:
+" Ctrl-T:
+" Ctrl-U:
+" Ctrl-V:
+" Ctrl-W: window commands
+" Ctrl-X:
+" Ctrl-Y:
+" Ctrl-Z:
+
+" These are the equivalent IDE bindings to IDE actions
+" Ctrl-A: SelectAll
+" Ctrl-B: GotoDeclaration (remap to , B)
+" Ctrl-C: Copy
+" Ctrl-D: EditorDuplicate (remap to , D) (equivalent to: Yp)
+" Ctrl-E: RecentFiles
+" Ctrl-F:
+" Ctrl-G: MultipleCursors
+" Ctrl-H:
+" Ctrl-I:
+" Ctrl-J:
+" Ctrl-K:
+" Ctrl-L:
+" Ctrl-M:
+" Ctrl-N: SearchEverywhere (shift-shift is an alternative keybinding)
+" Ctrl-O:
+" Ctrl-P:
+" Ctrl-Q:
+" Ctrl-R:
+" Ctrl-S:
+" Ctrl-T:
+" Ctrl-U: GotoSymbol (???)
+" Ctrl-V:
+" Ctrl-W: SelectWord (together with Shift+Ctrl+W unselect/shrink selection)
+" Ctrl-X:
+" Ctrl-Y:
+" Ctrl-Z:
+
+" Use leader key sequences to access IDE commands
+map <leader>a :action $SelectAll<CR>
+"map <leader>b :action GotoDeclaration<CR>
+map <leader>c :action $Copy<CR>
+"map <leader>d :action EditorDuplicate<CR>
+"map <leader>e :action RecentFiles<CR>
+"map <leader>f :action Find<CR>
+"map <leader>g :action GotoLine<CR>
+"map <leader>h :action TypeHierarchy<CR>
+"map <leader>i :action ImplementMethods<CR>
+"map <leader>m :action EditorScrollToCenter<CR>
+"map <leader>n :action FileChooser.NewFolder<CR>
+"map <leader>n :action SearchEverywhere<CR>
+"map <leader>o :action OverrideMethods<CR>
+"map <leader>p :action ParameterInfo<CR>
+"map <leader>q :action QuickJavaDoc<CR>
+"map <leader>r :action Replace<CR>
+"map <leader>s :action SaveAll<CR>
+"map <leader>t :action Vcs.UpdateProject<CR>
+"map <leader>u :action GotoSuperMethod<CR>
+map <leader>v :action $Paste<CR>
+"map <leader>w :action EditorSelectWord<CR>
+map <leader>x :action $Cut<CR>
+"map <leader>y :action EditorDeleteLine<CR>
+"map <leader>[ :action EditorCodeBlockStart<CR>
+"map <leader>] :action EditorCodeBlockEnd<CR>
+
+"nmap <leader>g :action GotoDeclaration<cr>
+"nmap <leader>p :action GotoFile<cr>
+"nmap <leader>t :action ExpressionTypeInfo<cr>
+
+" ===============
+"   Navigation
+" ===============
+
+"map <M-Left> :action Back<CR>
+"map <M-Right> :action Forward<CR>
+
+" ===============
+"   Refactor
+" ===============
+
+" TODO
+
+
+" ================================================
+
+" NOTE: Below are a lot of commands where I have commented out 'map'.
+"       TODO: Investigate and uncomment
+" These are leader-based alternative shortcuts for actions whose corresponding
+" idea shortcuts require hand-stretching combinations, function keys, Home or
+" Insert.
+"
+" Shift + F6 in idea.
+" Alt + R, then R (through the menu bar) also seems to work fine.
+" map <Leader>r :action RenameElement<CR>
+" Ctrl + F12 in idea.
+" map <Leader>s :action FileStructurePopup<CR>
+
+" Perhaps just use the Idea shortcut Ctrl-Alt-B
+" Alt + N, then m (through the menu bar) also seems to work, but it is
+" non-unique.
+" map <Leader>i :action GotoImplementation<CR>
+" map <Leader>m :action GotoImplementation<CR>
+" map <Leader>d :action GotoImplementation<CR>
+
+" Jump to next/previous error, show error description
+" https://stackoverflow.com/questions/13346245/keyboard-shortcut-to-display-error-in-intellij
+" map <Leader>e :action ShowErrorDescription<CR>
+" map <Space> :action GotoNextError<CR>
+
+" Alt + F7 in idea.
+" Find usages in file is Ctrl + F7.
+" Alt + E, then F, then U (through the menu bar) also seems to work fine.
+" map <Leader>f :action FindUsages<CR>
+
+" Alt + Insert in idea.
+" map <Leader>g :action Generate<CR>
+
+" F12
+" map <Leader>w :action JumpToLastWindow<CR>
+
+" Possibly redundant given "Run Anything" DoubleCtrl
+" map <Leader>r :action ChooseRunConfiguration<CR>
+
+" These shortcuts mimic the default Idea action for one edition mode, using the
+" Vim action for the other.
+"
+" Same as default IDEA action, but only in normal mode. Delete previous char
+" in insert mode.
+" See also Ctrl + Shift + H for method hierarchy, Ctrl + Alt + H for call
+" hierarchy.
+" map <C-h> :action TypeHierarchy<CR>
+
+" Same as default IDEA action, but only in insert mode. Enter block-visual
+" mode in normal mode.
+" imap <C-v> <Esc>:action $Paste<CR>
+
+"
+" Here are mappings about which I'm less sure.
+
+" This is for going to related symbols. I can't find any effect in the community edition.
+" map <Leader>g :action GotoRelated<CR>
+
+" uppercase last inserted text. Perhpas just use gU`[ instead.
+" map <Leader>u `[v`]~`]
+
+" Can also use Ctrl-Shift-[
+" map <Leader>[ :action EditorCodeBlockStart<CR>
+
+" Can also use Ctrl-Shift-]
+" map <Leader>] :action EditorCodeBlockEnd<CR>
+
+" This is Ctrl-W in the default keymap, but we are using it for Vim.
+" map <C-s> :action EditorSelectWord<CR> " somewhat unconfrotable to type
+" map <C-d> :action EditorSelectWord<CR> " ditto
+" better to use your two hands!
+" map <C-k> :action EditorSelectWord<CR>
+" map <C-s> :action EditorSelectWord<CR>
+
+" uppercase last inserted word
+" imap <C-l> <Esc>bgUawea
+
+
+
+"nmap <leader>g :action GotoDeclaration<cr>
+" map <Leader>b :action GotoDeclaration<CR>
+"nmap <leader>b :action Back<cr>
+"nmap <leader>f :action Forward<cr>
+
+" map <Leader>u :action GotoSuperMethod<CR>
+
+"nmap <leader>t :action GotoFile<cr>
+"nmap <leader>c :action GotoClass<cr>
+"map <C-n> :action GotoClass<CR>
+"nmap <leader>ns :action GotoSymbol<cr>
+"nmap <leader>nm :action FileStructurePopup<cr>
+"nmap <leader>d :action ShowErrorDescription<cr>
+"nmap == :action ReformatCode<cr>
+
+" Switches between .cc and .h file!
+" nmap <leader>s :action GotoRelated<cr>

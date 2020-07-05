@@ -1,0 +1,53 @@
+  <!--
+    Navigate from Symbols
+  -->
+
+  <!-- Navigate To... -->
+  <action id="ReSharperNavigateTo">
+    <keyboard-shortcut first-keystroke="shift control G"/>
+  </action>
+  <!-- Go to Declaration or Usages (Declaration): D = Declaration -->
+  <action id="GotoDeclaration">
+    <keyboard-shortcut first-keystroke="control D"/>
+  </action>
+  <!-- Go to Type Declaration (Type of Symbol): T = Type -->
+  <action id="GotoTypeDeclaration">
+    <keyboard-shortcut first-keystroke="shift control T"/>
+  </action>
+  <!-- Go to Super Method (Base Symbols): U = Up -->
+  <action id="GotoSuperMethod">
+    <keyboard-shortcut first-keystroke="shift control U"/>
+  </action>
+
+  <!-- Go to Implementation(s) (Derived Symbols): D = Down -->
+  <action id="GotoImplementation">
+    <keyboard-shortcut first-keystroke="shift control D"/>
+  </action>
+
+  <action id="GotoRelated">
+    <keyboard-shortcut first-keystroke="shift control alt R"/>
+  </action>
+
+  <!-- Show Usages (opens drop down) -->
+  <action id="ShowUsages">
+    <keyboard-shortcut first-keystroke="control alt F7"/>
+  </action>
+  <!-- Find Usages (opens tool window) -->
+  <action id="FindUsages">
+    <keyboard-shortcut first-keystroke="alt f7"/>
+  </action>
+  <!-- Find Usages in File (will highlight all usages) -->
+  <action id="FindUsagesInFile">
+    <!-- TODO: Maybe make it Ctrl+F7 -->
+    <keyboard-shortcut first-keystroke="shift control F7"/>
+  </action>
+  <!-- Highlight Usages in File -->
+  <action id="HighlightUsagesInFile">
+    <keyboard-shortcut first-keystroke="shift control F7"/>
+  </action>
+
+  <action id="ShowSettingsAndFindUsages">
+    <keyboard-shortcut first-keystroke="control shift alt F7"/>
+    <keyboard-shortcut first-keystroke="shift alt F7"/>
+  </action>
+

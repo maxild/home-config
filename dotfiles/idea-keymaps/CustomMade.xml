@@ -1,0 +1,7 @@
+  <!-- Shift+Ctrl+{Up,Down} move statements up and down in the editor in $default-->
+
+  <!--
+    TODO: This a commands I don't know if I want to use?
+  -->
+  <action id="GotoTest" />
+  <action id="GotoChangedFile"/>
