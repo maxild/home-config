@@ -52,14 +52,14 @@ in
                   else cliApps;
 
   # https://vscode-update.azurewebsites.net/1.44.2/linux-x64/stable
-  programs.vscode = {
-    enable = guiHost;
-    #package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions; [
-      #vscodevim.vim
-      #ms-python.python
-    ];
-  };
+  #programs.vscode = {
+  #  enable = guiHost;
+  #  #package = pkgs.vscodium;
+  #  extensions = with pkgs.vscode-extensions; [
+  #    #vscodevim.vim
+  #    #ms-python.python
+  #  ];
+  #};
 
   programs.htop.enable = true;
 
