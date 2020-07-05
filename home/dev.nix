@@ -5,7 +5,7 @@
     ctags
 
     # this is defined in an overlay
-    dotnet-sdk_3_1
+    #dotnet-sdk_3_1
 
     # (with dotnetCorePackages; combinePackages [
     #   sdk_2_1
@@ -21,6 +21,6 @@
     ALTERNATE_EDITOR = "nano";
     # TODO
     #VIM_SOURCE_DIR="$HOME/vim";
-    DOTNET_ROOT="${pkgs.dotnet-sdk_3_1}";
+    #DOTNET_ROOT="${pkgs.dotnet-sdk_3_1}";
   };
 }
