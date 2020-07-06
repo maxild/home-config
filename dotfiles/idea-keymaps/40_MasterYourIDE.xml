@@ -5,13 +5,11 @@
 
   <!-- Quick scheme changing -->
   <action id="QuickChangeScheme">
-    <keyboard-shortcut first-keystroke="control COMMA"/>
-    <keyboard-shortcut first-keystroke="control alt COMMA"/>
+    <keyboard-shortcut first-keystroke="control shift COMMA"/>
   </action>
   <!-- Quick keymap changing -->
   <action id="ChangeKeymap">
-    <keyboard-shortcut first-keystroke="control SEMICOLON"/>
-    <keyboard-shortcut first-keystroke="control alt SEMICOLON"/>
+    <keyboard-shortcut first-keystroke="control shift SEMICOLON"/>
   </action>
 
   <action id="ToggleFullScreen">
@@ -31,6 +29,9 @@
 
   <action id="ShowSettings">
     <keyboard-shortcut first-keystroke="control alt S"/>
+  </action>
+  <action id="ShowProjectStructureSettings">
+    <keyboard-shortcut first-keystroke="shift control alt S"/>
   </action>
 
   <!--Open/Close editors  -->

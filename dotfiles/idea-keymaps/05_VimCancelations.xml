@@ -1,9 +1,54 @@
+  <!-- free control PAGE_UP-->
+  <action id="EditorMoveToPageTop"/>
+  <!-- free control PAGE_DOWN -->
+  <action id="EditorMoveToPageBottom"/>
+  <!-- free control shift PAGE_UP -->
+  <action id="EditorMoveToPageTopWithSelection"/>
+  <!-- free control shift PAGE_DOWN -->
+  <action id="EditorMoveToPageBottomWithSelection"/>
+
+  <!-- free Ctrl + M -->
+  <action id="EditorScrollToCenter"/>
+  <action id="EditorScrollBottom"/>
+  <action id="EditorScrollUp"/>
+
+  <!-- free control+{Up,Down}-->
+  <!-- Ctrl+{Up,Down} in $default (we use VIM keys to scroll) -->
+  <action id="EditorScrollUp"/>
+  <action id="EditorScrollDown"/>
+
   <!-- free Ctrl+{Left,Right} -->
   <action id="EditorPreviousWord"/>
   <action id="EditorNextWord"/>
+
   <!-- free Shift+Ctrl+{Left,Right} -->
   <action id="EditorPreviousWordWithSelection"/>
-  <action id="EditorPreviousWordWithSelection"/>
+  <action id="EditorNextWordWithSelection"/>
+
+  <action id="EditorTextStart"/>
+  <action id="EditorTextEnd"/>
+  <action id="EditorTextStartWithSelection"/>
+  <action id="EditorTextEndWithSelection"/>
+
+  <!-- free Ctrl+D -->
+  <action id="EditorDuplicate"/>
+  <!-- free Shift+Control+U-->
+  <action id="EditorToogleCase"/>
+
+  <!-- free Ctrl+G and/or Ctrl+L -->
+  <action id="GotoLine"/>
+
+  <!-- free HOME -->
+  <action id="EditorLineStart"/>
+
+  <!-- free shift+enter -->
+  <action id="EditorStartNewLine"/>
+  <!-- free Ctrl+Shift+Enter -->
+  <action id="EditorStartNewLineBefore"/>
+  <!-- free Ctrl+Y -->
+  <action id="EditorDeleteLine"/>
+
+  <!-- free Ctrl+D-->
 
   <!-- free Ctrl+D -->
   <action id="EditorDuplicate"/>
@@ -59,13 +104,20 @@
   <!-- free alt+shift+up -->
   <action id="MoveLineUp"/>
 
-  <!-- Ctrl+{Up,Down} in $default (we use VIM keys to scroll) -->
-  <action id="EditorScrollUp"/>
-  <action id="EditorScrollDown"/>
 
   <!-- Ctrl+{Up,Down} in $default -->
   <action id="EditorLookupUp"/>
   <action id="EditorLookupDown"/>
 
-  <!-- <action id="MethodOverloadSwitchUp"><keyboard-shortcut first-keystroke="control UP"/></action>
-  <action id="MethodOverloadSwitchDown"><keyboard-shortcut first-keystroke="control DOWN"/></action> -->
+  <!--
+    free Ctrl+Shift+U (In VIM we use tilde (~) to toogle case, u to lower and U to upper)
+
+    g~w => toggle case of word under curser
+    guw => lower-case word under cursor
+    gUw => upper-case word under cursori
+
+    gU<motion> will make the characters in motion uppercase,
+    gu<motion> for lowercase , and g~<motion> for toogle-case.
+  -->
+  <action id="EditorToggleCase"/>
+

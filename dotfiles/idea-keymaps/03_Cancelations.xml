@@ -7,6 +7,8 @@
   <action id="tasks.goto"/>
   <!-- shift+alt+L used by show in solution explorer -->
   <action id="context.load"/>
+  <!-- free shift+alt+S  -->
+  <action id="context.save"/>
 
   <!--Remove all Alt+Left and Alt+Right bindings -->
   <action id="PreviousTab"/>
@@ -18,4 +20,8 @@
   <action id="Diff.PrevChange"/>
   <action id="Diff.NextChange"/>
 
+  <!-- free control Enter that is used for Generate and NewElement -->
   <action id="ViewSource"/>
+
+  <!-- free Ctrl+D -->
+  <action id="CompareTwoFiles"/>

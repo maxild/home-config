@@ -7,3 +7,8 @@
   <action id="OpenFile">
     <keyboard-shortcut first-keystroke="control O"/>
   </action>
+
+  <action id="NewScratchFile"/>
+  <action id="NewScratchBuffer"/>
+
+

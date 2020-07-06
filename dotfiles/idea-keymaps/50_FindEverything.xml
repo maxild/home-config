@@ -15,6 +15,18 @@
   <action id="SearchEverywhere.NavigateToPrevGroup">
     <keyboard-shortcut first-keystroke="PAGE_UP"/>
   </action>
+  <action id="SearchEverywhere.NextTab">
+    <keyboard-shortcut first-keystroke="TAB"/>
+  </action>
+  <action id="SearchEverywhere.PrevTab">
+    <keyboard-shortcut first-keystroke="shift TAB"/>
+  </action>
+  <action id="SearchEverywhere.CompleteCommand">
+    <keyboard-shortcut first-keystroke="TAB"/>
+  </action>
+  <action id="SearchEverywhere.SelectItem">
+    <keyboard-shortcut first-keystroke="Enter"/>
+  </action>
 
   <!-- Find and Replace -->
   <action id="Find">
@@ -44,9 +56,13 @@
 
   <action id="PreviousOccurence">
     <keyboard-shortcut first-keystroke="shift alt F3"/>
+    <!-- TODO: Maybe delete, but free -->
+    <keyboard-shortcut first-keystroke="control alt DOWN"/>
   </action>
   <action id="NextOccurence">
     <keyboard-shortcut first-keystroke="alt F3"/>
+    <!-- TODO: Maybe delete, but free -->
+    <keyboard-shortcut first-keystroke="control alt UP"/>
   </action>
 
   <!--
@@ -61,15 +77,17 @@
     NOTE: Have to press (capital, shift) I afterwards to start editing
   -->
 
-  <!-- Ctrl+G -->
+  <!-- NOTE: VIM uses Alt+N etc and maybe we can move the followin 3 actions to vim cancelations -->
+
+  <!-- Ctrl+G or Ctrl+D -->
   <action id="SelectNextOccurrence">
     <keyboard-shortcut first-keystroke="alt J"/>
   </action>
-  <!-- Shift+Ctrl+G-->
+  <!-- Shift+Ctrl+G or Shift+Ctrl+D -->
   <action id="UnselectPreviousOccurrence">
     <keyboard-shortcut first-keystroke="alt shift J"/>
   </action>
-  <!-- Shift+Ctrl+Alt+G -->
+  <!-- Shift+Ctrl+Alt+G or Shift_Ctrl+Alt+D -->
   <action id="SelectAllOccurrences">
     <keyboard-shortcut first-keystroke="control alt shift J"/>
   </action>

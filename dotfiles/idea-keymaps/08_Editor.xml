@@ -1,3 +1,7 @@
+  <action id="$SelectAll">
+    <keyboard-shortcut first-keystroke="control A"/>
+  </action>
+
   <!-- Clipboard -->
   <action id="$Cut">
     <keyboard-shortcut first-keystroke="control X"/>
@@ -8,8 +12,13 @@
   <action id="$Copy">
     <keyboard-shortcut first-keystroke="control C"/>
   </action>
+
+  <!-- Undo/Redo -->
+  <action id="$Undo">
+    <keyboard-shortcut first-keystroke="control Z"/>
+  </action>
   <action id="$Redo">
-    <keyboard-shortcut first-keystroke="control Y"/>
+    <keyboard-shortcut first-keystroke="control shift Z"/>
   </action>
 
   <!-- regions -->
@@ -44,6 +53,9 @@
   <action id="NewElement">
     <keyboard-shortcut first-keystroke="control ENTER"/>
   </action>
+  <action id="NewElementSamePlace"/>
+
+  <!-- alt+insert is not nice on macbook -->
   <action id="Generate">
     <keyboard-shortcut first-keystroke="control ENTER"/>
   </action>

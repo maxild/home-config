@@ -21,7 +21,6 @@ let
   ${builtins.readFile ../dotfiles/idea-keymaps/80_Rider_BuildRunAndDebug.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/90_Rider_UnitTests.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/95_RefactorAndCleanup.xml}
-  ${builtins.readFile ../dotfiles/idea-keymaps/CustomMade.xml}
   </keymap>
   '';
 
@@ -40,7 +39,6 @@ let
   ${builtins.readFile ../dotfiles/idea-keymaps/70_NavigateInContext.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/80_BuildRunAndDebug.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/95_RefactorAndCleanup.xml}
-  ${builtins.readFile ../dotfiles/idea-keymaps/CustomMade.xml}
   </keymap>
   '';
 

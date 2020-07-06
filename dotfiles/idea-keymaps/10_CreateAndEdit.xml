@@ -1,6 +1,11 @@
   <action id="ShowIntentionActions">
     <keyboard-shortcut first-keystroke="alt ENTER"/>
   </action>
+
+  <action id="QuickActionPopup">
+    <keyboard-shortcut first-keystroke="control alt ENTER"/>
+  </action>
+
   <action id="CodeCompletion">
     <keyboard-shortcut first-keystroke="control SPACE"/>
   </action>
@@ -10,9 +15,35 @@
   <action id="ClassNameCompletion">
     <keyboard-shortcut first-keystroke="control alt SPACE"/>
   </action>
+  <action id="EditorCompleteStatement">
+    <keyboard-shortcut first-keystroke="control shift ENTER"/>
+  </action>
+
+  <action id="HippieCompletion">
+    <keyboard-shortcut first-keystroke="alt SLASH"/>
+  </action>
+  <action id="HippieBackwardCompletion">
+    <keyboard-shortcut first-keystroke="alt shift SLASH"/>
+  </action>
+
+
+  <!-- Parameter Info -->
   <action id="ParameterInfo">
     <keyboard-shortcut first-keystroke="control P"/>
-    <keyboard-shortcut first-keystroke="shift control SPACE"/>
+  </action>
+  <!-- <action id="ParameterInfo.GotoPreviousSignature">
+    <keyboard-shortcut first-keystroke="control shift P"/>
+  </action> -->
+  <!--Type Info -->
+  <action id="ExpressionTypeInfo">
+    <keyboard-shortcut first-keystroke="control shift P"/>
+  </action>
+
+  <action id="NextParameter">
+    <keyboard-shortcut first-keystroke="TAB"/>
+  </action>
+  <action id="PrevParameter">
+    <keyboard-shortcut first-keystroke="shift TAB"/>
   </action>
 
   <!-- Quick Definition (popup) -->
@@ -57,9 +88,14 @@
   </action>
 
   <!-- Move Line Up/Down -->
+  <!-- NOTE: Conflicts with resize tool window, but it it is Okay -->
   <action id="MoveStatementUp">
-    <keyboard-shortcut first-keystroke="control alt shift UP"/>
+    <keyboard-shortcut first-keystroke="control shift UP"/>
   </action>
   <action id="MoveStatementDown">
-    <keyboard-shortcut first-keystroke="control alt shift DOWN"/>
+    <keyboard-shortcut first-keystroke="control shift DOWN"/>
+  </action>
+
+  <action id="EmojiAndSymbols">
+    <keyboard-shortcut first-keystroke="control alt shift SPACE"/>
   </action>

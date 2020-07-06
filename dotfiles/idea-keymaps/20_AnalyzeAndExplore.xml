@@ -1,3 +1,14 @@
+  <action id="InspectThis">
+    <keyboard-shortcut first-keystroke="control shift alt A"/>
+  </action>
+
+  <action id="ShowErrorDescription">
+    <keyboard-shortcut first-keystroke="control F1"/>
+  </action>
+  <action id="ExternalJavaDoc">
+    <keyboard-shortcut first-keystroke="shift F1"/>
+  </action>
+
   <!-- Highlighted error -->
   <action id="GotoPreviousError">
     <keyboard-shortcut first-keystroke="shift F2"/>
@@ -12,6 +23,11 @@
   </action>
   <action id="ReSharperGotoNextErrorInSolution">
     <keyboard-shortcut first-keystroke="alt F2"/>
+  </action>
+
+  <!-- run inspection by name -->
+  <action id="RunInspection">
+    <keyboard-shortcut first-keystroke="control shift alt I"/>
   </action>
 
   <!-- Rider bindings -->

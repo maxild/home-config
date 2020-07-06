@@ -1,3 +1,9 @@
+  <!--
+  <action id="Compile">
+    <keyboard-shortcut first-keystroke="control shift F9"/>
+  </action>
+  -->
+
   <!-- Build+Run+Debug commands -->
   <action id="BuildSolutionAction">
     <keyboard-shortcut first-keystroke="control B"/>
@@ -9,8 +15,9 @@
   <action id="Run">
     <keyboard-shortcut first-keystroke="control F5"/>
   </action>
+
   <action id="Debug">
-    <keyboard-shortcut first-keystroke="alt F5"/>
+    <keyboard-shortcut first-keystroke="F5"/>
   </action>
 
   <action id="RunClass">
@@ -33,15 +40,27 @@
   <action id="StepInto">
     <keyboard-shortcut first-keystroke="F11"/>
   </action>
+  <action id="SmartStepInto">
+    <!-- TODO: Hvad er det? -->
+    <keyboard-shortcut first-keystroke="shift F7"/>
+  </action>
   <action id="ForceStepInto">
     <keyboard-shortcut first-keystroke="alt F11"/>
   </action>
   <action id="StepOver">
     <keyboard-shortcut first-keystroke="F10"/>
   </action>
+  <action id="ForceStepOver">
+    <!-- TODO: Hvad er det? -->
+    <keyboard-shortcut first-keystroke="alt shift F8"/>
+  </action>
   <action id="RunToCursor">
     <keyboard-shortcut first-keystroke="control F10"/>
   </action>
+  <action id="ForceRunToCursor">
+    <keyboard-shortcut first-keystroke="control alt F10"/>
+  </action>
+
 
   <action id="EvaluateExpression">
     <keyboard-shortcut first-keystroke="shift F9"/>
@@ -56,6 +75,9 @@
   <!-- Breakpoints -->
   <action id="ToggleLineBreakpoint">
     <keyboard-shortcut first-keystroke="F9"/>
+  </action>
+  <action id="ToggleTemporaryLineBreakpoint">
+    <keyboard-shortcut first-keystroke="control shift alt F8"/>
   </action>
   <action id="ToggleBreakpointEnabled">
     <keyboard-shortcut first-keystroke="control F9"/>

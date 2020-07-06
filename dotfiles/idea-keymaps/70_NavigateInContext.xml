@@ -59,7 +59,6 @@
 
   <action id="ShowBookmarks">
     <keyboard-shortcut first-keystroke="shift F11"/>
-    <keyboard-shortcut first-keystroke="control BACK_QUOTE"/>
   </action>
   <action id="ToggleBookmarkWithMnemonic">
     <keyboard-shortcut first-keystroke="control F11"/>
