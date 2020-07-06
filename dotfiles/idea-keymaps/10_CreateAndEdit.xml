@@ -61,10 +61,10 @@
 
   <!-- override/implement members -->
   <action id="ImplementMethods">
-    <keyboard-shortcut first-keystroke="shift control I"/>
+    <keyboard-shortcut first-keystroke="shift alt I"/>
   </action>
   <action id="OverrideMethods">
-    <keyboard-shortcut first-keystroke="shift control O"/>
+    <keyboard-shortcut first-keystroke="shift alt O"/>
   </action>
 
   <!-- extend/shrink selection -->
@@ -79,8 +79,6 @@
   <action id="CommentByLineComment">
     <keyboard-shortcut first-keystroke="control SLASH"/>
     <keyboard-shortcut first-keystroke="control DIVIDE"/>
-    <keyboard-shortcut first-keystroke="control K" second-keystroke="C"/>
-    <keyboard-shortcut first-keystroke="control K" second-keystroke="control C"/>
   </action>
   <action id="CommentByBlockComment">
     <keyboard-shortcut first-keystroke="control shift SLASH"/>

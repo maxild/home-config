@@ -1,6 +1,9 @@
+  <!--
+  NOTE: Ctrl+I is reserved for jump list VIM command (Forward)
   <action id="IncrementalSearch">
     <keyboard-shortcut first-keystroke="control I"/>
   </action>
+  -->
 
   <!-- Go to All -->
   <!--
@@ -79,17 +82,14 @@
 
   <!-- NOTE: VIM uses Alt+N etc and maybe we can move the followin 3 actions to vim cancelations -->
 
-  <!-- Ctrl+G or Ctrl+D -->
   <action id="SelectNextOccurrence">
-    <keyboard-shortcut first-keystroke="alt J"/>
+    <keyboard-shortcut first-keystroke="control D"/>
   </action>
-  <!-- Shift+Ctrl+G or Shift+Ctrl+D -->
   <action id="UnselectPreviousOccurrence">
-    <keyboard-shortcut first-keystroke="alt shift J"/>
+    <keyboard-shortcut first-keystroke="shift control D"/>
   </action>
-  <!-- Shift+Ctrl+Alt+G or Shift_Ctrl+Alt+D -->
   <action id="SelectAllOccurrences">
-    <keyboard-shortcut first-keystroke="control alt shift J"/>
+    <keyboard-shortcut first-keystroke="shift control alt D"/>
   </action>
 
   <!-- Caret Cloning: Press double-Alt and use Up/Down arrows to clone cursor -->

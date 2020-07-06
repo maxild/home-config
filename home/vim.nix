@@ -2,7 +2,9 @@
 
 let
 
-  # We group the keybindings according to the "Keymap Reference" headings
+  # We group the keybindings according to the "Keymap Reference" headings in
+  # the $default keymap reference card
+  # https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
   keymapsFile = ''
   <keymap name="CustomMade" parent="$default" version="1" disable-mnemonics="false">
   ${builtins.readFile ../dotfiles/idea-keymaps/03_Cancelations.xml}
@@ -14,6 +16,7 @@ let
   ${builtins.readFile ../dotfiles/idea-keymaps/30_VersionControl.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/40_MasterYourIDE.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/40_Rider_MasterYourIDE.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/45_ToolWindows.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/50_FindEverything.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/60_NavigateFromSymbols.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/70_NavigateInContext.xml}
@@ -34,6 +37,7 @@ let
   ${builtins.readFile ../dotfiles/idea-keymaps/20_AnalyzeAndExplore.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/30_VersionControl.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/40_MasterYourIDE.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/45_ToolWindows.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/50_FindEverything.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/60_NavigateFromSymbols.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/70_NavigateInContext.xml}

@@ -63,14 +63,6 @@
   <!--
     Editor settings (Ctrl+E <second-key> namespace)
   -->
-  <action id="EditorToggleShowWhitespaces">
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="W"/>
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="control W"/>
-  </action>
-  <action id="EditorToggleUseSoftWraps">
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="S"/>
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="control S"/>
-  </action>
   <!-- Column Selection (multiple cursors of start of each line in the selected block): Shift+Alt+Insert -->
   <!-- NOTE: Insert key on macbook: Fn + Ctrl + Enter -->
   <action id="EditorToogleColumnMode">

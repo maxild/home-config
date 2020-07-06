@@ -67,12 +67,12 @@
   </action>
 
   <action id="CodeCleanup">
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="C"/>
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="control C"/>
+    <keyboard-shortcut first-keystroke="control K" second-keystroke="C"/>
+    <keyboard-shortcut first-keystroke="control K" second-keystroke="control C"/>
   </action>
   <action id="SilentCodeCleanup">
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="F"/>
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="control F"/>
+    <keyboard-shortcut first-keystroke="control K" second-keystroke="S"/>
+    <keyboard-shortcut first-keystroke="control K" second-keystroke="control S"/>
   </action>
 
   <action id="RiderBackendAction-EncapsulateField">
@@ -91,13 +91,9 @@
 
   <action id="SurroundWithLiveTemplate">
     <keyboard-shortcut first-keystroke="control alt J"/>
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="U"/>
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="control U"/>
   </action>
   <action id="InsertLiveTemplate">
     <keyboard-shortcut first-keystroke="control J"/>
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="L"/>
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="control L"/>
   </action>
 
   <action id="PreviousTemplateVariable">

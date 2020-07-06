@@ -4,8 +4,9 @@
   <action id="SaveDocument">
     <keyboard-shortcut first-keystroke="control S" />
   </action>
+  <!-- Ww want to free Ctrl+O as a VIM command (jump list = Back) -->
   <action id="OpenFile">
-    <keyboard-shortcut first-keystroke="control O"/>
+    <keyboard-shortcut first-keystroke="control alt O"/>
   </action>
 
   <action id="NewScratchFile"/>

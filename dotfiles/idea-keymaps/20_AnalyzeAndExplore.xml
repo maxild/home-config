@@ -33,8 +33,6 @@
   <!-- Rider bindings -->
   <action id="TypeHierarchy">
     <keyboard-shortcut first-keystroke="control H"/>
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="H"/>
-    <keyboard-shortcut first-keystroke="control E" second-keystroke="control H"/>
   </action>
   <action id="MethodHierarchy">
     <keyboard-shortcut first-keystroke="shift control H"/>

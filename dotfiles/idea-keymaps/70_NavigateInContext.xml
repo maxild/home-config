@@ -18,12 +18,15 @@
   <action id="Back">
     <keyboard-shortcut first-keystroke="alt LEFT"/>
     <keyboard-shortcut first-keystroke="control alt LEFT"/>
+    <!-- VIM command (jump list) -->
+    <keyboard-shortcut first-keystroke="control O"/>
   </action>
   <action id="Forward">
     <keyboard-shortcut first-keystroke="alt RIGHT"/>
     <keyboard-shortcut first-keystroke="control alt RIGHT"/>
+    <!-- VIM command (jump list) -->
+    <keyboard-shortcut first-keystroke="control I"/>
   </action>
-
 
   <action id="MethodUp">
     <keyboard-shortcut first-keystroke="alt UP"/>
@@ -34,22 +37,18 @@
 
   <!-- Goto either matching brace or outer brace -->
   <action id="EditorCodeBlockStart">
-    <keyboard-shortcut first-keystroke="shift alt OPEN_BRACKET"/>
-    <keyboard-shortcut first-keystroke="control OPEN_BRACKET"/>
+    <keyboard-shortcut first-keystroke="alt OPEN_BRACKET"/>
   </action>
   <action id="EditorCodeBlockEnd">
-    <keyboard-shortcut first-keystroke="shift alt CLOSE_BRACKET"/>
-    <keyboard-shortcut first-keystroke="control CLOSE_BRACKET"/>
+    <keyboard-shortcut first-keystroke="alt CLOSE_BRACKET"/>
   </action>
 
   <!-- Goto either matching brace or outer brace (and select) -->
   <action id="EditorCodeBlockStartWithSelection">
-    <keyboard-shortcut first-keystroke="control shift OPEN_BRACKET"/>
-    <keyboard-shortcut first-keystroke="control alt shift OPEN_BRACKET"/>
+    <keyboard-shortcut first-keystroke="shift alt OPEN_BRACKET"/>
   </action>
   <action id="EditorCodeBlockEndWithSelection">
-    <keyboard-shortcut first-keystroke="control shift CLOSE_BRACKET"/>
-    <keyboard-shortcut first-keystroke="control alt shift CLOSE_BRACKET"/>
+    <keyboard-shortcut first-keystroke="shift alt CLOSE_BRACKET"/>
   </action>
 
   <!--

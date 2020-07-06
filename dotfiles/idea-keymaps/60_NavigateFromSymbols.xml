@@ -9,8 +9,6 @@
   <!-- Go to Declaration or Usages (Declaration): D = Declaration -->
   <action id="GotoDeclaration">
     <keyboard-shortcut first-keystroke="F12"/>
-    <!-- TODO: Maybe only use F12 and use Ctrl+D for multiple cursors (see ) -->
-    <keyboard-shortcut first-keystroke="control D"/>
   </action>
   <!-- Go to Type Declaration (Type of Symbol): T = Type -->
   <action id="GotoTypeDeclaration">
@@ -23,8 +21,7 @@
 
   <!-- Go to Implementation(s) (Derived Symbols): D = Down -->
   <action id="GotoImplementation">
-    <!-- TODO: Maybe use Ctrl+Shift+Alt+T or other, if Ctrl+D, Ctrl+Shift+D is used for multiple cursors -->
-    <keyboard-shortcut first-keystroke="shift control D"/>
+    <keyboard-shortcut first-keystroke="shift control I"/>
   </action>
 
   <action id="GotoRelated">
