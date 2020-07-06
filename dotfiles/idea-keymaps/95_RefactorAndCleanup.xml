@@ -15,7 +15,7 @@
     <keyboard-shortcut first-keystroke="control R" second-keystroke="control D"/>
   </action>
   <action id="RenameElement">
-    <keyboard-shortcut first-keystroke="F2"/>
+    <keyboard-shortcut first-keystroke="shift F6"/>
     <keyboard-shortcut first-keystroke="control R" second-keystroke="R"/>
     <keyboard-shortcut first-keystroke="control R" second-keystroke="control R"/>
   </action>
