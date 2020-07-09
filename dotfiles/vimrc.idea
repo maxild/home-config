@@ -52,6 +52,10 @@ set multiple-cursors
 "map <C-X>  <A-X>
 "map g<C-N> g<A-N>
 
+" Repeat IDEA keymap to fight conflicts
+map <C-Up> :action EditorSelectWord<CR>
+map <C-Down> :action EditorUnSelectWord<CR>
+
 " =======================================
 
 let mapleader = ","
@@ -82,16 +86,16 @@ nnoremap ]c :action VcsShowNextChangeMarker<cr>
 " =====================================================
 
 " IdeaVim uses 'a' for alt instead of Vim's 'm'
-nmap <a-j> 15gj
-nmap <a-k> 15gk
+nnoremap <a-j> 15gj
+nnoremap <a-k> 15gk
 
 " Won't work in visual mode (with vmap) for some reason.
 " Use default map of <c-/> for that.
-nmap gcc :action CommentByLineComment<cr>
+nnoremap gcc :action CommentByLineComment<cr>
 
 " Closing tabs
-nmap <leader>q :action CloseContent<cr>
-nmap <leader>Q :action ReopenClosedTab<cr>
+nnoremap <leader>q :action CloseContent<cr>
+nnoremap <leader>Q :action ReopenClosedTab<cr>
 
 " NOTE: 'unmap <C-a>' does not work in IdeaVim, but 'map <C-a>' does (it
 " maps to nothing, BUT we still need to configure 'VIM Emulation' to use
@@ -112,6 +116,11 @@ nnoremap <C-]> :action GotoDeclaration<CR>
 " ========================================
 "    Leader key based alternatives
 " ========================================
+
+" relative line numbers
+nnoremap <leader>z :set norelativenumber<CR>
+nnoremap <leader>Z :set relativenumber<CR>
+
 " These are leader-based alternative shortcuts for my most used actions
 " whose corresponding idea shortcuts require hand-stretching combinations,
 " function keys, Home or Insert

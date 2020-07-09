@@ -25,3 +25,6 @@
 
   <!-- free Ctrl+D -->
   <action id="CompareTwoFiles"/>
+
+  <!-- free F5 -->
+  <action id="CopyElement" />
