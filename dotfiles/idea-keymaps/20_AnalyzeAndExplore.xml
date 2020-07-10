@@ -17,14 +17,6 @@
     <keyboard-shortcut first-keystroke="F2"/>
   </action>
 
-  <!-- Error in solution -->
-  <action id="ReSharperGotoPrevErrorInSolution">
-    <keyboard-shortcut first-keystroke="shift alt F2"/>
-  </action>
-  <action id="ReSharperGotoNextErrorInSolution">
-    <keyboard-shortcut first-keystroke="alt F2"/>
-  </action>
-
   <!-- run inspection by name -->
   <action id="RunInspection">
     <keyboard-shortcut first-keystroke="control shift alt I"/>

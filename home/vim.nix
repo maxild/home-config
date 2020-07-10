@@ -13,12 +13,14 @@ let
   ${builtins.readFile ../dotfiles/idea-keymaps/08_Editor.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/10_CreateAndEdit.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/20_AnalyzeAndExplore.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/20_Rider_AnalyzeAndExplore.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/30_VersionControl.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/40_MasterYourIDE.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/40_Rider_MasterYourIDE.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/45_ToolWindows.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/50_FindEverything.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/60_NavigateFromSymbols.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/60_Rider_NavigateFromSymbols.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/70_NavigateInContext.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/80_BuildRunAndDebug.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/80_Rider_BuildRunAndDebug.xml}

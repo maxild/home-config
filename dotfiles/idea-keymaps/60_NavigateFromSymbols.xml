@@ -2,25 +2,24 @@
     Navigate from Symbols
   -->
 
-  <!-- Navigate To... -->
-  <action id="ReSharperNavigateTo">
-    <keyboard-shortcut first-keystroke="shift control G"/>
-  </action>
   <!-- Go to Declaration or Usages (Declaration): D = Declaration -->
   <action id="GotoDeclaration">
-    <keyboard-shortcut first-keystroke="F12"/>
+    <keyboard-shortcut first-keystroke="control B"/>
   </action>
   <!-- Go to Type Declaration (Type of Symbol): T = Type -->
   <action id="GotoTypeDeclaration">
+    <keyboard-shortcut first-keystroke="shift control B"/>
     <keyboard-shortcut first-keystroke="shift control T"/>
   </action>
   <!-- Go to Super Method (Base Symbols): U = Up -->
   <action id="GotoSuperMethod">
+    <keyboard-shortcut first-keystroke="control U"/>
     <keyboard-shortcut first-keystroke="shift control U"/>
   </action>
 
   <!-- Go to Implementation(s) (Derived Symbols): D = Down -->
   <action id="GotoImplementation">
+    <keyboard-shortcut first-keystroke="control alt B"/>
     <keyboard-shortcut first-keystroke="shift control I"/>
   </action>
 

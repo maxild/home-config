@@ -84,7 +84,6 @@
   </action>
   <action id="ViewBreakpoints">
     <keyboard-shortcut first-keystroke="control shift F8"/>
-    <keyboard-shortcut first-keystroke="control alt B"/>
   </action>
   <action id="EditBreakpoint">
     <keyboard-shortcut first-keystroke="alt F9"/>
