@@ -45,6 +45,7 @@ let
   ${builtins.readFile ../dotfiles/idea-keymaps/70_NavigateInContext.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/80_BuildRunAndDebug.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/95_RefactorAndCleanup.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/95_Goland_RefactorAndCleanup.xml}
   </keymap>
   '';
 
@@ -64,6 +65,7 @@ clionKeymapsFile = ''
   ${builtins.readFile ../dotfiles/idea-keymaps/70_NavigateInContext.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/80_BuildRunAndDebug.xml}
   ${builtins.readFile ../dotfiles/idea-keymaps/95_RefactorAndCleanup.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/95_CLion_RefactorAndCleanup.xml}
   </keymap>
   '';
 
