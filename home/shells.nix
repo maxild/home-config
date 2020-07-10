@@ -92,6 +92,11 @@ let
       export PATH="$PATH:$HOME/bin"
     fi
 
+    # we need Cargo's bin directory ($HOME/.cargo/bin) in our PATH
+    if [ -e "$HOME/.cargo/bin" ]; then
+      export PATH="$PATH:$HOME/.cargo/bin"
+    fi
+
     if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
       source "$HOME/.nix-profile/etc/profile.d/nix.sh"
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
