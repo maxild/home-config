@@ -117,9 +117,8 @@ nnoremap <C-]> :action GotoDeclaration<CR>
 "    Leader key based alternatives
 " ========================================
 
-" relative line numbers
-nnoremap <leader>z :set norelativenumber<CR>
-nnoremap <leader>Z :set relativenumber<CR>
+" toggle relative line numbers
+nnoremap <leader>z :set relativenumber!<CR>
 
 " These are leader-based alternative shortcuts for my most used actions
 " whose corresponding idea shortcuts require hand-stretching combinations,
