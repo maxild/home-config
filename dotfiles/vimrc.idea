@@ -169,23 +169,16 @@ nmap <S-Space> :action ReSharperGotoNextErrorInSolution<CR>
 " Bookmarks
 "nmap <leader>b :action ShowBookmarks<cr>
 
-" Terminal
-"nmap <leader>T :action ActivateTerminalToolWindow<cr>
-
 " To navigate between split panes
-"nmap <leader>wo :action NextSplitter<cr>
-"nmap <leader>wp :action PrevSplitter<cr>
-"nmap <leader>j :action PrevSplitter<cr>
+nmap <leader>k :action NextSplitter<cr>
+nmap <leader>j :action PrevSplitter<cr>
 
 " Splits manipulation
-"nmap <leader>ws :action SplitHorizontally<cr>
-"nmap <leader>wv :action SplitVertically<cr>
-"nmap <leader>wc :action Unsplit<cr>
-"nmap <leader>wC :action UnsplitAll<cr>
+nmap <leader>ws :action SplitHorizontally<cr>
+nmap <leader>wv :action SplitVertically<cr>
+nmap <leader>wc :action Unsplit<cr>
+nmap <leader>wC :action UnsplitAll<cr>
 "nmap <leader>wd :action OpenEditorInOppositeTabGroup<cr>
-"nmap <leader><leader> :action VimFilePrevious<cr>
-"nmap <leader>ww :action JumpToLastWindow<cr>
-"nmap <leader>p :action JumpToLastWindow<cr>
 "nmap <Leader>w :action JumpToLastWindow<CR>
 
 
