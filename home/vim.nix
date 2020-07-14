@@ -69,6 +69,25 @@ clionKeymapsFile = ''
   </keymap>
   '';
 
+intelliJIdeaKeymapsFile = ''
+  <keymap name="CustomMade" parent="$default" version="1" disable-mnemonics="false">
+  ${builtins.readFile ../dotfiles/idea-keymaps/03_Cancelations.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/05_VimCancelations.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/07_File.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/08_Editor.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/10_CreateAndEdit.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/20_AnalyzeAndExplore.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/30_VersionControl.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/40_MasterYourIDE.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/45_ToolWindows.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/50_FindEverything.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/60_NavigateFromSymbols.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/70_NavigateInContext.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/80_BuildRunAndDebug.xml}
+  ${builtins.readFile ../dotfiles/idea-keymaps/95_RefactorAndCleanup.xml}
+  </keymap>
+  '';
+
 in
 
 {
@@ -107,10 +126,12 @@ in
     "Library/Application Support/JetBrains/Rider2020.1/keymaps/CustomMade.xml".text = keymapsFile;
     "Library/Application Support/JetBrains/GoLand2020.1/keymaps/CustomMade.xml".text = golandKeymapsFile;
     "Library/Application Support/JetBrains/CLion2020.1/keymaps/CustomMade.xml".text = clionKeymapsFile;
+    "Library/Application Support/JetBrains/IntelliJIdea2020.1/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
   }) // (if builtins.currentSystem == "x86_64-linux" then {
     ".config/JetBrains/Rider2020.1/keymaps/CustomMade.xml".text = keymapsFile;
     ".config/JetBrains/GoLand2020.1/keymaps/CustomMade.xml".text = golandKeymapsFile;
     ".config/JetBrains/CLion2020.1/keymaps/CustomMade.xml".text = clionKeymapsFile;
+    ".config/JetBrains/IntelliJIdea2020.1/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
   } else {});
 
 

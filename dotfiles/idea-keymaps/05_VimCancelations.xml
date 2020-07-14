@@ -99,12 +99,6 @@
   <!-- % in VIM -->
   <action id="EditorMatchBrace"/>
 
-  <!-- free alt+shift+down -->
-  <action id="MoveLineDown"/>
-  <!-- free alt+shift+up -->
-  <action id="MoveLineUp"/>
-
-
   <!-- Ctrl+{Up,Down} in $default -->
   <action id="EditorLookupUp"/>
   <action id="EditorLookupDown"/>
