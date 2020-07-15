@@ -28,3 +28,10 @@
 
   <!-- free F5 -->
   <action id="CopyElement" />
+
+  <!-- free shift+alt+B -->
+  <action id="tasks.open.in.browser" />
+  <!-- free shift+alt+T -->
+  <action id="tasks.switch" />
+  <!-- free shift+alt+W -->
+  <action id="tasks.close" />

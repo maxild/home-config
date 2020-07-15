@@ -1,15 +1,21 @@
   <!--
-    Navigate from Symbols
+    Navigate from Symbols:
+    We reserve the G key for the most important goto actions
+
+    C-G: Goto declaration (or usages)
+    A-G: Goto type decl
+    S-C-G: Navigate yo anything (Rider specific)
+    C-A-G: Goto impl
+    S-A-G: Goto usages (via dropdown)
   -->
 
-  <!-- Go to Declaration or Usages (Declaration): D = Declaration -->
+  <!-- Go to Declaration or Usages (Declaration) -->
   <action id="GotoDeclaration">
-    <keyboard-shortcut first-keystroke="control B"/>
+    <keyboard-shortcut first-keystroke="control G"/>
   </action>
-  <!-- Go to Type Declaration (Type of Symbol): T = Type -->
+  <!-- Go to Type Declaration (Type of Symbol) -->
   <action id="GotoTypeDeclaration">
-    <keyboard-shortcut first-keystroke="shift control B"/>
-    <keyboard-shortcut first-keystroke="shift control T"/>
+    <keyboard-shortcut first-keystroke="alt G"/>
   </action>
   <!-- Go to Super Method (Base Symbols): U = Up -->
   <action id="GotoSuperMethod">
@@ -17,9 +23,9 @@
     <keyboard-shortcut first-keystroke="shift control U"/>
   </action>
 
-  <!-- Go to Implementation(s) (Derived Symbols): D = Down -->
+  <!-- Go to Implementation(s) (Derived Symbols) -->
   <action id="GotoImplementation">
-    <keyboard-shortcut first-keystroke="control alt B"/>
+    <keyboard-shortcut first-keystroke="shift alt G"/>
     <keyboard-shortcut first-keystroke="shift control I"/>
   </action>
 
@@ -34,6 +40,7 @@
 
   <!-- Show Usages (opens drop down) -->
   <action id="ShowUsages">
+    <keyboard-shortcut first-keystroke="control alt G"/>
     <keyboard-shortcut first-keystroke="control alt F7"/>
   </action>
   <!-- Find Usages (opens tool window) -->
