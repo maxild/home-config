@@ -1,3 +1,4 @@
   <!-- Navigate To... -->
   <action id="ReSharperNavigateTo">
     <keyboard-shortcut first-keystroke="shift control G"/>
+  </action>
