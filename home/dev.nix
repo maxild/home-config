@@ -3,6 +3,85 @@
 {
   home.packages = with pkgs; [
 
+    # See also https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/python.section.md
+
+    #
+    # default.nix
+    #
+    # with import <nixpkgs> {};
+
+    # # wrapper around mkDerivation (getting the right interpreter version)
+    # python3Packages.buildPythonPackage {
+    #   pname = "pybids"
+    #   version = "0.10.2"
+
+    #   src = ./.;
+
+    #   # normally we use buildInputs, but python is a little different
+    #   propagatedBuildInputs = with python3Packages; [
+    #     numpy
+    #     # etc...
+    #   ];
+
+    #   checkInputs = with python3Packages; [
+    #     pytest
+    #     mock
+    #   ]
+
+    #   doCheck = true | false;
+    #   checkPhase = ''
+    #     pytest
+    #   '';
+    #   pythonImportsCheck = [ "bids" ];
+    # }
+
+    #
+    # shell.nix
+    #
+    # nix-shell -A py38
+    # with import <nixpkgs> {};
+
+    # let
+    #   # wrapper around mkDerivation (getting the right interpreter version)
+    #   makeShell = python : (mkShell {
+    #     name = "pybids-dev-env"
+
+    #     # this works only if the following packages are available in unstable nipkgs
+    #     buildInputs = with python38Packages; [
+    #       numpy
+    #       # etc...
+    #       pytest
+    #       mock
+    #     ]
+    #     # to use package not in nixpkgs, you can drop down to virtualenv
+    #     venvDir = "venv${python.version}";
+    #     postShellHoot = ''
+    #       pip install num3words
+    #     '';
+    #   });
+    # in
+    #   {
+    #     py37 = makeShell python37;
+    #     py38 = makeShell python38;
+    #     py39 = makeShell python39;
+    #   }
+
+    # NOTE: Another style of dev env
+    # with import <nixpkgs> {};
+    # buildEnv {
+    #   name = "env";
+    #   paths = [
+    #     (python38.withPackages (ps: with ps; [
+    #       (callPackage ./toolz.nix {})
+    #       numpy
+    #     ]))
+    #     graphviz
+    #   ];
+    # }
+
+    # We start with this
+    python38
+
     # Only install gcc/clang into shell.nixi
     # Compiling any C library installed with nix does not work unless you use a
     # nix-shell. This is because our gcc package is actually a shell script that

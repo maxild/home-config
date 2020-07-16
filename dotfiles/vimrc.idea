@@ -18,8 +18,16 @@ set noerrorbells
 " set selectmode-=template
 
 " Integrate with system clipboard
-set clipboard=unnamedplus,unnamed
+" On Mac OS X and Windows, the * and + registers both point to the system clipboard
+" so unnamed and unnamedplus have the same effect: the unnamed register is synchronized
+" with the system clipboard.
+" On Linux, you have essentially two clipboards: one is pretty much the same as in
+" the other OSes (Ctrl+C and Ctrl+V in other programs, mapped to register + in Vim),
+" the other is the "selection" clipboard (mapped to register * in Vim).
+" Note: ^= prepends, += appends (to string option)
+set clipboard^=unnamedplus,unnamed
 "set clipboard+=unnamed
+"set clipboard+=ideaput
 
 " https://youtrack.jetbrains.com/issue/VIM-959
 set ideamarks
