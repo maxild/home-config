@@ -177,6 +177,9 @@ nmap <S-Space> :action ReSharperGotoNextErrorInSolution<CR>
 " Bookmarks
 "nmap <leader>b :action ShowBookmarks<cr>
 
+" Breadcrumbs (TODO: Maybe move to idea standard keybindings..doesn't work)
+"nmap <leader>b :action EditorToggleShowBreadcrumbs
+
 " To navigate between split panes
 nmap <leader>k :action NextSplitter<cr>
 nmap <leader>j :action PrevSplitter<cr>
