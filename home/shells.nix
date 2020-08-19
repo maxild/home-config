@@ -153,6 +153,11 @@ let
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
     fi
 
+    # ensure home-manager binaries are found before anything else (including /usr/local/bin:/usr/bin:/bin)
+    if [ -e "$HOME/.nix-profile/bin" ]; then
+      export PATH="$HOME/.nix-profile/bin:$PATH"
+    fi
+
     nix-closure-size() { nix-store -q --size $(nix-store -qR $1 ) | awk '{ a+=$1 } END { print (a / 1024 / 1024 / 1024) "Gi" }'; }
 
     # Nix-index provides a "command-not-found" script that can print for you the attribute path
