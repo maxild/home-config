@@ -77,7 +77,7 @@
     <keyboard-shortcut first-keystroke="F9"/>
   </action>
   <action id="ToggleTemporaryLineBreakpoint">
-    <keyboard-shortcut first-keystroke="control shift alt F8"/>
+    <keyboard-shortcut first-keystroke="shift control alt F8"/>
   </action>
   <action id="ToggleBreakpointEnabled">
     <keyboard-shortcut first-keystroke="control F9"/>

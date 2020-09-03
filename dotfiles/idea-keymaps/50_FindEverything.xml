@@ -80,7 +80,7 @@
     NOTE: Have to press (capital, shift) I afterwards to start editing
   -->
 
-  <!-- NOTE: VIM uses Alt+N etc and maybe we can move the followin 3 actions to vim cancelations -->
+  <!-- NOTE: VIM uses Alt+N etc and maybe we can move the following 3 actions to vim cancelations -->
 
   <action id="SelectNextOccurrence">
     <keyboard-shortcut first-keystroke="control D"/>
@@ -89,7 +89,7 @@
     <keyboard-shortcut first-keystroke="shift control D"/>
   </action>
   <action id="SelectAllOccurrences">
-    <keyboard-shortcut first-keystroke="shift control alt D"/>
+    <keyboard-shortcut first-keystroke="control alt D"/>
   </action>
 
   <!-- Caret Cloning: Press double-Alt and use Up/Down arrows to clone cursor -->
@@ -112,5 +112,5 @@
   </action>
   <!-- Go to Symbols -->
   <action id="GotoSymbol">
-    <keyboard-shortcut first-keystroke="control shift alt N"/>
+    <keyboard-shortcut first-keystroke="shift control alt N"/>
   </action>

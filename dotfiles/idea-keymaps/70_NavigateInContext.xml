@@ -8,7 +8,7 @@
   </action>
   <!-- Go to Recent Changed files -->
   <action id="RecentChangedFiles">
-    <keyboard-shortcut first-keystroke="control shift alt BACK_SPACE"/>
+    <keyboard-shortcut first-keystroke="shift control alt BACK_SPACE"/>
   </action>
 
   <action id="JumpToLastChange">

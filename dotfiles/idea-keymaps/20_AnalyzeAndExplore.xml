@@ -1,5 +1,5 @@
   <action id="InspectThis">
-    <keyboard-shortcut first-keystroke="control shift alt A"/>
+    <keyboard-shortcut first-keystroke="shift control alt A"/>
   </action>
 
   <action id="ShowErrorDescription">
@@ -19,7 +19,7 @@
 
   <!-- run inspection by name -->
   <action id="RunInspection">
-    <keyboard-shortcut first-keystroke="control shift alt I"/>
+    <keyboard-shortcut first-keystroke="shift control alt I"/>
   </action>
 
   <!-- Rider bindings -->

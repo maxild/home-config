@@ -1,6 +1,6 @@
   <action id="GoFmtProjectAction">
-    <keyboard-shortcut first-keystroke="shift control alt P"/>
+    <keyboard-shortcut first-keystroke="shift control alt F"/>
   </action>
   <action id="GoFmtFileAction">
-    <keyboard-shortcut first-keystroke="shift control alt F"/>
+    <keyboard-shortcut first-keystroke="control alt F"/>
   </action>

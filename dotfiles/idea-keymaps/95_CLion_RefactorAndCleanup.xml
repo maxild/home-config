@@ -1,6 +1,6 @@
   <action id="Cargo.RustfmtCargoProject">
-    <keyboard-shortcut first-keystroke="shift control alt P"/>
+    <keyboard-shortcut first-keystroke="shift control alt F"/>
   </action>
   <action id="Cargo.RustfmtFile">
-    <keyboard-shortcut first-keystroke="shift control alt F"/>
+    <keyboard-shortcut first-keystroke="control alt F"/>
   </action>
