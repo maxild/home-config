@@ -14,13 +14,11 @@
 
   <action id="ToggleFullScreen">
     <keyboard-shortcut first-keystroke="shift alt ENTER"/>
-    <keyboard-shortcut first-keystroke="shift alt F"/>
+    <keyboard-shortcut first-keystroke="control shift alt F"/>
   </action>
-  <action id="ToggleDistractionFreeMode">
-    <keyboard-shortcut first-keystroke="shift alt D" />
-  </action>
+  <action id="ToggleDistractionFreeMode"/>
   <action id="TogglePresentationMode">
-    <keyboard-shortcut first-keystroke="shift alt P" />
+    <keyboard-shortcut first-keystroke="control shift alt P" />
   </action>
 
   <action id="ShowSettings">

@@ -3,12 +3,11 @@
   -->
 
   <action id="RiderUnitTestQuickListPopupAction">
-    <keyboard-shortcut first-keystroke="shift alt U"/>
+    <keyboard-shortcut first-keystroke="control alt T"/>
   </action>
+
   <!-- Focus Unit Test Explorer -->
-  <action id="RiderUnitTestFocusExplorerAction">
-    <keyboard-shortcut first-keystroke="control alt U"/>
-  </action>
+  <action id="RiderUnitTestFocusExplorerAction" />
 
   <!-- Run Unit Tests -->
   <action id="RiderUnitTestRunContextAction">

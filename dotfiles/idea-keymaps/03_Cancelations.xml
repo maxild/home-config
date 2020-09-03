@@ -35,3 +35,15 @@
   <action id="tasks.switch" />
   <!-- free shift+alt+W -->
   <action id="tasks.close" />
+
+  <!-- free shift+alt+G -->
+  <action id="EditorAddCaretPerSelectedLine" />
+
+  <!-- free shift+alt+U -->
+  <action id="ShelveChanges.UnshelveWithDialog"/>
+
+  <!-- free ctrl+alt+T -->
+  <action id="SurroundWith"/>
+
+  <!-- free shift+alt+R -->
+  <action id="RerunTests"/>

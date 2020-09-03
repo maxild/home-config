@@ -15,32 +15,29 @@
   </action>
   <!-- Go to Type Declaration (Type of Symbol) -->
   <action id="GotoTypeDeclaration">
-    <keyboard-shortcut first-keystroke="alt G"/>
+    <keyboard-shortcut first-keystroke="shift alt G"/>
   </action>
-  <!-- Go to Super Method (Base Symbols): U = Up -->
+  <!-- Go to Super Method (Base Symbols) -->
   <action id="GotoSuperMethod">
-    <keyboard-shortcut first-keystroke="control U"/>
-    <keyboard-shortcut first-keystroke="shift control U"/>
+    <keyboard-shortcut first-keystroke="shift alt B"/>
   </action>
 
   <!-- Go to Implementation(s) (Derived Symbols) -->
   <action id="GotoImplementation">
-    <keyboard-shortcut first-keystroke="shift alt G"/>
-    <keyboard-shortcut first-keystroke="shift control I"/>
+    <keyboard-shortcut first-keystroke="shift alt D"/>
   </action>
 
   <action id="GotoRelated">
-    <keyboard-shortcut first-keystroke="shift control alt R"/>
+    <keyboard-shortcut first-keystroke="shift alt R"/>
   </action>
 
-  <!-- Ctrl+Shift+T is taken by goto type declaration -->
   <action id="GotoTest">
-    <keyboard-shortcut first-keystroke="control shift alt T"/>
+    <keyboard-shortcut first-keystroke="shift alt T"/>
   </action>
 
   <!-- Show Usages (opens drop down) -->
   <action id="ShowUsages">
-    <keyboard-shortcut first-keystroke="control alt G"/>
+    <keyboard-shortcut first-keystroke="shift alt U"/>
     <keyboard-shortcut first-keystroke="control alt F7"/>
   </action>
   <!-- Find Usages (opens tool window) -->

@@ -131,28 +131,28 @@ in
   };
 
   #
-  # Rider, GoLand
+  # Rider, GoLand etc.
   #
 
   # TODO: refactor into abstraction using
-  #   product = (Rider, GoLand)
-  #   version = 2020.1
+  #   product = (Rider, GoLand, CLion, IntelliJIdea, PyCharm)
+  #   version = 2020.2
   #   keymapFile
   # attribute set keys depend on linux vs darwin
   home.file = {
   } // (if builtins.currentSystem == "x86_64-linux" then {} else
   {
-    "Library/Application Support/JetBrains/Rider2020.1/keymaps/CustomMade.xml".text = keymapsFile;
-    "Library/Application Support/JetBrains/GoLand2020.1/keymaps/CustomMade.xml".text = golandKeymapsFile;
-    "Library/Application Support/JetBrains/CLion2020.1/keymaps/CustomMade.xml".text = clionKeymapsFile;
-    "Library/Application Support/JetBrains/IntelliJIdea2020.1/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
-    "Library/Application Support/JetBrains/PyCharm2020.1/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
+    "Library/Application Support/JetBrains/Rider2020.2/keymaps/CustomMade.xml".text = keymapsFile;
+    "Library/Application Support/JetBrains/GoLand2020.2/keymaps/CustomMade.xml".text = golandKeymapsFile;
+    "Library/Application Support/JetBrains/CLion2020.2/keymaps/CustomMade.xml".text = clionKeymapsFile;
+    "Library/Application Support/JetBrains/IntelliJIdea2020.2/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
+    "Library/Application Support/JetBrains/PyCharm2020.2/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
   }) // (if builtins.currentSystem == "x86_64-linux" then {
-    ".config/JetBrains/Rider2020.1/keymaps/CustomMade.xml".text = keymapsFile;
-    ".config/JetBrains/GoLand2020.1/keymaps/CustomMade.xml".text = golandKeymapsFile;
-    ".config/JetBrains/CLion2020.1/keymaps/CustomMade.xml".text = clionKeymapsFile;
-    ".config/JetBrains/IntelliJIdea2020.1/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
-    ".config/JetBrains/PyCharm2020.1/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
+    ".config/JetBrains/Rider2020.2/keymaps/CustomMade.xml".text = keymapsFile;
+    ".config/JetBrains/GoLand2020.2/keymaps/CustomMade.xml".text = golandKeymapsFile;
+    ".config/JetBrains/CLion2020.2/keymaps/CustomMade.xml".text = clionKeymapsFile;
+    ".config/JetBrains/IntelliJIdea2020.2/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
+    ".config/JetBrains/PyCharm2020.2/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
   } else {});
 
 
