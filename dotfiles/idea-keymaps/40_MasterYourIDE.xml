@@ -70,3 +70,7 @@
     <keyboard-shortcut first-keystroke="shift control ESCAPE"/>
     <keyboard-shortcut first-keystroke="shift control F12"/>
   </action>
+
+  <action id="ManageRecentProjects">
+    <keyboard-shortcut first-keystroke="shift control alt O"/>
+  </action>

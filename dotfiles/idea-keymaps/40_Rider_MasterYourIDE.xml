@@ -1,3 +1,3 @@
+  <!-- free shift+ctrl+alt+o for open recent projects (ManageRecentProjects) -->
   <action id="RiderOpenSolution">
-    <keyboard-shortcut first-keystroke="shift control alt O"/>
   </action>
