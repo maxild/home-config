@@ -11,8 +11,8 @@ Param(
 
 $ScriptsPath = split-path -Parent $MyInvocation.MyCommand.Definition
 $RootPath = Split-Path -Parent $ScriptsPath
-$KeymapsPath = Join-Path $RootPath "dotfiles" | `
-               Join-Path -ChildPath "idea-keymaps"
+$DotfilesPath = Join-Path $RootPath "dotfiles"
+$KeymapsPath = Join-Path $DotfilesPath "idea-keymaps"
 
 # NOTE: This script will build the keymap file used by Rider and other JetBrains IDEs
 #       At first we will only support running it on windows, because we use
@@ -24,8 +24,34 @@ if ($Product -ne "Rider") {
     exit 1
 }
 
+#
+# ideavimrc
+#
+
+# Files to build .ideavimrc
+$ideavimrc_files = `
+    "vimrc.base", `
+    "vimrc.idea"
+
+$ideavimrcOutput = ($ideavimrc_files | `
+    ForEach-Object { Get-Content (Join-Path $DotfilesPath $_) -Raw}) `
+    -join  [Environment]::NewLine
+
+# windows does not support XDG
+$ideavimrcOutputPath = $env:HOME
+
+# Set-Content will fail if the directories in the path have not been created
+New-Item -Path $ideavimrcOutputPath -ItemType Directory -Force -ErrorAction SilentlyContinue | out-null
+
+# Set-Content will write new content or replace the existing content
+Set-Content -Path (Join-Path $ideavimrcOutputPath ".ideavimrc") -Value $ideavimrcOutput
+
+#
+# keymap
+#
+
 # TODO: Make files product dependent!!
-$files = `
+$keymap_files = `
     "03_Cancelations.xml", `
     "05_VimCancelations.xml", `
     "07_File.xml", `
@@ -46,25 +72,25 @@ $files = `
     "90_Rider_UnitTests.xml", `
     "95_RefactorAndCleanup.xml"
 
-$keymapsInnerOutput = ($files | `
+$keymapInnerOutput = ($keymap_files | `
     ForEach-Object { Get-Content (Join-Path $KeymapsPath $_) -Raw}) `
     -join  [Environment]::NewLine
 
-$keymapsOutput = '<keymap name="CustomMade" parent="$default" version="1" disable-mnemonics="false">', `
-                 $keymapsInnerOutput, `
+$keymapOutput = '<keymap name="CustomMade" parent="$default" version="1" disable-mnemonics="false">', `
+                 $keymapInnerOutput, `
                  '</keymap>' -join [System.Environment]::NewLine
 
 $jetBrainsProductVersionPath = Join-Path "JetBrains" "$Product$Version" | `
                                Join-Path -ChildPath "keymaps"
 
-$keymapsOutputPath = switch -Exact ($Platform) {
+$keymapOutputPath = switch -Exact ($Platform) {
     'Windows' { Join-Path $env:APPDATA $jetBrainsProductVersionPath }
     'Linux' { Join-Path $env:HOME ".config" | Join-Path -ChildPath $jetBrainsProductVersionPath  }
     'MacOS' { Join-Path $env:HOME "Library" | Join-Path -ChildPath "Application Support" | Join-Path -ChildPath $jetBrainsProductVersionPath }
 }
 
 # Set-Content will fail if the directories in the path have not been created
-New-Item -Path $keymapsOutputPath -ItemType Directory -Force -ErrorAction SilentlyContinue | out-null
+New-Item -Path $keymapOutputPath -ItemType Directory -Force -ErrorAction SilentlyContinue | out-null
 
 # Set-Content will write new content or replace the existing content
-Set-Content -Path (Join-Path $keymapsOutputPath "CustomMade.xml") -Value $keymapsOutput
+Set-Content -Path (Join-Path $keymapOutputPath "CustomMade.xml") -Value $keymapOutput
