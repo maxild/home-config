@@ -91,28 +91,28 @@ let
 
       # github_password
       if [[ -f $github_pwd_path && -f $passphrase_path ]]; then
-        export GITHUB_PASSWORD=$(openssl enc -d -aes-256-cbc -in $github_pwd_path -pass file:$passphrase_path)
+        export GITHUB_PASSWORD=$(openssl enc -d -iter 10000 -pbkdf2 -aes-256-cbc -in $github_pwd_path -pass file:$passphrase_path)
       else
         printf "The github_password environment variable could not be resolved -- you most first generate an encrypted file"
       fi
 
       # github_access_token
       if [[ -f $github_grm_token_path && -f $passphrase_path ]]; then
-        export GITHUB_ACCESS_TOKEN=$(openssl enc -d -aes-256-cbc -in $github_grm_token_path -pass file:$passphrase_path)
+        export GITHUB_ACCESS_TOKEN=$(openssl enc -d -iter 10000 -pbkdf2 -aes-256-cbc -in $github_grm_token_path -pass file:$passphrase_path)
       else
         printf "The github_access_token environment variable could not be resolved -- you most first generate an encrypted file"
       fi
 
       # AppVeyor_AccessToken
       if [[ -f $appveyor_access_token_path && -f $passphrase_path ]]; then
-        export APPVEYOR_ACCESSTOKEN=$(openssl enc -d -aes-256-cbc -in $appveyor_access_token_path -pass file:$passphrase_path)
+        export APPVEYOR_ACCESSTOKEN=$(openssl enc -d -iter 10000 -pbkdf2 -aes-256-cbc -in $appveyor_access_token_path -pass file:$passphrase_path)
       else
         printf "The AppVeyor_AccessToken environment variable could not be resolved -- you most first generate an encrypted file"
       fi
 
       # Brf_NuGet_ApiKey
       if [[ -f $brf_nuget_apikey_path && -f $passphrase_path ]]; then
-        export BRF_NUGET_APIKEY=$(openssl enc -d -aes-256-cbc -in $brf_nuget_apikey_path -pass file:$passphrase_path)
+        export BRF_NUGET_APIKEY=$(openssl enc -d -iter 10000 -pbkdf2 -aes-256-cbc -in $brf_nuget_apikey_path -pass file:$passphrase_path)
       else
         printf "The Brf_NuGet_ApiKey environment variable could not be resolved -- you most first generate an encrypted file"
       fi
