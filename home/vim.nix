@@ -143,12 +143,14 @@ in
   } // (if builtins.currentSystem == "x86_64-linux" then {} else
   {
     "Library/Application Support/JetBrains/Rider2020.2/keymaps/CustomMade.xml".text = keymapsFile;
+    "Library/Application Support/JetBrains/Rider2020.3/keymaps/CustomMade.xml".text = keymapsFile;
     "Library/Application Support/JetBrains/GoLand2020.2/keymaps/CustomMade.xml".text = golandKeymapsFile;
     "Library/Application Support/JetBrains/CLion2020.2/keymaps/CustomMade.xml".text = clionKeymapsFile;
     "Library/Application Support/JetBrains/IntelliJIdea2020.2/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
     "Library/Application Support/JetBrains/PyCharm2020.2/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
   }) // (if builtins.currentSystem == "x86_64-linux" then {
     ".config/JetBrains/Rider2020.2/keymaps/CustomMade.xml".text = keymapsFile;
+    ".config/JetBrains/Rider2020.3/keymaps/CustomMade.xml".text = keymapsFile;
     ".config/JetBrains/GoLand2020.2/keymaps/CustomMade.xml".text = golandKeymapsFile;
     ".config/JetBrains/CLion2020.2/keymaps/CustomMade.xml".text = clionKeymapsFile;
     ".config/JetBrains/IntelliJIdea2020.2/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;

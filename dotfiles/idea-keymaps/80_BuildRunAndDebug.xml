@@ -16,8 +16,13 @@
     <keyboard-shortcut first-keystroke="control F5"/>
   </action>
 
+  <action id="DebuggingActionsGroup">
+    <keyboard-shortcut first-keystroke="control D" second-keystroke="control A"/>
+    <keyboard-shortcut first-keystroke="control D" second-keystroke="A"/>
+  </action>
+
   <action id="Debug">
-    <keyboard-shortcut first-keystroke="F5"/>
+    <!-- <keyboard-shortcut first-keystroke="F5"/> -->
   </action>
 
   <action id="RunClass">

@@ -47,3 +47,6 @@
 
   <!-- free shift+alt+R -->
   <action id="RerunTests"/>
+
+  <!-- free F10 ('step over in debug') -->
+  <action id="SwitchHeaderSource"/>
