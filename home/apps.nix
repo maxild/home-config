@@ -39,7 +39,7 @@ let
     # Installed desktop applications have dsktop files here: ~/.nix-profile/share/applications
     bcompare
     spotify
-    google-chrome
+    #google-chrome
     #jetbrains.rider
   ];
 in
