@@ -60,7 +60,10 @@ let
     # };
 
     # This is NOT ideal either (but better). The problem is that HM changes will
-    # be a 2-step process: First bump nixpkgs, then change HM-config.
+    # be a 2-step process:
+    #   1) First bump nixpkgs,
+    #          niv update nixpkgs   (NOTE: remember to restart your shell to aupdate the hm alias!!!)
+    #   2) Second change HM-config.
     # Create alias that add a nixpkgs-path to to NIX_PATH
     # to force home-manager to use pinned version of nixpkgs
     home-manager = "home-manager -I nixpkgs=${sources.nixpkgs}";
@@ -181,7 +184,10 @@ in
     historyControl = [ "erasedups" ];
     historyFile = "\$HOME/.config/bash/.bash_history";
     historyIgnore = [ "l" "ls" "cd" "exit" ];
-    enableAutojump = true;
+    # warning: The option `programs.bash.enableAutojump' defined in
+    # `/home/maxfire/projects/config/home-config/home/shells.nix' has been
+    # renamed to `programs.autojump.enable'. It is true be deefault!!!!
+    # enableAutojump = true;
     sessionVariables = {
       # NOTE: non-BASH-specific environment variables should be placed
       # in environment.nix
@@ -252,4 +258,7 @@ in
     };
     shellAliases = commonShellAliases;
   };
+
+  # Add the necessary integrations to bash and zsh (cd hook, j functions etc)
+  programs.autojump.enable = true;
 }

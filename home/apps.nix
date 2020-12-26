@@ -5,6 +5,7 @@ let
   guiHost = !config.settings.host.isHeadless && !config.settings.host.isWsl;
 
   cliApps = with pkgs; [
+    git
     # Utilities
     coreutils
     findutils
@@ -31,7 +32,11 @@ let
     # See https://dystroy.org/broot/ and https://github.com/Canop/broot
     broot
     tree
-    # TODO: ld, ranger, nnn, fasd, autojump
+    # A `cd' command that learns
+    autojump
+    # Remote repository management made easy
+    ghq
+    # TODO: ld, ranger, nnn, fasd
   ];
   guiApps = with pkgs; [
     # TODO: cp bcompare.desktop /usr/share/applications (GNOME)

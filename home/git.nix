@@ -64,7 +64,7 @@
         # bcompare is not installed on darwin using nix
         cmd = if config.settings.host.isHeadless
               then ''"/usr/local/bin/bcomp"  "$LOCAL" "$REMOTE"''
-              else ''\"${pkgs.bcompare}/bin/bcompare\" "$LOCAL" "$REMOTE"'';
+              else ''"${pkgs.bcompare}/bin/bcompare" "$LOCAL" "$REMOTE"'';
       } // (if config.settings.host.isWsl then {
         # WSL 2 Ubuntu
         # We are changing the /mnt/c into C: via 'echo' and 'sed' commands (/mnt/c --> C:)
@@ -72,7 +72,7 @@
         # to P9-server UNC path
 
         path = ''"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe"'';
-        cmd = ''\"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe\" -expandall \"`echo $LOCAL | sed 's_/mnt/c_C:_'`\" \"`echo $REMOTE | sed 's_/mnt/c_C:_'`\"'';
+        cmd = ''"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe" -expandall \"`echo $LOCAL | sed 's_/mnt/c_C:_'`\" \"`echo $REMOTE | sed 's_/mnt/c_C:_'`\"'';
       } else {});
 
       merge = {
@@ -88,14 +88,14 @@
         # bcompare is not installed on darwin using nix
         cmd = if config.settings.host.isHeadless
               then ''"/usr/local/bin/bcomp"  "$LOCAL" "$REMOTE" "$BASE" "$MERGED"''
-              else ''\"${pkgs.bcompare}/bin/bcompare\" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
+              else ''"${pkgs.bcompare}/bin/bcompare" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
       } // (if config.settings.host.isWsl then {
         # WSL 2 Ubuntu
         # We are changing the /mnt/c into C: via 'echo' and 'sed' commands (/mnt/c --> C:)
         # CMD does not support UNC paths as current directories, and therefore we cannot map
         # to P9-server UNC path
         path = ''"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe"'';
-        cmd = ''\"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe\" -expandall \"`echo $LOCAL | sed 's_/mnt/c_C:_'`\" \"`echo $REMOTE | sed 's_/mnt/c_C:_'`\" \"`echo $BASE | sed 's_/mnt/c_C:_'`\" \"`echo $MERGED | sed 's_/mnt/c_C:_'`\"'';
+        cmd = ''"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe" -expandall \"`echo $LOCAL | sed 's_/mnt/c_C:_'`\" \"`echo $REMOTE | sed 's_/mnt/c_C:_'`\" \"`echo $BASE | sed 's_/mnt/c_C:_'`\" \"`echo $MERGED | sed 's_/mnt/c_C:_'`\"'';
       } else {});
 
       color = {
@@ -150,6 +150,12 @@
                  # gnome keyring not working, use this less safe method where pwd is saved in clear text
                  else if pkgs.stdenv.isLinux  then "store --file ~/.my-credentials"
                  else "cache --timeout=3600";
+      };
+      # ghq: 'ghq' provides a way to organize remote repository clones, like go get does.
+      # See also https://github.com/x-motemen/ghq
+      ghq = {
+        vcs = "git";
+        root = "~/repos";
       };
     };
     aliases = {
