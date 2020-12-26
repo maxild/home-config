@@ -6,6 +6,7 @@ let
 
   cliApps = with pkgs; [
     git
+    gitAndTools.gh
     # Utilities
     coreutils
     findutils
