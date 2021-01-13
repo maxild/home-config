@@ -6,7 +6,7 @@ Param(
     [string]$Platform = "Windows",
     [ValidateSet("Rider", "GoLand", "CLion", "IntelliJIdea", "PyCharm")]
     [string]$Product = "Rider",
-    [string]$Version = "2020.2"
+    [string]$Version = "2020.3"
 )
 
 $ScriptsPath = split-path -Parent $MyInvocation.MyCommand.Definition
