@@ -12,6 +12,7 @@ let
     findutils
     wget
     curl
+    unzip
     htop
     jq
     direnv
