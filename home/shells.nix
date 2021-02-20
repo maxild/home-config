@@ -15,7 +15,7 @@ let
   #         its standard shell initialization file ~/.bashrc.
   #       * Note that if there is no ~/.bash_profile file, bash will try to read from ~/.profile instead, if it exists.
   #    .bashrc
-  #       * Setup all things (aliases, functions etc) that are not inhereoited by default.
+  #       * Setup all things (aliases, functions etc) that are not inherited by default.
   #
   #    .zsenv????
   #       *
@@ -68,7 +68,11 @@ let
     # to force home-manager to use pinned version of nixpkgs
     home-manager = "home-manager -I nixpkgs=${sources.nixpkgs}";
     hm = "home-manager -I nixpkgs=${sources.nixpkgs}";
-  };
+  } // (if builtins.currentSystem == "x86_64-linux" then {
+    # Only add an oni2 alias on Linux (on MacOS use "Add to System PATH" via Ctrl+P in the editor)
+    # See also https://onivim.github.io/docs/using-onivim/command-line
+    oni2="~/bin/OniVim2/Onivim2-x86_64-master.AppImage";
+  } else {});
   commonShellScript = ''
     load-secrets() {
 
