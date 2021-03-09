@@ -45,6 +45,7 @@ let
     uuuu = "cd ../../../..";
     uuuuu = "cd ../../../../..";
     # other cd-aliases
+    r = "cd ~/repos";
     p = "cd ~/projects";
     dl = "cd ~/Downloads";
     dotf = "cd ~/projects/config/home-config";
