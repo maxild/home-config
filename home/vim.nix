@@ -153,6 +153,11 @@ in
   # Rider, GoLand etc.
   #
 
+  # TODO: Your keymap should be saved in ~/.config/JetBrains/WebStorm2020.3/jba_config/linux.keymaps,
+  #       if you have enabled IDE settings sync for keymaps, and you can manually transfer it to the same folder.
+  # NOTE: If your settings are synchronized through the IDE Settings Sync plugin,
+  #       these subfolders are located under jba_config in the configuration directory.
+
   # TODO: refactor into abstraction using
   #   product = (Rider, GoLand, CLion, IntelliJIdea, PyCharm, Webstorm)
   #   version = 2020.2
@@ -174,6 +179,8 @@ in
     ".config/JetBrains/IntelliJIdea2020.3/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
     ".config/JetBrains/PyCharm2020.3/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
     ".config/JetBrains/WebStorm2020.3/keymaps/CustomMade.xml".text = webstormKeymapsFile;
+    # NOTE: choose settings to sync -> disable keymaps
+    # ".config/JetBrains/WebStorm2020.3/jba_config/linux.keymaps/CustomMade.xml".text = webstormKeymapsFile;
   } else {});
 
 
