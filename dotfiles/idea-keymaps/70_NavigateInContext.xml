@@ -152,6 +152,11 @@
   </action>
 
   <!-- Locate current document in Solution Explorer -->
-  <action id="LocateInSolutionView">
+  <!-- <action id="LocateInSolutionView">
+    <keyboard-shortcut first-keystroke="shift alt L"/>
+  </action> -->
+
+  <!-- Locate current document in Solution Explorer -->
+  <action id="SelectInProjectView">
     <keyboard-shortcut first-keystroke="shift alt L"/>
   </action>
