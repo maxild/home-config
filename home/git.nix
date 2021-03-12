@@ -3,6 +3,10 @@
 {
   programs.git = {
     enable = true;
+    # add options when doing 'git lfs install' as well as installing nixpkgs.git-lfs
+    lfs = {
+      enable = true;
+    };
     userName = "${config.settings.git.username}";
     userEmail = "${config.settings.git.email}";
     # signing = {
