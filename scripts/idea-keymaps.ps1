@@ -4,7 +4,7 @@
 Param(
     [ValidateSet("Windows", "Linux", "MacOS")]
     [string]$Platform = "Windows",
-    [ValidateSet("Rider", "GoLand", "CLion", "IntelliJIdea", "PyCharm")]
+    [ValidateSet("Rider", "GoLand", "CLion", "IntelliJIdea", "PyCharm", "WebStorm")]
     [string]$Product = "Rider",
     [string]$Version = "2020.3"
 )
