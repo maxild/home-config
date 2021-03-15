@@ -16,13 +16,44 @@
     <keyboard-shortcut first-keystroke="control F5"/>
   </action>
 
+  <!-- This dialog will show the below important actions!!!  -->
   <action id="DebuggingActionsGroup">
     <keyboard-shortcut first-keystroke="control D" second-keystroke="control A"/>
     <keyboard-shortcut first-keystroke="control D" second-keystroke="A"/>
   </action>
 
+  <!-- 'Run...' in UI -->
+  <action id="ChooseRunConfiguration">
+    <keyboard-shortcut first-keystroke="control alt R"/>
+  </action>
+  <!-- 'Debug...' in UI-->
+  <action id="ChooseDebugConfiguration">
+    <keyboard-shortcut first-keystroke="control alt D"/>
+  </action>
+
+  <!--
+    From here we can run/debug all known run/debug configurations
+    (for example provided by launchSettings.json)
+  -->
+  <action id="RunMenu">
+    <keyboard-shortcut first-keystroke="control D" second-keystroke="control D"/>
+    <keyboard-shortcut first-keystroke="control D" second-keystroke="D"/>
+  </action>
+
+  <!--
+    Man starter ikke debugger med F5. MEN
+
+    I stedet benytter man
+
+    F10: Start Debugging and Step Over (StepOver)
+    F11: Start Debugging and Step Into (StepInto)
+    Ctrl+F10: Start Debugging and Run to Cursor (RunToCursor)
+    Ctrl+Alt+F10: Start Debugging and Run to Cursor Non-Stop (ForceRunToCursor)
+
+    You start debugging and then suspend the program in one go using the above actions
+  -->
   <action id="Debug">
-    <!-- <keyboard-shortcut first-keystroke="F5"/> -->
+    <keyboard-shortcut first-keystroke="alt F5"/>
   </action>
 
   <action id="RunClass">
