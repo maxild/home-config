@@ -50,3 +50,6 @@
 
   <!-- free F10 ('step over in debug') -->
   <action id="SwitchHeaderSource"/>
+
+  <!-- free ctrl+T -->
+  <action id="Vcs.UpdateProject" />
