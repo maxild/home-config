@@ -36,14 +36,14 @@
     <keyboard-shortcut first-keystroke="control F"/>
   </action>
   <action id="Replace">
-    <keyboard-shortcut first-keystroke="control R"/>
+    <keyboard-shortcut first-keystroke="control H"/>
   </action>
 
   <action id="FindInPath">
     <keyboard-shortcut first-keystroke="control shift F"/>
   </action>
   <action id="ReplaceInPath">
-    <keyboard-shortcut first-keystroke="control shift R"/>
+    <keyboard-shortcut first-keystroke="control shift H"/>
   </action>
 
   <action id="FindPrevious">

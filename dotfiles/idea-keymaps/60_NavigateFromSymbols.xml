@@ -4,7 +4,7 @@
 
     C-G: Goto declaration (or usages)
     A-G: Goto type decl
-    S-C-G: Navigate yo anything (Rider specific)
+    S-C-G: Navigate to anything (Rider specific)
     C-A-G: Goto impl
     S-A-G: Goto usages (via dropdown)
   -->

@@ -160,29 +160,31 @@ in
 
   # TODO: refactor into abstraction using
   #   product = (Rider, GoLand, CLion, IntelliJIdea, PyCharm, Webstorm)
-  #   version = 2020.2
+  #   version = 2021.2
   #   keymapFile
   # attribute set keys depend on linux vs darwin
   home.file = {
   } // (if builtins.currentSystem == "x86_64-linux" then {} else
   {
-    "Library/Application Support/JetBrains/Rider2020.3/keymaps/CustomMade.xml".text = riderKeymapsFile;
-    "Library/Application Support/JetBrains/Rider2021.1/keymaps/CustomMade.xml".text = riderKeymapsFile;
-    "Library/Application Support/JetBrains/GoLand2020.3/keymaps/CustomMade.xml".text = golandKeymapsFile;
-    "Library/Application Support/JetBrains/CLion2020.3/keymaps/CustomMade.xml".text = clionKeymapsFile;
-    "Library/Application Support/JetBrains/IntelliJIdea2020.3/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
-    "Library/Application Support/JetBrains/PyCharm2020.3/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
-    "Library/Application Support/JetBrains/WebStorm2020.3/keymaps/CustomMade.xml".text = webstormKeymapsFile;
+    # NOTE: Rider 2021.3 EAP
+    "Library/Application Support/JetBrains/Rider2021.3/keymaps/CustomMade.xml".text = riderKeymapsFile;
+    "Library/Application Support/JetBrains/Rider2021.2/keymaps/CustomMade.xml".text = riderKeymapsFile;
+    "Library/Application Support/JetBrains/GoLand2021.2/keymaps/CustomMade.xml".text = golandKeymapsFile;
+    "Library/Application Support/JetBrains/CLion2021.2/keymaps/CustomMade.xml".text = clionKeymapsFile;
+    "Library/Application Support/JetBrains/IntelliJIdea2021.2/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
+    "Library/Application Support/JetBrains/PyCharm2021.2/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
+    "Library/Application Support/JetBrains/WebStorm2021.2/keymaps/CustomMade.xml".text = webstormKeymapsFile;
   }) // (if builtins.currentSystem == "x86_64-linux" then {
-    ".config/JetBrains/Rider2020.3/keymaps/CustomMade.xml".text = riderKeymapsFile;
-    ".config/JetBrains/Rider2021.1/keymaps/CustomMade.xml".text = riderKeymapsFile;
-    ".config/JetBrains/GoLand2020.3/keymaps/CustomMade.xml".text = golandKeymapsFile;
-    ".config/JetBrains/CLion2020.3/keymaps/CustomMade.xml".text = clionKeymapsFile;
-    ".config/JetBrains/IntelliJIdea2020.3/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
-    ".config/JetBrains/PyCharm2020.3/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
-    ".config/JetBrains/WebStorm2020.3/keymaps/CustomMade.xml".text = webstormKeymapsFile;
-    # NOTE: choose settings to sync -> disable keymaps
-    # ".config/JetBrains/WebStorm2020.3/jba_config/linux.keymaps/CustomMade.xml".text = webstormKeymapsFile;
+    # NOTE: Rider 2021.3 EAP
+    ".config/JetBrains/Rider2021.3/keymaps/CustomMade.xml".text = riderKeymapsFile;
+    ".config/JetBrains/Rider2021.2/keymaps/CustomMade.xml".text = riderKeymapsFile;
+    ".config/JetBrains/GoLand2021.2/keymaps/CustomMade.xml".text = golandKeymapsFile;
+    ".config/JetBrains/CLion2021.2/keymaps/CustomMade.xml".text = clionKeymapsFile;
+    ".config/JetBrains/IntelliJIdea2021.2/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
+    ".config/JetBrains/PyCharm2021.2/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
+    ".config/JetBrains/WebStorm2021.2/keymaps/CustomMade.xml".text = webstormKeymapsFile;
+    # NOTE: choose settings to sync -> disable keymaps (require that you turn on builtin IDE settings sync Plugin)
+    # ".config/JetBrains/WebStorm2021.2/jba_config/linux.keymaps/CustomMade.xml".text = webstormKeymapsFile;
   } else {});
 
 

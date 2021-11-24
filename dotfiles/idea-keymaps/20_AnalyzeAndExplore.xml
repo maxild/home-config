@@ -22,14 +22,14 @@
     <keyboard-shortcut first-keystroke="shift control alt I"/>
   </action>
 
-  <!-- Rider bindings -->
+  <!-- Hierarchy is originally H (C-H, C-S-H, A-C-H), but we need H for replace -->
   <action id="TypeHierarchy">
-    <keyboard-shortcut first-keystroke="control H"/>
+    <keyboard-shortcut first-keystroke="control M"/>
   </action>
   <action id="MethodHierarchy">
-    <keyboard-shortcut first-keystroke="shift control H"/>
+    <keyboard-shortcut first-keystroke="shift control M"/>
   </action>
   <action id="CallHierarchy">
-    <keyboard-shortcut first-keystroke="control alt H"/>
+    <keyboard-shortcut first-keystroke="control alt M"/>
   </action>
 

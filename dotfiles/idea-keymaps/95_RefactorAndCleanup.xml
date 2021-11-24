@@ -4,7 +4,8 @@
 
   <!-- refactor this -->
   <action id="Refactorings.QuickListPopupAction">
-    <keyboard-shortcut first-keystroke="control alt R"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="control T"/>
+    <keyboard-shortcut first-keystroke="control R" second-keystroke="T"/>
   </action>
 
   <!-- refactor pop menu (to see shottcuts etc) -->
