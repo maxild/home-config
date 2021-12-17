@@ -167,6 +167,9 @@ in
   } // (if builtins.currentSystem == "x86_64-linux" then {} else
   {
     # NOTE: Rider 2021.3 EAP
+    # To avoid having to login to jetbrains account behind corporate proxy add this to VM options
+    #   -Deap.require.license=true
+    # How to add VM options for IDEA: https://intellij-support.jetbrains.com/hc/en-us/articles/206544869-Configuring-JVM-options-and-platform-properties
     "Library/Application Support/JetBrains/Rider2021.3/keymaps/CustomMade.xml".text = riderKeymapsFile;
     "Library/Application Support/JetBrains/Rider2021.2/keymaps/CustomMade.xml".text = riderKeymapsFile;
     "Library/Application Support/JetBrains/GoLand2021.2/keymaps/CustomMade.xml".text = golandKeymapsFile;

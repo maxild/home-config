@@ -3,39 +3,45 @@
   -->
 
   <!-- Other tool windows -->
+  <action id="ActivateBuildToolWindow">
+    <keyboard-shortcut first-keystroke="alt B"/>
+  </action>
   <action id="ActivateTerminalToolWindow">
-    <keyboard-shortcut first-keystroke="control alt 1"/>
     <keyboard-shortcut first-keystroke="alt T"/>
   </action>
-  <action id="ActivateErrorsInSolutionToolWindow">
-    <keyboard-shortcut first-keystroke="control alt 2"/>
-    <keyboard-shortcut first-keystroke="alt R"/>
-  </action>
+
   <action id="ActivateDatabaseToolWindow">
-    <keyboard-shortcut first-keystroke="control alt 3"/>
     <keyboard-shortcut first-keystroke="alt D"/>
-  </action>
-  <action id="ActivateInspectionResultsToolWindow">
-    <keyboard-shortcut first-keystroke="control alt 4"/>
-    <keyboard-shortcut first-keystroke="alt I"/>
   </action>
   <action id="ActivateCommitToolWindow">
     <keyboard-shortcut first-keystroke="Alt C"/>
   </action>
   <action id="ActivateServicesToolWindow"/>
-  <action id="ActivateWebToolWindow">
+  <!-- <action id="ActivateWebToolWindow">
     <keyboard-shortcut first-keystroke="alt W"/>
-  </action>
+  </action> -->
   <action id="ActivateStructureToolWindow">
     <keyboard-shortcut first-keystroke="alt S"/>
   </action>
   <action id="ActivateHierarchyToolWindow"/>
+  <action id="ActivateVersionControlToolWindow">
+    <keyboard-shortcut first-keystroke="alt V"/>
+  </action>
 
-  <!-- Tool windows: Alt-{1,2,3,4,5,6,7,8,9,0} -->
+  <!-- Tool windows: Alt-{0,1,2,3,4,5,6,7,8,9}
+  Other tool windows:
+    ActivatedotTraceProfilerToolWindow
+    ActivateILViewerToolWindow
+    ActivateEndpointsToolWindow
+    ActivateDynamicProgramAnalysisToolWindow
+  -->
+  <action id="ActivateUnitTestsCoverageToolWindow">
+    <keyboard-shortcut first-keystroke="alt 0"/>
+  </action>
   <action id="ActivateProjectToolWindow">
     <keyboard-shortcut first-keystroke="alt 1"/>
   </action>
-  <action id="ActivateFavoritesToolWindow">
+  <action id="ActivateProblemsViewToolWindow">
     <keyboard-shortcut first-keystroke="alt 2"/>
   </action>
   <action id="ActivateFindToolWindow">
@@ -53,15 +59,14 @@
   <action id="ActivateNuGetToolWindow">
     <keyboard-shortcut first-keystroke="alt 7"/>
   </action>
-  <action id="ActivateUnitTestsToolWindow">
+  <!-- favorites = bookmarks -->
+  <action id="ActivateBookmarksToolWindow">
     <keyboard-shortcut first-keystroke="alt 8"/>
   </action>
-  <action id="ActivateVersionControlToolWindow">
+  <action id="ActivateUnitTestsToolWindow">
     <keyboard-shortcut first-keystroke="alt 9"/>
   </action>
-  <action id="ActivateBuildToolWindow">
-    <keyboard-shortcut first-keystroke="alt 0"/>
-  </action>
+
 
   <!-- Shift+Ctrl+{Up,Right,Down,Left} will resize a tool window in $default -->
   <!-- Tool window resizing -->
