@@ -49,6 +49,11 @@
     <keyboard-shortcut first-keystroke="control alt MINUS"/>
   </action>
 
+  <!-- Maybe delete this -->
+  <action id="CollapseSelection">
+    <keyboard-shortcut first-keystroke="control alt PERIOD"/>
+  </action>
+
   <!-- generate code and new files -->
   <action id="NewElement">
     <keyboard-shortcut first-keystroke="control ENTER"/>

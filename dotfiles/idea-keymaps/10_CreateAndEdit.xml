@@ -1,5 +1,11 @@
   <action id="ShowIntentionActions">
     <keyboard-shortcut first-keystroke="alt ENTER"/>
+    <!-- visual studio, vscode compatible -->
+    <keyboard-shortcut first-keystroke="control PERIOD"/>
+  </action>
+
+  <action id="EditorChooseLookupItemDot">
+    <keyboard-shortcut first-keystroke="control PERIOD"/>
   </action>
 
   <action id="QuickActionPopup">
