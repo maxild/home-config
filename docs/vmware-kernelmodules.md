@@ -94,7 +94,7 @@ Then replace the original ones provided by VMware
 ```bash
 # backup by renaming the original tarballs
 $ sudo mv /usr/lib/vmware/modules/source/vmmon.tar /usr/lib/vmware/modules/source/vmmon.tar.backup
-$ sudo mv /usr/lib/vmware/modules/source/vmnet.tar /usr/lib/vmware/modules/source/vmnet.tar.backup
+$ sudo mv /usr/lib/vmware/modules/source/vmmon.tar /usr/lib/vmware/modules/source/vmmon.tar.backup
 ```
 
 Check the existence of the backup tarballs
@@ -128,3 +128,9 @@ product is upgraded or reinstalled, tarballs are replaced so that if the
 new VMware version doesn't build/work with a recent kernel, you still need
 to repeat the process. The same also holds if there is a new kernel which
 requires updated version of the patches.
+
+## Issues
+
+https://github.com/mkubecek/vmware-host-modules/issues/109
+
+made branch and uncommented code!!!!!!
