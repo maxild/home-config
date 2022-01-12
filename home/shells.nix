@@ -156,6 +156,11 @@ let
       export PATH="$PATH:$HOME/.cargo/bin"
     fi
 
+    # we need jill's bin dir (julia version manager) in our PATH (installed via pip/python)
+    if [ -e "$HOME/.local/bin" ]; then
+      export PATH="$PATH:$HOME/.local/bin"
+    fi
+
     if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
       source "$HOME/.nix-profile/etc/profile.d/nix.sh"
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH

@@ -80,7 +80,7 @@
     # }
 
     # We start with this
-    python38
+    # python38
 
     # Only install gcc/clang into shell.nixi
     # Compiling any C library installed with nix does not work unless you use a
