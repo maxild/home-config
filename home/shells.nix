@@ -151,6 +151,11 @@ let
       export PATH="$PATH:$HOME/bin"
     fi
 
+    # we need anaconda's bin dir in our PATH
+    if [ -e "$HOME/anaconda3/bin" ]; then
+      export PATH="$PATH:$HOME/anaconda3/bin"
+    fi
+
     # we need Cargo's bin directory ($HOME/.cargo/bin) in our PATH
     if [ -e "$HOME/.cargo/bin" ]; then
       export PATH="$PATH:$HOME/.cargo/bin"
@@ -159,6 +164,13 @@ let
     # we need jill's bin dir (julia version manager) in our PATH (installed via pip/python)
     if [ -e "$HOME/.local/bin" ]; then
       export PATH="$PATH:$HOME/.local/bin"
+    fi
+
+    # we need to load nvm (nodejs version manager)
+    nvm_dir_var="$([ -z "''${XDG_CONFIG_HOME-}" ] && printf %s "''${HOME}/.nvm" || printf %s "''${XDG_CONFIG_HOME}/nvm")"
+    if [ -e "$nvm_dir_var" ]; then
+      export NVM_DIR="$nvm_dir_var"
+      [ -s "$nvm_dir_var/nvm.sh" ] && \. "$nvm_dir_var/nvm.sh" # This loads/sources nvm
     fi
 
     if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
