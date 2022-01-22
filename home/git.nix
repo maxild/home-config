@@ -27,6 +27,9 @@
     ];
     # TODO: stdenv.isLinux || stdenv.isDarwin
     extraConfig = {
+      github = {
+        user = "${config.settings.git.github_username}";
+      };
       apply = {
         # Detect whitespace errors when applying a patch
         whitespace = "fix";

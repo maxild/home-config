@@ -33,7 +33,7 @@
       };
     };
 
-    
+
     git = {
       username = mkOption {
         type = types.str;
@@ -46,6 +46,12 @@
         default = "mmaxild@gmail.com";
         example = "john@doe.com";
         description = "Git email";
+      };
+      github_username = mkOption {
+        type = types.str;
+        default = "maxild";
+        example = "john";
+        description = "Github username";
       };
     };
 
