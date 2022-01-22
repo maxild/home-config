@@ -18,7 +18,7 @@ let
     ./home/xdg.nix
     ./home/nix.nix
     ./home/dev.nix
-    #./home/environment.nix
+    ./home/environment.nix
     ./modules/home-manager.nix
     ./home/vim.nix
   ];

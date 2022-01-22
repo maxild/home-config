@@ -173,6 +173,14 @@ let
       [ -s "$nvm_dir_var/nvm.sh" ] && \. "$nvm_dir_var/nvm.sh" # This loads/sources nvm
     fi
 
+    # TODO: Can be deleted (HM souces the script in ~/.profile)
+    # If you don't want to let Home Manager manage your shell then you will have
+    # to manually source the `~/.nix-profile/etc/profile.d/hm-session-vars.sh`
+    # NOTE: This picks up enviroment variables defined in enviroment.nix
+    #if [ -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+    #  source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+    #fi
+
     if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
       source "$HOME/.nix-profile/etc/profile.d/nix.sh"
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
@@ -188,6 +196,11 @@ let
     # Nix-index provides a "command-not-found" script that can print for you the attribute path
     # of unfound commands in your shell.
     source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+
+    # I cannot find where these er overridden in my user enviromment!!!!!!
+    export VISUAL="code --wait --new-window";
+    export EDITOR="code --wait --new-window";
+    export GIT_EDITOR="code --wait --new-window";
   '';
 in
 {
