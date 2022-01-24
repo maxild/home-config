@@ -22,7 +22,10 @@ let
   #    .zshrc
   #       *
   commonShellAliases = {
+    # racket is a third Lisp/Scheme REPL
     mitscheme = ''${pkgs.rlwrap}/bin/rlwrap ${pkgs.mitscheme}/bin/scheme'';
+    juliascheme = ''${pkgs.rlwrap}/bin/rlwrap julia --lisp'';
+    # end of REPLs
     l = "exa";
     ls = "ls --color=auto -F";
     ll = "exa -all --long --header";
