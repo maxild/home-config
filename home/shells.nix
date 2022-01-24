@@ -22,6 +22,7 @@ let
   #    .zshrc
   #       *
   commonShellAliases = {
+    mitscheme = ''${pkgs.rlwrap}/bin/rlwrap ${pkgs.mitscheme}/bin/scheme'';
     l = "exa";
     ls = "ls --color=auto -F";
     ll = "exa -all --long --header";
@@ -149,6 +150,15 @@ let
 
     if [ -e "$HOME/bin" ]; then
       export PATH="$PATH:$HOME/bin"
+    fi
+
+    # Racket
+    # If you want to install new system links within the "bin", "man"
+    # and "share/applications" subdirectories of a common directory prefix
+    # (for example, "/usr/local") then enter the prefix of an existing
+    # directory that you want to use.
+    if [ -e "/usr/racket" ]; then
+      export PATH="/usr/racket/bin:$PATH"
     fi
 
     # we need anaconda's bin dir in our PATH

@@ -13,6 +13,7 @@ let
     findutils
     wget
     curl
+    rlwrap
     unzip
     htop
     jq
