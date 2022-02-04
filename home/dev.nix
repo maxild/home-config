@@ -3,7 +3,12 @@
 {
   home.packages = with pkgs; [
 
+    # Scheme interpreter ised in SICP
     mitscheme
+
+    # CHICKEN is a compiler for the Scheme programming language
+    chicken
+    #chickenPackages_4.chicken
 
     # See also https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/python.section.md
 
@@ -155,7 +160,7 @@
     #   sdk_3_1
     # ])
 
-    mono
+    # mono
 
     # Powershell Core
     powershell

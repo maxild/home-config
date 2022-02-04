@@ -179,6 +179,12 @@ let
       export PATH="$PATH:$HOME/.local/bin"
     fi
 
+    # Standard ML (smlnj)
+    if [ -e "/usr/local/sml/bin" ]; then
+      export SMLROOT=/usr/local/sml
+      export PATH="$PATH:$SMLROOT/bin"
+    fi
+
     # we need to load nvm (nodejs version manager)
     nvm_dir_var="$([ -z "''${XDG_CONFIG_HOME-}" ] && printf %s "''${HOME}/.nvm" || printf %s "''${XDG_CONFIG_HOME}/nvm")"
     if [ -e "$nvm_dir_var" ]; then
