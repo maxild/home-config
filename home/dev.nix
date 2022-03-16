@@ -7,8 +7,15 @@
     mitscheme
 
     # CHICKEN is a compiler for the Scheme programming language
-    chicken
+    #
+    #    collision between `/nix/store/xl8id3knf99say6pslbf11zvqc0dzz8i-mono-5.20.1.27/bin/csc'
+    #    and `/nix/store/s8irdflwpc5pxm5261rk4dhqh2bhlsbh-chicken-5.2.0/bin/csc'
+    #
+    # chicken
     #chickenPackages_4.chicken
+
+    # Standard ML
+    smlnj
 
     # See also https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/python.section.md
 
@@ -160,7 +167,9 @@
     #   sdk_3_1
     # ])
 
-    # mono
+    # required by Microsoft.NET.Test.Sdk
+    #   Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Helpers.DotnetHostHelper.GetMonoPath()
+    mono
 
     # Powershell Core
     powershell
