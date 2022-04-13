@@ -250,7 +250,25 @@ in
       "autocd" "cdspell" "dirspell" "globstar" # bash >= 4
       "cmdhist" "nocaseglob" "histappend" "extglob"];
     shellAliases = commonShellAliases;
-    initExtra = commonShellScript;
+    initExtra = ''
+      # bash parameter completion for the dotnet CLI
+      _dotnet_bash_complete()
+      {
+        local word=''${COMP_WORDS[COMP_CWORD]}
+
+        local completions
+        completions="$(dotnet complete --position "''${COMP_POINT}" "''${COMP_LINE}" 2>/dev/null)"
+        if [ $? -ne 0 ]; then
+          completions=""
+        fi
+
+        COMPREPLY=( $(compgen -W "$completions" -- "$word") )
+      }
+
+      complete -f -F _dotnet_bash_complete dotnet
+
+      ${commonShellScript}
+    '';
   };
 
   programs.zsh = {
@@ -283,6 +301,18 @@ in
           fi
       }
       bindkey -s '^o' 'lfcd\n'
+
+      # zsh parameter completion for the dotnet CLI
+      # See also https://docs.microsoft.com/en-us/dotnet/core/tools/enable-tab-autocomplete
+      _dotnet_zsh_complete()
+      {
+        local completions=("$(dotnet complete "$words")")
+
+        reply=( "''${(ps:\n:)completions}" )
+      }
+
+      compctl -K _dotnet_zsh_complete dotnet
+
       ${commonShellScript}
     '';
     plugins = [
