@@ -311,7 +311,19 @@ in
         reply=( "''${(ps:\n:)completions}" )
       }
 
-      compctl -K _dotnet_zsh_complete dotnet
+      # compctl -K _dotnet_zsh_complete dotnet
+      #   See https://github.com/dotnet/sdk/issues/9782#issuecomment-889831722
+      # The form with ‘+’ specifies alternative options. Completion is tried with
+      # the options before the first ‘+’. If this produces no matches completion
+      # is tried with the flags after the ‘+’ and so on. If there are no flags
+      # after the last ‘+’ and a match has not been found up to that point,
+      # default completion is tried. If the list of flags contains a -t with
+      # a + character, the next list of flags is used even if the current list
+      # produced matches.
+      #
+      # -f      Filenames and file system paths.
+      #
+      compctl -K _dotnet_zsh_complete + -f dotnet
 
       ${commonShellScript}
     '';
