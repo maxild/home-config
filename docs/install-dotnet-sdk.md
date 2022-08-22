@@ -14,6 +14,11 @@ NOTE: Only path to `packages-microsoft-prod.deb` has a changed version.
 
 See also https://github.com/dotnet/core/issues/7038
 
+See also more importantly https://github.com/dotnet/core/issues/7699 about
+two fifferent apt feeds for installing .NET 6 SDK on LInux. I prefer PMC feed
+because this is the [only way](https://github.com/dotnet/core/issues/7699#issuecomment-1222180915)
+to install feature branch (n in `6.0.nxx` releases used by vs2022 on Windows).
+
 Add the repo:
 
 ```bash
