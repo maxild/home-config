@@ -126,6 +126,8 @@ let
   </keymap>
   '';
 
+  ideaVersion = "2023.1";
+
 in
 
 {
@@ -170,24 +172,21 @@ in
     # To avoid having to login to jetbrains account behind corporate proxy add this to VM options
     #   -Deap.require.license=true
     # How to add VM options for IDEA: https://intellij-support.jetbrains.com/hc/en-us/articles/206544869-Configuring-JVM-options-and-platform-properties
-    # "Library/Application Support/JetBrains/Rider2021.3/keymaps/CustomMade.xml".text = riderKeymapsFile;
-    "Library/Application Support/JetBrains/Rider2022.3/keymaps/CustomMade.xml".text = riderKeymapsFile;
-    "Library/Application Support/JetBrains/GoLand2022.3/keymaps/CustomMade.xml".text = golandKeymapsFile;
-    "Library/Application Support/JetBrains/CLion2022.3/keymaps/CustomMade.xml".text = clionKeymapsFile;
-    "Library/Application Support/JetBrains/IntelliJIdea2022.3/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
-    "Library/Application Support/JetBrains/PyCharm2022.3/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
-    "Library/Application Support/JetBrains/WebStorm2022.3/keymaps/CustomMade.xml".text = webstormKeymapsFile;
+    "Library/Application Support/JetBrains/Rider${ideaVersion}/keymaps/CustomMade.xml".text = riderKeymapsFile;
+    "Library/Application Support/JetBrains/GoLand${ideaVersion}/keymaps/CustomMade.xml".text = golandKeymapsFile;
+    "Library/Application Support/JetBrains/CLion${ideaVersion}/keymaps/CustomMade.xml".text = clionKeymapsFile;
+    "Library/Application Support/JetBrains/IntelliJIdea${ideaVersion}/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
+    "Library/Application Support/JetBrains/PyCharm${ideaVersion}/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
+    "Library/Application Support/JetBrains/WebStorm${ideaVersion}/keymaps/CustomMade.xml".text = webstormKeymapsFile;
   }) // (if builtins.currentSystem == "x86_64-linux" then {
-    # NOTE: Rider 2021.3 EAP
-    # ".config/JetBrains/Rider2021.3/keymaps/CustomMade.xml".text = riderKeymapsFile;
-    ".config/JetBrains/Rider2022.3/keymaps/CustomMade.xml".text = riderKeymapsFile;
-    ".config/JetBrains/GoLand2022.3/keymaps/CustomMade.xml".text = golandKeymapsFile;
-    ".config/JetBrains/CLion2022.3/keymaps/CustomMade.xml".text = clionKeymapsFile;
-    ".config/JetBrains/IntelliJIdea2022.3/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
-    ".config/JetBrains/PyCharm2022.3/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
-    ".config/JetBrains/WebStorm2022.3/keymaps/CustomMade.xml".text = webstormKeymapsFile;
+    ".config/JetBrains/Rider${ideaVersion}/keymaps/CustomMade.xml".text = riderKeymapsFile;
+    ".config/JetBrains/GoLand${ideaVersion}/keymaps/CustomMade.xml".text = golandKeymapsFile;
+    ".config/JetBrains/CLion${ideaVersion}/keymaps/CustomMade.xml".text = clionKeymapsFile;
+    ".config/JetBrains/IntelliJIdea${ideaVersion}/keymaps/CustomMade.xml".text = intelliJIdeaKeymapsFile;
+    ".config/JetBrains/PyCharm${ideaVersion}/keymaps/CustomMade.xml".text = pycharmKeymapsFile;
+    ".config/JetBrains/WebStorm${ideaVersion}/keymaps/CustomMade.xml".text = webstormKeymapsFile;
     # NOTE: choose settings to sync -> disable keymaps (require that you turn on builtin IDE settings sync Plugin)
-    # ".config/JetBrains/WebStorm2021.2/jba_config/linux.keymaps/CustomMade.xml".text = webstormKeymapsFile;
+    # ".config/JetBrains/WebStorm${ideaVersion}/jba_config/linux.keymaps/CustomMade.xml".text = webstormKeymapsFile;
   } else {});
 
 
