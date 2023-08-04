@@ -126,7 +126,7 @@ let
   </keymap>
   '';
 
-  ideaVersion = "2023.1";
+  ideaVersion = "2023.2";
 
 in
 
