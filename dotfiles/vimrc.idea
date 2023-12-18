@@ -100,6 +100,24 @@ sethandler <C-y> a:ide
 sethandler <C-\> a:ide
 
 "-------------------------------------- Keymaps
+" Syntax in vim script to execuye IDE Actions
+" <Action>({action_id})
+" :action {action_id}
+" NOTE: :action {action_id} is a command to be typed at the command line,
+"       i.e. the user types : and then action, the name of the IDE action
+"       and finally <CR> will invoke it. This can also be used in mappings,
+"       but it requires either already being in normal mode (so : will work)
+"       or requires changing mode, which can have problems with state and
+"       context and can cause issues with invoking the action successfully.
+" Example:
+"           nmap + <Action>(EditorIncreaseFontSize)
+" NOTE: Mappings to <Action> don't work with noremap.
+"       That is: It's also very important to use the recursive nmap.
+"       If you use nnoremap, then + will map to the literal key sequence
+"       <Action>(EditorIncreaseFontSize), and won't be recursively mapped
+"       to the IDE action.
+" NOTE: Please don't use :action in mappings. Use <Action> instead.
+" See https://github.com/JetBrains/ideavim/discussions/303?sort=new#discussioncomment-4508992
 
 " OSX has special characters that are mapped to option+key. BUT we try using Unicode Hex Input
 "map <C-N>  <A-N>
@@ -108,8 +126,8 @@ sethandler <C-\> a:ide
 "map g<C-N> g<A-N>
 
 " Repeat IDEA keymap to fight conflicts
-map <C-Up> :action EditorSelectWord<CR>
-map <C-Down> :action EditorUnSelectWord<CR>
+map <C-Up> <Action>(EditorSelectWord)
+map <C-Down> <Action>(EditorUnSelectWord)
 
 " =======================================
 
@@ -125,8 +143,8 @@ nnoremap [<space> O<Esc>j
 nnoremap ]<space> o<Esc>k
 
 " multiple cursors
-nnoremap [f :action PreviousOccurence<cr>
-nnoremap ]f :action NextOccurence<cr>
+nnoremap [f :action PreviousOccurence<CR>
+nnoremap ]f :action NextOccurence<CR>
 map <M-n> <Plug>NextWholeOccurrence
 "nmap <C-n> <Plug>NextWholeOccurrence
 "xmap <C-n> <Plug>NextWholeOccurrence
@@ -155,14 +173,14 @@ nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 
 " line up/down
-nnoremap [l :action MoveLineUp<cr>
-nnoremap ]l :action MoveLineDown<cr>
+nnoremap [l :action MoveLineUp<CR>
+nnoremap ]l :action MoveLineDown<CR>
 "vmap <S-J> <Action>(MoveLineDown)
 "vmap <S-K> <Action>(MoveLineUp)
 
 " statement up/down
-nnoremap [s :action MoveStatementUp<cr>
-nnoremap ]s :action MoveStatementDown<cr>
+nnoremap [s :action MoveStatementUp<CR>
+nnoremap ]s :action MoveStatementDown<CR>
 
 " Move Between Bookmarks
 nmap ]b <Action>(GotoNextBookmark)
@@ -177,24 +195,20 @@ nmap =c <Action>(VcsShowCurrentChangeMarker)
 " Errors: Move between issues (errors, warnings etc) in current file
 "nmap ]e <Action>(GotoNextError)
 "nmap [e <Action>(GotoPreviousError)
-"nmap <leader>d :action ShowErrorDescription<cr>
+"nmap <leader>d <Action>(ShowErrorDescription)
 nmap <Space> <Action>(GotoNextError)
 "map <S-Space> <Action>(GotoNextError)
 nmap <S-Space> <Action>(ReSharperGotoNextErrorInSolution) " Rider specific
-"nmap <leader>x :action GotoNextError<cr>
-"nmap <leader>X :action GotoPreviousError<cr>
-
-" To navigate between split panes
-nmap <leader>k :action NextSplitter<cr>
-nmap <leader>j :action PrevSplitter<cr>
+"nmap <leader>x <Action>(GotoNextError)
+"nmap <leader>X <Action>(GotoPreviousError)
 
 " Splits manipulation
-nmap <leader>ws :action SplitHorizontally<cr>
-nmap <leader>wv :action SplitVertically<cr>
-nmap <leader>wc :action Unsplit<cr>
-nmap <leader>wC :action UnsplitAll<cr>
-"nmap <leader>wd :action OpenEditorInOppositeTabGroup<cr>
-"nmap <Leader>w :action JumpToLastWindow<CR>
+nmap <leader>ws <Action>(SplitHorizontally)
+nmap <leader>wv <Action>(SplitVertically)
+nmap <leader>wc <Action>(Unsplit)
+nmap <leader>wC <Action>(UnsplitAll)
+"nmap <leader>wd <Action>(OpenEditorInOppositeTabGroup)
+"nmap <Leader>w :<Action>(JumpToLastWindow)
 
 " Split windows
 nmap sh :split <CR>
@@ -203,44 +217,30 @@ nmap sv :vsplit <CR>
 nmap sV <Action>(MoveTabRight)
 nmap ss <Action>(MoveEditorToOppositeTabGroup)
 
-" Move between split windows
+" Move between split windows (Ctrl-W + h/j/k/l to navigate splits as in the original Vim)
 "nmap <C-h> <C-w>h
 "nmap <C-j> <C-w>j
 "nmap <C-k> <C-w>k
 "nmap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+
+" To navigate between split panes
+nmap <leader>k <Action>(NextSplitter)
+nmap <leader>j <Action>(PrevSplitter)
 
 " Expand current split window
 nmap so <Action>(MaximizeEditorInSplit)
 
 " =====================================================
 
-" IdeaVim uses 'a' for alt instead of Vim's 'm'
-nnoremap <a-j> 15gj
-nnoremap <a-k> 15gk
-
-" Won't work in visual mode (with vmap) for some reason.
-" Use default map of <c-/> for that.
-nnoremap gcc :action CommentByLineComment<cr>
-
-" Closing tabs
-nnoremap <leader>q :action CloseContent<cr>
-nnoremap <leader>Q :action ReopenClosedTab<cr>
-
-" NOTE: 'unmap <C-a>' does not work in IdeaVim, but 'map <C-a>' does (it
-" maps to nothing, BUT we still need to configure 'VIM Emulation' to use
-" IDE action)
-"
-" incremenet number in source is not that interesting
-" map <C-a> <Nop>
-
 " jump lists
-nnoremap <C-i> :action Forward<CR>
-nnoremap <C-o> :action Back<CR>
+"nnoremap <C-i> :action Forward<CR>
+"nnoremap <C-o> :action Back<CR>
 " Otherwise we have to bypass it somehow by making Ctrl-O and Ctrl-I IDE
 " shortcuts, instead of vim commands, and mapping them to Back/Forward in keymap.
-
-" standard VIM mapping for GotoDeclaration
-nnoremap <C-]> :action GotoDeclaration<CR>
 
 " ========================================
 "    Leader key based alternatives
@@ -258,76 +258,73 @@ nnoremap <leader>z :set relativenumber!<CR>
 " whose corresponding idea shortcuts require hand-stretching combinations,
 " function keys, Home or Insert
 
-"nmap <leader>a :action Switcher<cr>
+"nmap <leader>a <Action>(Switcher)
 
-"nmap <leader>s :action GotoSymbol<cr>
+"nmap <leader>s <Action>(GotoSymbol)
 
-"nmap <leader>g :action GotoDeclaration<cr>
-"nmap <Leader>b :action GotoDeclaration<CR>
+"nmap <leader>g <Action>(GotoDeclaration)
+"nmap <Leader>b <Action>(GotoDeclaration)
 
-"nmap <leader>i :action GotoImplementation<cr>
-"nmap <Leader>u :action GotoSuperMethod<CR>
+"nmap <leader>i <Action>(GotoImplementation)
+"nmap <Leader>u <Action>(GotoSuperMethod)
 
-"nmap <leader>t :action GotoTest<cr>
+"nmap <leader>t <Action>(GotoTest)
 
 " Refactorings
-"vmap T :action Refactorings.QuickListPopupAction<cr>
-"nmap <leader>rr :action RenameElement<cr>
-"nmap <Leader>r :action RenameElement<CR>
-"nmap <leader>rI :action OptimizeImports<cr>
+"vmap T <Action>(Refactorings.QuickListPopupAction)
+"nmap <leader>rr <Action>(RenameElement)
+"nmap <Leader>r <Action>(RenameElement)
+"nmap <leader>rI <Action>(OptimizeImports)
 " Inspection
-"nmap <leader>rc :action InspectCode<cr>
+"nmap <leader>rc <Action>(InspectCode)
 
 " Pretty print code
-"nmap == :action ReformatCode<cr>
+"nmap == <Action>(ReformatCode)
 
 " Switches between .cc and .h file!
-" nmap <leader>s :action GotoRelated<cr>
+" nmap <leader>s <Action>(GotoRelated)
 
 " File members
-"nmap <leader>M :action ActivateStructureToolWindow<cr>
-"nmap <leader>t :action ExpressionTypeInfo<cr>
+"nmap <leader>M <Action>(ActivateStructureToolWindow)
+"nmap <leader>t <Action>(ExpressionTypeInfo)
 
 " Usages
-"nmap <leader>u :action FindUsages<cr>
+"nmap <leader>u <Action>(FindUsages)
 
 " Bookmarks
-"nmap <leader>b :action ShowBookmarks<cr>
-
-" Breadcrumbs (TODO: Maybe move to idea standard keybindings..doesn't work)
-"nmap <leader>b :action EditorToggleShowBreadcrumbs
+"nmap <leader>b <Action>(ShowBookmarks)
 
 " Use leader key sequences to access IDE commands
-"nmap <leader>a :action $SelectAll<CR>
-"nmap <leader>b :action GotoDeclaration<CR>
-"nmap <leader>c :action $Copy<CR>
-"nmap <leader>d :action EditorDuplicate<CR>
-"nmap <leader>e :action RecentFiles<CR>
-"nmap <leader>f :action Find<CR>
-"nmap <leader>g :action GotoLine<CR>
-"nmap <leader>h :action TypeHierarchy<CR>
-"nmap <leader>i :action ImplementMethods<CR>
-"nmap <leader>j :action
-"nmap <leader>k :action
-"nmap <leader>l :action
-"nmap <leader>m :action EditorScrollToCenter<CR>
-"nmap <leader>n :action FileChooser.NewFolder<CR>
-"nmap <leader>n :action SearchEverywhere<CR>
-"nmap <leader>o :action OverrideMethods<CR>
-"nmap <leader>p :action ParameterInfo<CR>
-"nmap <leader>q :action QuickJavaDoc<CR>
-"nmap <leader>r :action Replace<CR>
-"nmap <leader>s :action SaveAll<CR>
-"nmap <leader>t :action Vcs.UpdateProject<CR>
-"nmap <leader>u :action GotoSuperMethod<CR>
-"nmap <leader>v :action $Paste<CR>
-"nmap <leader>w :action EditorSelectWord<CR>
-"nmap <leader>x :action $Cut<CR>
-"nmap <leader>y :action EditorDeleteLine<CR>
-"nmap <leader>z :action
-"nmap <leader>[ :action EditorCodeBlockStart<CR>
-"nmap <leader>] :action EditorCodeBlockEnd<CR>
-"nmap <leader>\ :action
+"nmap <leader>a <Action>($SelectAll)
+"nmap <leader>b <Action>(GotoDeclaration)
+"nmap <leader>c <Action>($Copy)
+"nmap <leader>d <Action>(EditorDuplicate)
+"nmap <leader>e <Action>(RecentFiles)
+"nmap <leader>f <Action>(Find)
+"nmap <leader>g <Action>(GotoLine)
+"nmap <leader>h <Action>(TypeHierarchy)
+"nmap <leader>i <Action>(ImplementMethods)
+"nmap <leader>j <Action>
+"nmap <leader>k <Action>
+"nmap <leader>l <Action>
+"nmap <leader>m <Action>(EditorScrollToCenter)
+"nmap <leader>n <Action>(FileChooser.NewFolder)
+"nmap <leader>n <Action>(SearchEverywhere)
+"nmap <leader>o <Action>(OverrideMethods)
+"nmap <leader>p <Action>(ParameterInfo)
+"nmap <leader>q <Action>(QuickJavaDoc)
+"nmap <leader>r <Action>(Replace)
+"nmap <leader>s <Action>(SaveAll)
+"nmap <leader>t <Action>(Vcs.UpdateProject)
+"nmap <leader>u <Action>(GotoSuperMethod)
+"nmap <leader>v <Action>($Paste)
+"nmap <leader>w <Action>(EditorSelectWord)
+"nmap <leader>x <Action>($Cut)
+"nmap <leader>y <Action>(EditorDeleteLine)
+"nmap <leader>z <Action>
+"nmap <leader>[ <Action>(EditorCodeBlockStart)
+"nmap <leader>] <Action>(EditorCodeBlockEnd)
+"nmap <leader>\ <Action>
 
 " ================================================
 " VIM key notation:
