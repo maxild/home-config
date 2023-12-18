@@ -1,21 +1,50 @@
-" https://medium.com/@danidiaz/configuring-ideavimrc-de16a4da0715
-" https://github.com/JetBrains/ideavim
-" https://github.com/Valloric/dotfiles/blob/master/intellij/ideavimrc
-" https://gist.github.com/dewaka/ef947e52767bf453eaf77c852051eb7e
+let mapleader = ","
 
+""" Plugins  --------------------------------
+"set surround
+"set multiple-cursors
+"set commentary
+"set argtextobj
+"set easymotion
+"set textobj-entire
+"set ReplaceWithRegister
+"set exchange
+"set highlightedyank     " Highlight after copying in vim mode
+"set vim-paragraph-motion
+
+" Trying the new syntax (Plug '<plugin-github-reference>')
+" See https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md
+Plug 'easymotion/vim-easymotion'    # Requires IdeaVim-EasyMotion and AceJump. Lots of mappings
+Plug 'kana/vim-textobj-entire'      # entire buffer text object: ae
+Plug 'machakann/vim-highlightedyank'
+Plug 'terryma/vim-multiple-cursors' # See below for remapped keys. <A-n> doesn't work on Mac
+Plug 'tommcdo/vim-exchange'         # cx{motion} to select, again to exchange
+Plug 'tpope/vim-commentary'         # [count]gc{motion}, o_gc, v_gc, gcc
+Plug 'tpope/vim-surround'           # ys, cs, ds, S
+Plug 'vim-scripts/argtextobj.vim'       # argument text objects: aa, ia
+Plug 'vim-scripts/ReplaceWithRegister'  # [count]["x]gr{motion}, [count]["x]grr, {Visual}["x]gr
+Plug 'dbakker/vim-paragraph-motion'
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+let g:highlightedyank_highlight_duration = "5000"
+let g:highlightedyank_highlight_color = "rgba(57, 62, 65, 255)"
+
+""" Common settings -------------------------
+set showmode
+set scrolloff=5     " 5 lines above/below cursor when scrolling
+set incsearch
+set nrformats-=octal
+set nu
 set ignorecase
 set smartcase
-set scrolloff=3     " 3 lines above/below cursor when scrolling
 
-set showmode        " message on the status line to show current mode
 set relativenumber
 set number
 
+set hlsearch
 set visualbell
 set noerrorbells
-
-" https://github.com/JetBrains/ideavim/wiki/Select-mode
-" set selectmode-=template
 
 " Integrate with system clipboard
 " On Mac OS X and Windows, the * and + registers both point to the system clipboard
@@ -29,31 +58,49 @@ set clipboard^=unnamedplus,unnamed
 "set clipboard+=unnamed
 "set clipboard+=ideaput
 
-" https://youtrack.jetbrains.com/issue/VIM-959
-set ideamarks
+""" Idea specific settings ------------------
+set ideajoin                " Smart join for <C-J>
+set ideastatusicon=gray
+set ideamarks               " Map vim marks to IDEA global marks
 
-" Use Idea to join lines smartly
-" https://github.com/JetBrains/ideavim/wiki/%60ideajoin%60-examples
-set ideajoin
+"-------------------------------------- sethandler
+" Shortcut Conflicts for custom keymap
 
-" ==========================================================
-"     Emulated Plugins
-" https://github.com/JetBrains/ideavim/wiki/emulated-plugins
-" ==========================================================
+sethandler <S-Space> a:ide
+sethandler <C-2> a:ide
+sethandler <C-S-2> a:ide
+sethandler <C-6> a:ide
+sethandler <C-S-6> a:ide
+sethandler <C-a> a:ide
+sethandler <C-b> a:ide
+sethandler <C-c> a:ide
+sethandler <C-d> a:ide
+sethandler <C-e> a:ide
+sethandler <C-f> a:ide
+sethandler <C-g> a:ide
+sethandler <C-h> a:ide
+sethandler <C-i> a:ide
+"sethandler <C-i> a:vim
+sethandler <C-j> a:ide
+sethandler <C-k> a:ide
+sethandler <C-l> a:ide
+sethandler <C-m> a:ide
+sethandler <C-n> a:ide
+sethandler <C-o> a:ide
+sethandler <C-p> a:ide
+sethandler <C-q> a:ide
+sethandler <C-r> a:ide
+sethandler <C-s> a:ide
+sethandler <C-t> a:ide
+sethandler <C-u> a:ide
+sethandler <C-v> a:ide
+sethandler <C-w> a:ide
+sethandler <C-x> a:ide
+sethandler <C-y> a:ide
+sethandler <C-\> a:ide
 
-" dia daa cia caa
-" set argtextobj
+"-------------------------------------- Keymaps
 
-" die dae cie cae
-" set textobj-entire
-
-" https://youtrack.jetbrains.com/issue/VIM-1521
-set commentary
-
-set surround
-set easymotion
-
-set multiple-cursors
 " OSX has special characters that are mapped to option+key. BUT we try using Unicode Hex Input
 "map <C-N>  <A-N>
 "map <C-P>  <A-P>
@@ -66,8 +113,6 @@ map <C-Down> :action EditorUnSelectWord<CR>
 
 " =======================================
 
-let mapleader = ","
-
 " jk as a better Esc to get back to normal mode
 imap jk <Esc>
 vmap jk <Esc>
@@ -78,18 +123,94 @@ vmap jk <Esc>
 " These create newlines like o and O but stay in normal mode
 nnoremap [<space> O<Esc>j
 nnoremap ]<space> o<Esc>k
+
 " multiple cursors
 nnoremap [f :action PreviousOccurence<cr>
 nnoremap ]f :action NextOccurence<cr>
+map <M-n> <Plug>NextWholeOccurrence
+"nmap <C-n> <Plug>NextWholeOccurrence
+"xmap <C-n> <Plug>NextWholeOccurrence
+"nmap g<C-n> <Plug>NextOccurrence
+"xmap g<C-n> <Plug>NextOccurrence
+"xmap <C-x> <Plug>SkipOccurrence
+"xmap <C-p> <Plug>RemoveOccurrence
+
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+"nmap <C-n> <Plug>NextWholeOccurrence
+"xmap <C-n> <Plug>NextWholeOccurrence
+"nmap g<C-n> <Plug>NextOccurrence
+"xmap g<C-n> <Plug>NextOccurrence
+"xmap <C-x> <Plug>SkipOccurrence
+"xmap <C-p> <Plug>RemoveOccurrence
+
+" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
+" <A-n> is used to enter accented text e.g. ñ
+"nmap <leader><C-n> <Plug>AllWholeOccurrences
+"xmap <leader><C-n> <Plug>AllWholeOccurrences
+"nmap <leader>g<C-n> <Plug>AllOccurrences
+"xmap <leader>g<C-n> <Plug>AllOccurrences
+
+" method up/down
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
 " line up/down
 nnoremap [l :action MoveLineUp<cr>
 nnoremap ]l :action MoveLineDown<cr>
+"vmap <S-J> <Action>(MoveLineDown)
+"vmap <S-K> <Action>(MoveLineUp)
+
 " statement up/down
 nnoremap [s :action MoveStatementUp<cr>
 nnoremap ]s :action MoveStatementDown<cr>
-" find changes
-nnoremap [c :action VcsShowPrevChangeMarker<cr>
-nnoremap ]c :action VcsShowNextChangeMarker<cr>
+
+" Move Between Bookmarks
+nmap ]b <Action>(GotoNextBookmark)
+nmap [b <Action>(GotoPreviousBookmark)
+
+" Move between changes in current file
+nmap ]c <Action>(VcsShowNextChangeMarker)
+nmap [c <Action>(VcsShowPrevChangeMarker)
+" ={motion} is for indenting. =c does nothing
+nmap =c <Action>(VcsShowCurrentChangeMarker)
+
+" Errors: Move between issues (errors, warnings etc) in current file
+"nmap ]e <Action>(GotoNextError)
+"nmap [e <Action>(GotoPreviousError)
+"nmap <leader>d :action ShowErrorDescription<cr>
+nmap <Space> <Action>(GotoNextError)
+"map <S-Space> <Action>(GotoNextError)
+nmap <S-Space> <Action>(ReSharperGotoNextErrorInSolution) " Rider specific
+"nmap <leader>x :action GotoNextError<cr>
+"nmap <leader>X :action GotoPreviousError<cr>
+
+" To navigate between split panes
+nmap <leader>k :action NextSplitter<cr>
+nmap <leader>j :action PrevSplitter<cr>
+
+" Splits manipulation
+nmap <leader>ws :action SplitHorizontally<cr>
+nmap <leader>wv :action SplitVertically<cr>
+nmap <leader>wc :action Unsplit<cr>
+nmap <leader>wC :action UnsplitAll<cr>
+"nmap <leader>wd :action OpenEditorInOppositeTabGroup<cr>
+"nmap <Leader>w :action JumpToLastWindow<CR>
+
+" Split windows
+nmap sh :split <CR>
+nmap sH <Action>(MoveTabDown)
+nmap sv :vsplit <CR>
+nmap sV <Action>(MoveTabRight)
+nmap ss <Action>(MoveEditorToOppositeTabGroup)
+
+" Move between split windows
+"nmap <C-h> <C-w>h
+"nmap <C-j> <C-w>j
+"nmap <C-k> <C-w>k
+"nmap <C-l> <C-w>l
+
+" Expand current split window
+nmap so <Action>(MaximizeEditorInSplit)
 
 " =====================================================
 
@@ -124,6 +245,11 @@ nnoremap <C-]> :action GotoDeclaration<CR>
 " ========================================
 "    Leader key based alternatives
 " ========================================
+
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Rename current file
+nmap <leader>rf <Action>(RenameFile)
 
 " toggle relative line numbers
 nnoremap <leader>z :set relativenumber!<CR>
@@ -165,34 +291,11 @@ nnoremap <leader>z :set relativenumber!<CR>
 " Usages
 "nmap <leader>u :action FindUsages<cr>
 
-" Errors
-"nmap <leader>d :action ShowErrorDescription<cr>
-nmap <Space> :action GotoNextError<CR>
-" Rider specific
-"nmap <leader><Space> :action ReSharperGotoNextErrorInSolution<CR>
-nmap <S-Space> :action ReSharperGotoNextErrorInSolution<CR>
-"nmap <leader>x :action GotoNextError<cr>
-"nmap <leader>X :action GotoPreviousError<cr>
-
 " Bookmarks
 "nmap <leader>b :action ShowBookmarks<cr>
 
 " Breadcrumbs (TODO: Maybe move to idea standard keybindings..doesn't work)
 "nmap <leader>b :action EditorToggleShowBreadcrumbs
-
-" To navigate between split panes
-nmap <leader>k :action NextSplitter<cr>
-nmap <leader>j :action PrevSplitter<cr>
-
-" Splits manipulation
-nmap <leader>ws :action SplitHorizontally<cr>
-nmap <leader>wv :action SplitVertically<cr>
-nmap <leader>wc :action Unsplit<cr>
-nmap <leader>wC :action UnsplitAll<cr>
-"nmap <leader>wd :action OpenEditorInOppositeTabGroup<cr>
-"nmap <Leader>w :action JumpToLastWindow<CR>
-
-
 
 " Use leader key sequences to access IDE commands
 "nmap <leader>a :action $SelectAll<CR>
@@ -225,11 +328,6 @@ nmap <leader>wC :action UnsplitAll<cr>
 "nmap <leader>[ :action EditorCodeBlockStart<CR>
 "nmap <leader>] :action EditorCodeBlockEnd<CR>
 "nmap <leader>\ :action
-
-" =======================================
-
-" External NVim
-"nmap <leader>v :action Tool_External Tools_gvim<cr>
 
 " ================================================
 " VIM key notation:
